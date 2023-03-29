@@ -1,10 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-router.get('/signup',(req,res)=>{
-    res.status(200).send('Hola')});
-;
+import {GetHola} from '../controllers/authentication.controller.js'
+
+router.get('/',GetHola)
 
 
-
-module.exports = router;
+export default router;

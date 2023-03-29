@@ -1,7 +1,6 @@
 
-const GetHola = (req,res)=>{
-    res.send("Hola");
+export const GetHola = (req,res)=>{
+    res.send("Damijoda signup");
 }
 
 
-module.exports = GetHola;
