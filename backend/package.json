@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Construccion de Softwae",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MiguelCabreraVictoria/DAMIJODA_GAME.git"
+  },
+  "author": "damijoda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiguelCabreraVictoria/DAMIJODA_GAME/issues"
+  },
+  "homepage": "https://github.com/MiguelCabreraVictoria/DAMIJODA_GAME#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
