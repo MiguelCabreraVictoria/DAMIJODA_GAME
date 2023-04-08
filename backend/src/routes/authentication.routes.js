@@ -1,9 +1,18 @@
 import express from 'express';
 const router = express.Router();
 
-import {GetHola} from '../controllers/authentication.controller.js'
+//import {pool} from '../database_connection.js'
 
-router.get('/',GetHola)
+import {GetLogin,PostLogin,GetSingup,PostSignup} from '../controllers/authentication.controller.js';
 
+//Login routes
+router.get('/login',GetLogin);
+router.post('/login',PostLogin);
+
+
+
+//Login routes
+router.get('/signup', GetSingup);
+router.post('/signup', PostSignup);
 
 export default router;
