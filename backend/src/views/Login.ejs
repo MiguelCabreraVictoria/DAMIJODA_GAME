@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <title>Log in - LUNADAMIJODA </title>
+</head>
+<body>
+    <section>
+        <div>
+            <img src="/img/logo.png" alt="logo">
+        </div>
+       <div class="form-box">
+         <div class="form-value">
+            <form action="/login" method="post">
+                <h2>Log in</h2>
+
+                <div class="inputbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      </svg>
+                    <input type="text" name="username" id="" required >
+                    <label for="">Username</label>
+                </div>
+
+                <div class="inputbox">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lock-off" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="3" y1="3" x2="21" y2="21" />
+                        <path d="M19 19a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h4m4 0h2a2 2 0 0 1 2 2v2" />
+                        <circle cx="12" cy="16" r="1" />
+                        <path d="M8 11v-3m.712 -3.278a4 4 0 0 1 7.288 2.278v4" />
+                      </svg>
+                    <input type="password" name="password" id="">
+                    <label for="">Password</label>
+                </div>
+                <button>Log in</button>
+
+                <div class="register">
+                    <p>Have an account? <a href="/signup">Register</a></p>
+                </div>
+            </form>
+         </div>
+       </div>
+    </section>
+</body>
+</html>
