@@ -18,6 +18,6 @@ export const sessionStore = new MySQLStore({    host:DB_HOST,
     port:DB_PORT,
     user:DB_USER,
     database:DB_DATABASE,
-    password:DB_PASSWORD} ,pool)
+    password:DB_PASSWORD},pool)
 
 
