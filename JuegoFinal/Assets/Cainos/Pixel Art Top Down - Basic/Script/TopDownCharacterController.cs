@@ -6,84 +6,117 @@ namespace Cainos.PixelArtTopDown_Basic
 {
     public class TopDownCharacterController : MonoBehaviour
     {
+        // Variables públicas para configurar la velocidad del personaje, el índice de la skin y las skins disponibles.
         public float speed;
-        public int skinNr; // Numero de la skin actualmente seleccionada
-        public Skins[] skins; // Arreglo de Skins disponibles
+        public int skinNr;
+        public Skins[] skins;
 
-        SpriteRenderer spriteRenderer; // Referencia al SpriteRenderer del personaje
+        // Referencias a los componentes del objeto.
+        private SpriteRenderer spriteRenderer;
         private Animator animator;
+        private Rigidbody2D rb2D;
 
-        private string selectedSkinKey = "SelectedSkin"; // Define una clave única para la selección de la skin
+        // Clave para almacenar la skin seleccionada en PlayerPrefs.
+        private string selectedSkinKey = "SelectedSkin";
 
         private void Start()
         {
-             if (PlayerPrefs.HasKey(selectedSkinKey))
-                {
-                // Si existe la clave de la selección de la skin, carga la selección guardada
-                skinNr = PlayerPrefs.GetInt(selectedSkinKey);
-            }
+            // Cargar la skin seleccionada previamente y obtener referencias a los componentes necesarios.
+            LoadSelectedSkin();
             animator = GetComponent<Animator>();
-            spriteRenderer = GetComponent<SpriteRenderer>();  // Obtener el SpriteRenderer del personaje
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            rb2D = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
-            skinNr = skinNr % skins.Length; // Restricción para que el número de skin no exceda el número total de skins disponibles
-
-            Vector2 dir = Vector2.zero;
-
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                dir.x = -1;
-                animator.SetInteger("Direction", 3);
-            }
-            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                dir.x = 1;
-                animator.SetInteger("Direction", 2);
-            }
-
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            {
-                dir.y = 1;
-                dir.x = 0; // Direccion exclusiva
-
-                animator.SetInteger("Direction", 1);
-            }
-            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            {
-                dir.y = -1;
-                dir.x = 0; // Direccion exclusiva
-
-                animator.SetInteger("Direction", 0);
-            }
-
-            dir.Normalize();
-            animator.SetBool("IsMoving", dir.magnitude > 0);
-
-            GetComponent<Rigidbody2D>().velocity = speed * dir;
+            // Obtener la dirección de movimiento y actualizar el Animator y la posición del personaje.
+            Vector2 direction = GetMovementDirection();
+            UpdateAnimatorParameters(direction);
+            MoveCharacter(direction);
         }
 
         private void LateUpdate()
         {
-            SkinChoice(); // Cambiar la skin del personaje en el frame actual
+            // Actualizar la skin del personaje.
+            UpdateSkin();
         }
 
-        private void SkinChoice()
+        // Función para cargar la skin seleccionada desde PlayerPrefs.
+        private void LoadSelectedSkin()
         {
-            if (spriteRenderer.sprite.name.Contains("Bebo")) { // Si la skin actual es una de las skins de Bebo
-                string spriteName = spriteRenderer.sprite.name; // Obtener el nombre de la skin actual
-                spriteName = spriteName.Replace("Bebo_",""); // Eliminar la parte del nombre que indica que es una skin de Bebo
-                int spriteNr = int.Parse(spriteName); // Obtener el número de la skin actual
+            if (PlayerPrefs.HasKey(selectedSkinKey))
+            {
+                skinNr = PlayerPrefs.GetInt(selectedSkinKey);
+            }
+        }
 
-                spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];  // Cambia el sprite actual del personaje por el correspondiente a la skin seleccionada y al número de sprite actual
+        // Función para obtener la dirección de movimiento basada en las teclas presionadas.
+        private Vector2 GetMovementDirection()
+        {
+            Vector2 direction = Vector2.zero;
+            skinNr = skinNr % skins.Length;
+
+            // Horizontal movement.
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                direction.x = -1;
+                animator.SetInteger("Direction", 3);
+            }
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                direction.x = 1;
+                animator.SetInteger("Direction", 2);
+            }
+
+            // Vertical movement.
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                direction.y = 1;
+                direction.x = 0;
+                animator.SetInteger("Direction", 1);
+            }
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                direction.y = -1;
+                direction.x = 0;
+                animator.SetInteger("Direction", 0);
+            }
+
+            return direction.normalized;
+        }
+
+        // Función para actualizar los parámetros del Animator según la dirección de movimiento.
+        private void UpdateAnimatorParameters(Vector2 direction)
+        {
+            animator.SetBool("IsMoving", direction.magnitude > 0);
+        }
+
+        // Función para mover el personaje utilizando Rigidbody2D.
+        private void MoveCharacter(Vector2 direction)
+        {
+            rb2D.velocity = speed * direction;
+        }
+
+        // Función para actualizar la skin del personaje.
+        private void UpdateSkin()
+        {
+            if (spriteRenderer.sprite.name.Contains("Bebo"))
+            {
+                string spriteName = spriteRenderer.sprite.name;
+                spriteName = spriteName.Replace("Bebo_", "");
+                int spriteNr = int.Parse(spriteName);
+
+                spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];
             }
         }
     }
 
-    // Estructura que almacena los sprites de cada skin
+    // Estructura que almacena los sprites de cada skin.
     [System.Serializable]
-    public struct Skins{
-        public Sprite[] sprites; // Arreglo de sprites correspondiente a cada skin
+    public struct Skins
+    {
+        public Sprite[] sprites;
+
     }
 }
