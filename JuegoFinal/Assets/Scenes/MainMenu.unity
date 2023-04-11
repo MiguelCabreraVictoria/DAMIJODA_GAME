@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 24706514}
   - component: {fileID: 24706513}
   - component: {fileID: 24706512}
+  - component: {fileID: 24706515}
   m_Layer: 5
   m_Name: PrevButton
   m_TagString: Untagged
@@ -256,6 +257,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24706510}
   m_CullTransparentMesh: 1
+--- !u!114 &24706515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24706510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eb19e5a26844ae0a2bca67d3d0b4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 24706512}
+  audioSource: {fileID: 848863836}
 --- !u!1 &86333186
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +283,7 @@ GameObject:
   - component: {fileID: 86333190}
   - component: {fileID: 86333189}
   - component: {fileID: 86333188}
+  - component: {fileID: 86333191}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -389,6 +405,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86333186}
   m_CullTransparentMesh: 1
+--- !u!114 &86333191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86333186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eb19e5a26844ae0a2bca67d3d0b4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 86333188}
+  audioSource: {fileID: 848863836}
 --- !u!1 &149285340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,7 +3071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -3095,6 +3125,8 @@ RectTransform:
   - {fileID: 280105034}
   - {fileID: 1801306035}
   - {fileID: 804307038}
+  - {fileID: 848863835}
+  - {fileID: 644047664}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3115,6 +3147,7 @@ GameObject:
   - component: {fileID: 280105037}
   - component: {fileID: 280105036}
   - component: {fileID: 280105035}
+  - component: {fileID: 280105038}
   m_Layer: 5
   m_Name: Med
   m_TagString: Untagged
@@ -3137,10 +3170,10 @@ RectTransform:
   m_Father: {fileID: 200684254}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -129}
-  m_SizeDelta: {x: 60, y: 16}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 35}
+  m_SizeDelta: {x: 120, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280105035
 MonoBehaviour:
@@ -3185,7 +3218,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 280105036}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 644047665}
+        m_TargetAssemblyTypeName: DifficultyButtonController, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Medium
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &280105036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3224,6 +3269,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280105033}
   m_CullTransparentMesh: 1
+--- !u!114 &280105038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280105033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eb19e5a26844ae0a2bca67d3d0b4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 280105035}
+  audioSource: {fileID: 848863836}
 --- !u!1 &285662489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,6 +3295,7 @@ GameObject:
   - component: {fileID: 285662493}
   - component: {fileID: 285662492}
   - component: {fileID: 285662491}
+  - component: {fileID: 285662494}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -3258,10 +3318,10 @@ RectTransform:
   m_Father: {fileID: 200684254}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: -129}
-  m_SizeDelta: {x: 36, y: 16}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -154, y: 35}
+  m_SizeDelta: {x: 72, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285662491
 MonoBehaviour:
@@ -3306,7 +3366,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 285662492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 644047665}
+        m_TargetAssemblyTypeName: DifficultyButtonController, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Easy
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &285662492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3345,6 +3417,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285662489}
   m_CullTransparentMesh: 1
+--- !u!114 &285662494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285662489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eb19e5a26844ae0a2bca67d3d0b4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 285662491}
+  audioSource: {fileID: 848863836}
 --- !u!1001 &382664969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3498,6 +3584,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &644047663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644047664}
+  - component: {fileID: 644047665}
+  m_Layer: 0
+  m_Name: DifficultyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644047664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644047663}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.529846, y: -25.402802, z: 0.7632364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 200684254}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644047665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644047663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6792d9668727b4ab9998b4c0385594db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easyButton: {fileID: 285662491}
+  mediumButton: {fileID: 280105035}
+  hardButton: {fileID: 1801306036}
+  easyColor: {fileID: 21300000, guid: b09a721f5b1f8426da9edbe5cf28e4e3, type: 3}
+  mediumColor: {fileID: 21300000, guid: a78a91ab71fe34cd5afc86b8dfcd097c, type: 3}
+  hardColor: {fileID: 21300000, guid: daf13e458617c4632ae780e288b0d727, type: 3}
+  easyGrayscale: {fileID: 21300000, guid: 6ee9353f51b84487384c0bacf8bbea7e, type: 3}
+  mediumGrayscale: {fileID: 21300000, guid: 88db46d97826d42c48c85277372e5136, type: 3}
+  hardGrayscale: {fileID: 21300000, guid: f70ed48c2f0454179b3ce1f5e08a65fd, type: 3}
 --- !u!1 &662457162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,7 +3854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -184.8}
+  m_AnchoredPosition: {x: 0, y: -355.8}
   m_SizeDelta: {x: 76, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804307039
@@ -3800,6 +3939,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804307037}
   m_CullTransparentMesh: 1
+--- !u!1 &848863834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848863835}
+  - component: {fileID: 848863836}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848863835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848863834}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: -17, z: 1.4293175}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 200684254}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &848863836
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848863834}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 553d5ac6d8f204b849f4246e1b27ec59, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &989684933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3949,6 +4216,7 @@ GameObject:
   - component: {fileID: 1556897452}
   - component: {fileID: 1556897451}
   - component: {fileID: 1556897453}
+  - component: {fileID: 1556897454}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -4035,6 +4303,26 @@ MonoBehaviour:
   - {fileID: 195542300, guid: 2fc774f29124b4bd2b2ad64a4dbca194, type: 3}
   - {fileID: -262598529, guid: ab80c567aafcc4aab896c0f90596063a, type: 3}
   skinNumberText: {fileID: 688232286}
+--- !u!95 &1556897454
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556897449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c080f70f6dee44fd9a83f4dc1c961239, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1557454437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4261,6 +4549,7 @@ GameObject:
   - component: {fileID: 1801306038}
   - component: {fileID: 1801306037}
   - component: {fileID: 1801306036}
+  - component: {fileID: 1801306039}
   m_Layer: 5
   m_Name: Hard
   m_TagString: Untagged
@@ -4283,10 +4572,10 @@ RectTransform:
   m_Father: {fileID: 200684254}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: -129}
-  m_SizeDelta: {x: 36, y: 16}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 154, y: 35}
+  m_SizeDelta: {x: 72, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801306036
 MonoBehaviour:
@@ -4331,7 +4620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1801306037}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 644047665}
+        m_TargetAssemblyTypeName: DifficultyButtonController, Assembly-CSharp
+        m_MethodName: SetDifficulty
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hard
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1801306037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4370,6 +4671,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801306034}
   m_CullTransparentMesh: 1
+--- !u!114 &1801306039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801306034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eb19e5a26844ae0a2bca67d3d0b4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1801306036}
+  audioSource: {fileID: 848863836}
 --- !u!1 &1827886275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4697,7 @@ GameObject:
   - component: {fileID: 1827886279}
   - component: {fileID: 1827886278}
   - component: {fileID: 1827886277}
+  - component: {fileID: 1827886280}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -4503,3 +4819,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827886275}
   m_CullTransparentMesh: 1
+--- !u!114 &1827886280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827886275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9eb19e5a26844ae0a2bca67d3d0b4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1827886277}
+  audioSource: {fileID: 848863836}

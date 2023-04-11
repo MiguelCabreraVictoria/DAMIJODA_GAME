@@ -12,12 +12,15 @@ public class CharacterMenu : MonoBehaviour
     public Sprite[] sprites;
     public TextMeshProUGUI skinNumberText; // Referencia al objeto TextMeshProUGUI
 
+    private Animator animator;
+
     private string selectedSkinKey = "SelectedSkin"; // Define una clave única para la selección de la skin
 
     string[] nombres = new string[6]; // Crea un arreglo de nombres de 5 elementos
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         // Asigna valores a cada elemento del arreglo
         nombres[0] = "Bebo";
         nombres[1] = "Daniel";
@@ -30,8 +33,10 @@ public class CharacterMenu : MonoBehaviour
         {
             // Si existe la clave de la selección de la skin, carga la selección guardada
             n = PlayerPrefs.GetInt(selectedSkinKey);
+            animator.SetInteger("Character", n);
             image.sprite = sprites[n];
         }
+        
         UpdateSkinNumberText(); // Actualiza el valor del texto
     }
 
@@ -64,6 +69,7 @@ public class CharacterMenu : MonoBehaviour
     private void UpdateSkinNumberText()
     {
         // Actualiza el valor del texto en el objeto TextMeshProUGUI
+        animator.SetInteger("Character", n);
         skinNumberText.text = nombres[n];
     }
 
