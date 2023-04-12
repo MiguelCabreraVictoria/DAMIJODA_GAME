@@ -4,8 +4,6 @@ import morgan from 'morgan';
 import flash from 'connect-flash';
 import session from 'express-session';
 import passport from 'passport';
-import MySQLStore from 'express-mysql-session';
-
 
 
 import path from 'path';
@@ -15,8 +13,11 @@ import { fileURLToPath } from 'url';
 //Init
 const app = express();
 
+
 //imports
-import {sessionStore} from './configs/database_connection.js'
+import {sessionStore} from './configs/database_connection.js';
+import passportauth from './services/authService.js'
+
 
 
 //settings
@@ -44,11 +45,16 @@ app.use(morgan('dev'));
 app.use(express.json()); //post data formato json
 app.use(express.urlencoded({extended:false})); //post data desde un form
 
+app.use(passport.initialize()); //inicio de passport;
+app.use(passport.session()); // manejo de los datos con passport 
 
 //Global Variables
 
 app.use((req,res,next)=>{
-    res.locals.success_msg = req.flash('success_msg')
+    
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.message = req.flash('message');
+    app.locals.user = req.user;
     next();
 })
 

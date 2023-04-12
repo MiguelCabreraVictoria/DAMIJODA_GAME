@@ -1,20 +1,18 @@
 import { pool } from '../configs/database_connection.js';
 
+import passport from 'passport';
 
 //para entrar
 export const GetLogin = (req,res)=>{
     res.render('Login')
 }
 
-export const  PostLogin = (req,res)=>{
-    const {username, password} = req.body;
-    const info = {
-        username: username,
-        password: password
-    };
-    console.log(info);
-    req.flash('success_msg', `Welcome back ${username}`)
-    res.send('Hola');
+export const  PostLogin = (req,res,next)=>{
+    passport.authenticate('local.login',{
+        successRedirect: '/profile',
+        failureRedirect: '/login',
+        failureFlash: true
+    })(req,res,next);
 }
 
 //crear nueva cuenta
@@ -22,14 +20,18 @@ export const GetSingup = (req,res)=>{
     res.render('Signup')
 }
 
-export const PostSignup = (req,res)=>{
-    const {username, password} = req.body;
-    const info = {
-        username: username,
-        password: password
-    };
-    console.log(info);
-    res.redirect('/login');
+export const PostSignup = passport.authenticate('local.singup',{
+    successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFlash: true
+});
+
+//Profile
+
+export const GetProfile = (req,res)=>{
+    res.render('index');
 }
+
+
 
 
