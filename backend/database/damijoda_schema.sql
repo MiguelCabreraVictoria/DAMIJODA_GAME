@@ -41,8 +41,8 @@ CREATE TABLE matches(
     match_id SMALLINT NOT NULL AUTO_INCREMENT,
     user_id SMALLINT NOT NULL,
     level_id SMALLINT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (level_id) REFERENCES levels(level_id),
+    CONSTRAINT FOREIGN KEY fk_user_id (user_id) REFERENCES users(id),
+    CONSTRAINT FOREIGN KEY fk_level_id (level_id) REFERENCES levels(level_id),
     PRIMARY KEY(match_id)
     ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -56,8 +56,8 @@ CREATE TABLE levels(
     level_id SMALLINT NOT NULL AUTO_INCREMENT,
     boss_id SMALLINT NOT NULL,
     enemy_id SMALLINT NOT NULL,
-    FOREIGN KEY (level_id) REFERENCES bosses(boss_id),
-    FOREIGN KEY (enemy_id) REFERENCES enemies(enemy_id),
+    CONSTRAINT FOREIGN KEY fk_level_id (boss_id) REFERENCES bosses(boss_id),
+    CONSTRAINT FOREIGN KEY fk_enemy_id (enemy_id) REFERENCES enemies(enemy_id),
     PRIMARY KEY(level_id)
     ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -74,7 +74,7 @@ CREATE TABLE characters(
     defense SMALLINT NOT NULL,
     velocity SMALLINT NOT NULL,
     match_id SMALLINT NOT NULL,
-    FOREIGN KEY (match_id) REFERENCES matches(match_id),
+    CONSTRAINT FOREIGN KEY fk_match_id (match_id) REFERENCES matches(match_id),
     PRIMARY KEY(character_id)
     ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -120,7 +120,7 @@ CREATE TABLE weapons(
     level SMALLINT NOT NULL,
     damage SMALLINT NOT NULL,
     character_id SMALLINT NOT NULL,
-    FOREIGN KEY (character_id) REFERENCES personajes(character_id),
+    CONSTRAINT FOREIGN KEY fk_character_id (character_id) REFERENCES personajes(character_id),
     PRIMARY KEY(weapon_id)
     ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -133,7 +133,7 @@ CREATE table gems(
     gem_name VARCHAR(50) NOT NULL,
     effect VARCHAR(50) NOT NULL,
     character_id SMALLINT NOT NULL,
-    FOREIGN KEY (character_id) REFERENCES characters(character_id),
+    CONSTRAINT FOREIGN KEY fk_character_id (character_id) REFERENCES characters(character_id),
     PRIMARY KEY(gem_id)
     ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -149,7 +149,7 @@ CREATE table armor(
     level SMALLINT NOT NULL,
     defense SMALLINT NOT NULL,
     character_id SMALLINT NOT NULL,
-    FOREIGN KEY (character_id) REFERENCES personajes(character_id),
+    CONSTRAINT FOREIGN KEY fk_character_id (character_id) REFERENCES personajes(character_id),
     PRIMARY KEY(armor_id)
     ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 

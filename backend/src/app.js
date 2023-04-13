@@ -33,7 +33,7 @@ app.set('view engine', 'ejs'); // se configura el motor de vistas
 
 //middlewares
 app.use(session({
-    secret: 'damijoda',
+    secret: 'damijoda_game_secret',
     resave: false,
     saveUninitialized: false,
     store: sessionStore
