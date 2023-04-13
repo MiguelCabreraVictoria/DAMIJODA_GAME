@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DamiJoda Project </title>
+	<title>Index</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
+
+<header>
+    <div class="icon-menu">
+        <i class="fas fa-bars" id="menu-btn"></i>
+    </div>
+
+    <div class="logo">
+      <img src="./img/logo.png" alt="Logo de la página">
+    </div>
+
+    <div class="botones">
+      <button>Jugar</button>
+      <button>Iniciar sesión</button>
+    </div>
+</header>
+
 <body>
-    
+    <div class="side-menu" id="side-menu" onmouseleave="colapseMenu()" onmouseenter="expandMenu()">
+        <div class="menu-options">
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Home</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-file" title="Notas"></i>
+                    <h4>Notas</h4>
+                </div>
+            </a>
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-video" title="Tutorial"></i>
+                    <h4>Tutoriales</h4>
+                </div>
+            </a>
+            </a>
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-address-card" title="Contacto"></i>
+                    <h4>Contacto</h4>
+                </div>
+            </a>
+        </div>
+    </div>  
+    <main id="main">
+        <div class="content" id="content">
+                <div class="cont1"></div>
+                <div class="cont2"></div>
+                <div class="cont3"></div>
+                <div class="cont4"></div>
+        </div>
+    </main>
+    <script src="./index.js"></script>
 </body>
 </html>
