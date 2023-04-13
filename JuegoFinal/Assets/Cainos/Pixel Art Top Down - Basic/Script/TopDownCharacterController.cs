@@ -7,6 +7,7 @@ namespace Cainos.PixelArtTopDown_Basic
     public class TopDownCharacterController : MonoBehaviour
     {
         public float speed;
+        //public SeeThrough seeThrough;
         public int skinNr; // Numero de la skin actualmente seleccionada
         public Skins[] skins; // Arreglo de Skins disponibles
 
@@ -79,6 +80,15 @@ namespace Cainos.PixelArtTopDown_Basic
                 spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];  // Cambia el sprite actual del personaje por el correspondiente a la skin seleccionada y al número de sprite actual
             }
         }
+
+        // Función para que el personaje al tocar el collider de un tile map, active el sprite mask de un game object
+        // private void OnTriggerEnter2D(Collider2D collision)
+        // {
+        //     if (collision.gameObject.tag == "TileMapSeeThrough")
+        //     {
+        //         seeThrough.ActivateMask();
+        //     }
+        // }
     }
 
     // Estructura que almacena los sprites de cada skin
