@@ -9,6 +9,8 @@ public class TopDownCharacterController : MonoBehaviour
     public int skinNr;
     public Skins[] skins;
     public bool isAttacking;
+    public int attackDirection;
+    
     // Variable pública para almacenar el índice del item
     public int itemIndex = 0;
     public bool hasShield = false;
@@ -87,6 +89,8 @@ public class TopDownCharacterController : MonoBehaviour
                     animator.SetInteger("Direction", 0);
                     direction.y = -1;
                     direction.x = 0;
+                    attackDirection = 0;
+
                 }
                 // Si D o flecha derecha presionada
                 else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -94,6 +98,7 @@ public class TopDownCharacterController : MonoBehaviour
                     animator.SetInteger("Direction", 2);
                     direction.x = 1;
                     direction.y = 0;
+                    attackDirection = 2;
                 }
                 // Si A o flecha izquierda presionada
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -101,6 +106,7 @@ public class TopDownCharacterController : MonoBehaviour
                     animator.SetInteger("Direction", 3);
                     direction.x = -1;
                     direction.y = 0;
+                    attackDirection = 3;
                 }
                 // Si W o flecha arriba presionada
                 else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -108,6 +114,7 @@ public class TopDownCharacterController : MonoBehaviour
                     animator.SetInteger("Direction", 1);
                     direction.y = 1;
                     direction.x = 0;
+                    attackDirection = 1;
                 }
                 currentDirection = direction;
             }
