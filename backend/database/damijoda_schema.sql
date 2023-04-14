@@ -1,10 +1,10 @@
 -- Team Name: DAMIJODA
 -- Team Members: Miguel Angel Cabrera Victoria      - A01782982
---               Luis Carlos Rico Alamada           - A
---               Jose Daniel Rodrriguex Cruz        - A
---               Natalia Maya Bolaños               - A
---               David Santiago Vieyra Garcia       - A
---               Joaquin Eduardo Saldarriaga Tamayo - A
+--               Luis Carlos Rico Alamada           - A01252831
+--               Jose Daniel Rodrriguex Cruz        - A01781933
+--               Natalia Maya Bolaños               - A01781992
+--               David Santiago Vieyra Garcia       - A01656030
+--               Joaquin Eduardo Saldarriaga Tamayo - A01783093
 
 -- Teachers: Esteban Castillo Juarez
 --           Octavio Navarro Hinojosa
