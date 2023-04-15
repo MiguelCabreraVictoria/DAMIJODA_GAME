@@ -19,6 +19,8 @@
   "homepage": "https://github.com/MiguelCabreraVictoria/DAMIJODA_GAME#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chart.js": "^4.2.1",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
