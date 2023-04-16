@@ -46,12 +46,12 @@ TagManager:
   - name: CollisionWallLayer
     uniqueID: 4189426099
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Untouchable wall
+    uniqueID: 4223758421
     locked: 0
   - name: TopWallLayer
     uniqueID: 4250941897
     locked: 0
-  - name: Untouchable wall
-    uniqueID: 4223758421
+  - name: Default
+    uniqueID: 0
     locked: 0
