@@ -8,16 +8,19 @@ public class Chest : MonoBehaviour
     public Sprite openChestSprite;
     public AudioClip openChestSound;
     private bool isColliding = false;
+    private bool isOpened = false; // Variable para verificar si el cofre ya está abierto
     private SpriteRenderer spriteRenderer;
     private AudioSource audioSource;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("AttackZone"))
         {
             if (player != null)
             {
@@ -25,9 +28,10 @@ public class Chest : MonoBehaviour
             }
         }
     }
+    
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("AttackZone"))
         {
             if (player != null)
             {
@@ -35,6 +39,7 @@ public class Chest : MonoBehaviour
             }
         }
     }
+    
     void Update()
     {
         // Obtener la posición Y del cofre y del personaje
@@ -51,7 +56,7 @@ public class Chest : MonoBehaviour
             // Si el personaje está abajo del cofre, establecer el orden en la capa en 2
             spriteRenderer.sortingOrder = 2;
         }
-        if (isColliding && player != null && player.isAttacking)
+        if (!isOpened && isColliding && player != null && player.isAttacking)
         {
             // Cambiar el sprite del cofre
             spriteRenderer.sprite = openChestSprite;
@@ -59,6 +64,7 @@ public class Chest : MonoBehaviour
             audioSource.PlayOneShot(openChestSound);
             // Establecer la variable hasShield del personaje en true
             player.hasShield = true;
+            isOpened = true; // Marcar el cofre como abierto
         }
     }
 }
