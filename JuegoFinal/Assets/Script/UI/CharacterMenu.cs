@@ -78,4 +78,9 @@ public class CharacterMenu : MonoBehaviour
         // Carga la escena "MainGarden"
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGarden");
     }
+<<<<<<< HEAD:JuegoFinal/Assets/Script/UI/CharacterMenu.cs
 }
+=======
+    
+}
+>>>>>>> features:JuegoFinal/Assets/Script/CharacterMenu.cs
