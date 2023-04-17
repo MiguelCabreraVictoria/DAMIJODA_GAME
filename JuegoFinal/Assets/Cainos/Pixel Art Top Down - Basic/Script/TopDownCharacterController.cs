@@ -8,7 +8,7 @@ namespace Cainos.PixelArtTopDown_Basic
     {
         public float speed;
         public int skinNr; // Numero de la skin actualmente seleccionada
-        public Skins[] skins; // Arreglo de Skins disponibles
+        public Skins[] skins; // Arreglo de Skins disponibles       
 
         SpriteRenderer spriteRenderer; // Referencia al SpriteRenderer del personaje
         private Animator animator;
@@ -61,7 +61,7 @@ namespace Cainos.PixelArtTopDown_Basic
             dir.Normalize();
             animator.SetBool("IsMoving", dir.magnitude > 0);
 
-            GetComponent<Rigidbody2D>().velocity = speed * dir;
+            GetComponent<Rigidbody2D>().velocity = speed * dir;                
         }
 
         private void LateUpdate()
@@ -78,7 +78,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
                 spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];  // Cambia el sprite actual del personaje por el correspondiente a la skin seleccionada y al número de sprite actual
             }
-        }
+        }      
     }
 
     // Estructura que almacena los sprites de cada skin

@@ -72,4 +72,5 @@ public class CharacterMenu : MonoBehaviour
         // Carga la escena "MainGarden"
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainGarden");
     }
+    
 }
