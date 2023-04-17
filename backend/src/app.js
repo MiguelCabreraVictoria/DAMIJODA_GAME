@@ -21,7 +21,7 @@ import passportauth from './services/authService.js'
 
 
 //settings
-import {PORT} from './configs/config.js' //Port
+import {PORT,SESS_NAME,SESS_SECRET,NODE_ENV} from './configs/config.js' //Port
 const __filename = fileURLToPath(import.meta.url); //__filename config
 const __dirname = path.dirname(__filename); //__dirname config
 
@@ -31,12 +31,20 @@ const __dirname = path.dirname(__filename); //__dirname config
 app.set('views', path.join(__dirname, 'views')); //se establece la direccion carpeta views
 app.set('view engine', 'ejs'); // se configura el motor de vistas
 
+const oneDay = 1000 * 60 * 60 * 24;
+
 //middlewares
 app.use(session({
-    secret: 'damijoda',
+    name: SESS_NAME,
+    secret: SESS_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: sessionStore
+    store: sessionStore,
+    cookie: {
+        maxAge: oneDay,
+        sameSite: true,
+        secure: NODE_ENV === 'production', 
+    }
 }))
 
 app.use(flash());
