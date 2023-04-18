@@ -1,8 +1,9 @@
 import express from 'express';
 const router = express.Router();
 
+import {auth} from '../lib/auth.js';
 
-import {GetLogin,PostLogin,GetSingup,PostSignup,GetProfile} from '../controllers/authentication.controller.js';
+import {GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetLogout} from '../controllers/authentication.controller.js';
 
 //Login routes
 router.get('/login',GetLogin);
@@ -16,6 +17,9 @@ router.post('/signup', PostSignup);
 
 
 //profile
-router.get('/profile',GetProfile);
+router.get('/profile',auth.isLoggedIn,GetProfile);
+
+//logout 
+router.get('/logout',GetLogout)
 
 export default router;

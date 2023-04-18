@@ -14,7 +14,16 @@ const options = {
     port:DB_PORT,
     user:DB_USER,
     database:DB_DATABASE,
-    password:DB_PASSWORD
+    password:DB_PASSWORD,
+    createDatabaseTable: false,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
+    }
 };
 
 export const pool = mysql.createPool(options);
