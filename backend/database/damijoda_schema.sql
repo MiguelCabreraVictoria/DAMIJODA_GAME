@@ -15,10 +15,7 @@
 -- SQL Script to create the database and tables for the project--
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> SQLScript
 DROP SCHEMA IF EXISTS damijoda;
 CREATE SCHEMA damijoda;
 USE damijoda;

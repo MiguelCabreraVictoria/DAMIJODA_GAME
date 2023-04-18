@@ -80,7 +80,13 @@ header {
     margin-left: auto;
 }
 
+.botones a{
+    text-decoration: none; 
+    color: #fff;
+}
+
 .botones button {
+    text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     background-image: linear-gradient(to right, #eab156, #d34e3e);
     color: #fff;
@@ -92,6 +98,7 @@ header {
     cursor: pointer;
     transition: background-image 0.5s ease-in-out, margin 0.3s ease-in-out;
 }
+
 
 button:hover {
     background-image: linear-gradient(to right, #d34e3e, #eab156);

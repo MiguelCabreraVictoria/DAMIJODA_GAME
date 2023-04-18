@@ -35,12 +35,8 @@ const oneDay = 1000 * 60 * 60 * 24;
 
 //middlewares
 app.use(session({
-<<<<<<< HEAD
     name: SESS_NAME,
     secret: SESS_SECRET,
-=======
-    secret: 'damijoda_game_secret',
->>>>>>> SQLScript
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
