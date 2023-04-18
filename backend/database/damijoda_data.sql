@@ -18,31 +18,33 @@ USE damijoda;
 
 INSERT INTO damijoda.enemies (enemy_name, HP, attack, defense, velocity, boss_id) VALUES
     ('Oraculo', 50, 10, 5, 20, 1),
-    ('Velafar', 80, 15, 10, 15, 1),
-    ('VelafarVerde', 100, 20, 15, 10, 2),
-    ('Astartoh', 120, 25, 20, 5, 2),
-    ('Berius', 150, 30, 25, 3, 3);
+    ('Velafar', 50, 15, 10, 15, 1),
+    ('VelafarVerde', 50, 20, 15, 10, 2),
+    ('Astaroth', 50, 25, 20, 5, 2),
+    ('Berius', 50, 30, 25, 3, 3);
 
 INSERTO INTO damijoda.bosses (boss_name, HP, attack, defense, velocity, enemy_id) VALUES
-    ('SeQueLus', 500, 50, 30, 10, 1),
-    ('Octerminiti', 800, 75, 50, 5, 3),
-    ('Socio', 1200, 100, 75, 3, 5);
+    ('SeQueLus', 100, 50, 30, 10, 1),
+    ('Octerminiti', 120, 75, 50, 5, 3),
+    ('Gileus',100,75,50,5,5),
+    ('Socio', 200, 100, 75, 3, 5);
 
 INSERT INTO damijoda.levels (boss_id) VALUES
     (1),
     (2),
-    (3);
+    (3),
+    (4);
 
 
 INSERT INTO damijoda.matches (user_id, level_id) VALUES
     (1, 1),
     (2, 2),
     (3, 3),
-    (4, 1),
-    (5, 3);
+    (4, 2),
+    (5, 4);
 
 INSERT INTO damijoda.characters (character_name, HP, attack, defense, velocity, match_id) VALUES
-    ('Miguel', 150, 20, 10, 15, 1),
+    ('Miguel', 150, 35, 10, 15, 1),
     ('Nat', 150, 25, 15, 10, 2),
     ('David', 150, 15, 5, 20, 4),
     ('Joaq', 150, 30, 20, 5, 3),
@@ -67,5 +69,5 @@ INSERT INTO damijoda.armors (armor_name, level, defense, character_id) VALUES
     ('ArmaduraDeBronce', 1, 5, 1),
     ('ArmaduraDeCuero', 2, 10, 2),
 	('ArmaduraDePlata', 3, 15, 3),
-	('ArmaduraDeOro', 1, 5, 4),
-	('ArmaduraMagica', 3, 15, 5);
+	('ArmaduraDeOro', 3, 5, 4),
+	('ArmaduraMagica', 5, 15, 5);
