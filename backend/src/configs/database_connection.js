@@ -15,7 +15,7 @@ const options = {
     user:DB_USER,
     database:DB_DATABASE,
     password:DB_PASSWORD,
-    createDatabaseTable: false,
+    createDatabaseTable: true,
     schema: {
         tableName: 'sessions',
         columnNames: {

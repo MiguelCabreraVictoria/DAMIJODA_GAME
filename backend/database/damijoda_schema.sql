@@ -1,4 +1,4 @@
-- Team Name: DAMIJODA
+-- Team Name: DAMIJODA
 -- Team Members: Miguel Angel Cabrera Victoria      - A01782982
 --               Luis Carlos Rico Alamada           - A01252831
 --               Jose Daniel Rodrriguex Cruz        - A01781933
@@ -13,8 +13,6 @@
 -- Tecnologico de Monterrey, Campus Santa Fe
 
 -- SQL Script to create the database and tables for the project--
-
-
 
 DROP SCHEMA IF EXISTS damijoda;
 CREATE SCHEMA damijoda;
@@ -157,10 +155,4 @@ CREATE TABLE armors (
     character_id INT NOT NULL,
     CONSTRAINT FOREIGN KEY fk_character_id (character_id) REFERENCES characters(character_id),
     PRIMARY KEY(armor_id)
-<<<<<<< HEAD
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
-=======
-) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
-
-
->>>>>>> SQLScript
