@@ -1,3 +1,11 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: password encryption to database
+    @copyright: DamijodaStudios
+    
+ */
+
 import bycrypt from 'bcryptjs';
 
 

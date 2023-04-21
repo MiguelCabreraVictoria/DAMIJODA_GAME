@@ -1,3 +1,11 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: file to config the environment variables
+    @copyright: DamijodaStudios
+    
+ */
+
 import {config} from 'dotenv';
 config();
 
