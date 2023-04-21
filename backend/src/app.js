@@ -1,3 +1,12 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: main file of the project
+    @copyright: DamijodaStudios
+    
+ */
+
+
 //modules
 import express from 'express';
 import morgan from 'morgan';
