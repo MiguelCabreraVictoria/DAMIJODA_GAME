@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class AttackZone : MonoBehaviour
 {
+    public CharacterAttackController playerAttack;
     public TopDownCharacterController player;
+    
     public Color normalColor; // color normal del sprite
     public Color attackingColor; // color cuando el jugador está atacando
 
@@ -41,7 +43,7 @@ public class AttackZone : MonoBehaviour
         transform.position = transform.parent.position + offset;
 
         // actualizar el color del sprite dependiendo de si el jugador está atacando o no
-        if (player.isAttacking)
+        if (playerAttack.isAttacking)
         {
             spriteRenderer.color = attackingColor;
         }

@@ -33679,6 +33679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d05aec6fd3a348f9b5d1825ccafb8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttack: {fileID: 3278259467266409122}
   player: {fileID: 3278259467266409120}
   openChestSprite: {fileID: 21300040, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   openChestSound: {fileID: 8300000, guid: eea4e5484134949b58a573a55e7487dc, type: 3}
@@ -54371,7 +54372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 40
   amIonTheAttackZone: 0
-  player: {fileID: 3278259467266409120}
+  player: {fileID: 3278259467266409122}
   spriteRenderer: {fileID: 0}
   damageFlashDuration: 0.2
   fireParticlesPrefab: {fileID: 8158897377042618211, guid: 0849fd27ce88240aeb7e397a500a56f5, type: 3}
@@ -56732,6 +56733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed11fae8eca124ad29abb8f71725c920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttack: {fileID: 3278259467266409122}
   player: {fileID: 3278259467266409120}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   attackingColor: {r: 1, g: 0, b: 0, a: 0}
@@ -58745,7 +58747,8 @@ MonoBehaviour:
   - {fileID: 715172181, guid: c2e74c5535089468386e43490175d95e, type: 3}
   - {fileID: -1895880413, guid: c2e74c5535089468386e43490175d95e, type: 3}
   - {fileID: -362428828, guid: c2e74c5535089468386e43490175d95e, type: 3}
-  characterObject: {fileID: 0}
+  characterObject: {fileID: 3278259467266409120}
+  characterAnimation: {fileID: 3278259467266409124}
 --- !u!1001 &2137395896942627639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59166,6 +59169,10 @@ GameObject:
   - component: {fileID: 3278259467266409106}
   - component: {fileID: 2555205052926767294}
   - component: {fileID: 3278259467266409120}
+  - component: {fileID: 3278259467266409121}
+  - component: {fileID: 3278259467266409124}
+  - component: {fileID: 3278259467266409123}
+  - component: {fileID: 3278259467266409122}
   m_Layer: 20
   m_Name: Player
   m_TagString: Player
@@ -59185,7 +59192,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84152ba9a2d9e43d3bb72a4604a756f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDirection: 0
+  hasShield: 0
+--- !u!114 &3278259467266409121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278259467266409119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99e417f9181234444b3ecf674a5f1f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3278259467266409122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278259467266409119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184e4dc67ec2be74e8f1872395c4938f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+--- !u!114 &3278259467266409123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278259467266409119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3422d865f6b75c44aba82f115d7af79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &3278259467266409124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278259467266409119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d475885379f8f46bb4268b82221b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   skinNr: 0
   skins:
   - sprites:
@@ -60268,10 +60326,7 @@ MonoBehaviour:
     - {fileID: -274516237, guid: ab80c567aafcc4aab896c0f90596063a, type: 3}
     - {fileID: -954470835, guid: ab80c567aafcc4aab896c0f90596063a, type: 3}
     - {fileID: -965774323, guid: ab80c567aafcc4aab896c0f90596063a, type: 3}
-  isAttacking: 0
-  attackDirection: 0
   itemIndex: 0
-  hasShield: 0
 --- !u!4 &3331498173276343792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1365424424466870936, guid: af67ceadc087899479232f75d2b79d59, type: 3}

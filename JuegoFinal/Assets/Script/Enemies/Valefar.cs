@@ -6,7 +6,7 @@ public class Valefar : MonoBehaviour
 {
     public float vida = 30f;
     public bool amIonTheAttackZone = false;
-    public TopDownCharacterController player;
+    public CharacterAttackController player;
     public SpriteRenderer spriteRenderer;
     public float damageFlashDuration = 0.2f; // Duración del destello en segundos
     public GameObject fireParticlesPrefab; // Prefab de partículas de fuego

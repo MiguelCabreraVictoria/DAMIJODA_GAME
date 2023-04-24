@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    public CharacterAttackController playerAttack;
     public TopDownCharacterController player;
+    
     public Sprite openChestSprite;
     public AudioClip openChestSound;
     private bool isColliding = false;
@@ -56,7 +58,7 @@ public class Chest : MonoBehaviour
             // Si el personaje está abajo del cofre, establecer el orden en la capa en 2
             spriteRenderer.sortingOrder = 2;
         }
-        if (!isOpened && isColliding && player != null && player.isAttacking)
+        if (!isOpened && isColliding && player != null && playerAttack.isAttacking)
         {
             // Cambiar el sprite del cofre
             spriteRenderer.sprite = openChestSprite;
