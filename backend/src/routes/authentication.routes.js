@@ -1,3 +1,11 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: file of the routes
+    @copyright: DamijodaStudios
+    
+ */
+
 import express from 'express';
 const router = express.Router();
 
