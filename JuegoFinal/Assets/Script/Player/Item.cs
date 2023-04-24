@@ -10,6 +10,9 @@ public class Item : MonoBehaviour
     // Variable pública para almacenar la referencia al objeto personaje
     public TopDownCharacterController characterObject;
 
+    // Variable pública para almacenar la referencia al objeto personaje
+    public CharacterSkinController characterAnimation;
+    
     // Referencia al componente SpriteRenderer
     private SpriteRenderer spriteRenderer;
 
@@ -44,7 +47,7 @@ public class Item : MonoBehaviour
         // Si hay un objeto personaje y el personaje tiene escudo, obtén el índice del item y actualiza el sprite mostrado
         if (characterObject != null && characterObject.hasShield)
         {
-            int itemIndex = characterObject.itemIndex;
+            int itemIndex = characterAnimation.itemIndex;
 
             // Verifica si el índice del item está dentro del rango válido
             if (itemIndex >= 0 && itemIndex < itemSprites.Length)
