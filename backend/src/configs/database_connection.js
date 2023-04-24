@@ -1,3 +1,10 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: database connection
+    @copyright: DamijodaStudios
+    
+ */
 
 import session from 'express-session';
 import MySQLStore from 'express-mysql-session';

@@ -1,3 +1,11 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: file that uses passport to authenticate the user
+    @copyright: DamijodaStudios
+    
+ */
+
 import passport, { Passport } from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 

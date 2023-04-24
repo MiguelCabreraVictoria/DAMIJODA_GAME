@@ -1,3 +1,13 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: main file of the routes controllers
+    @copyright: DamijodaStudios
+    
+ */
+
+
+
 import { pool } from '../configs/database_connection.js';
 
 import passport from 'passport';
