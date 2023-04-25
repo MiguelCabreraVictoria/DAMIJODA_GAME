@@ -15,6 +15,10 @@ import passport from 'passport';
 
 
 //para entrar
+export const GetIndex = (req,res)=>{
+    res.redirect('/profile');
+}
+
 export const GetLogin = (req,res)=>{
     res.render('Login')
 }
