@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="../style/singup.css">
-  <title>signup</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="css/normalize.css">
+    <link rel="preconnect" href="css/signup.css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/singup.css">
+
+    <title>DAMIJODA - SIGNUP</title>
 </head>
 <body>
     <section class="section" id="section-background">
@@ -10,23 +19,23 @@
             <div class="form-value">
                 <form method="post">
                     <div>
-                        <h2 id="h2"><a href="#" class="login-logo-button" id="login-button">Sing-up</a></h2>
+                        <h2 id="h2"><a href="#" class="login-logo-button" id="login-button">Signup</a></h2>
                     </div>
                         <div class="inputbox">
                             <ion-icon name="mail-outline"></ion-icon>
-                            <input type="email" required>
-                            <label for="">Email</label>
+                            <input name="username" type="text" required>
+                            <label for="">username</label>
                         </div>
                         <div class="inputbox">
                             <ion-icon name="lock-closed-outline"></ion-icon>
-                            <input type="password" required>
-                            <label for="">Password</label>
+                            <input name="password" type="password" required>
+                            <label for="">password</label>
                         </div>
                         <div class="forget">
                             <label for="" class="forget-label"><input type="checkbox">Remember Me</label>
                         </div>
                       
-                      <button>Sing-up</button>
+                      <button>Signup</button>
                         <div class="register">
                             <p>Already have a account <a href="/view/login.html">Login</a></p>
                         </div>
