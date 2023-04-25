@@ -41,8 +41,9 @@ export const PostSignup = passport.authenticate('local.singup',{
 //Profile
 
 export const GetProfile = (req,res)=>{
-    res.render('index');
-
+    const [user] = req.user;
+    res.render('index',{user:user}); //enviar el usuario a la vista y pagina
+    //console.log(user.username);
 }
 
 export const GetLogout = (req,res)=>{
