@@ -14,8 +14,8 @@ public class Valefar : MonoBehaviour
     public AudioClip deathSound; // Sonido al morir
     private AudioSource audioSource;
     private bool isDying = false; // Agregar esta variable
-    public float fleeSpeed = 4.0f;
-    public float fleeDuration = 0.3f;
+    public float fleeSpeed = 10.0f;
+    public float fleeDuration = 0.1f;
 
     // Agregar variables para seguimiento
     public float chaseSpeed = 2.0f;

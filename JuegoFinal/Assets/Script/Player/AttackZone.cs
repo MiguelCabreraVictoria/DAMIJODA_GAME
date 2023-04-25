@@ -24,7 +24,7 @@ public class AttackZone : MonoBehaviour
         switch (player.attackDirection)
         {
             case 0: // abajo
-                offset = new Vector3(0, -0.3f, 0);
+                offset = new Vector3(0, 0, 0);
                 break;
             case 1: // arriba
                 offset = new Vector3(0, 1.5f, 0);
