@@ -34,6 +34,11 @@ public class CharacterSkinController : MonoBehaviour
             spriteRenderer.sprite = skins[skinNr].sprites[spriteNr];
         }
     }
+
+    public void HideCharacter()
+    {
+        spriteRenderer.enabled = false;
+    }
 }
 
 [System.Serializable]
