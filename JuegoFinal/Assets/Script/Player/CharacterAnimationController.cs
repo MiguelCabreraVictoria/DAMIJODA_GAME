@@ -38,4 +38,8 @@ public class CharacterAnimationController : MonoBehaviour
     {
         animator.SetBool("IsAttacking", isAttacking);
     }
+
+    public void teleportAnimation() {
+        animator.Play("Teleport");
+    }
 }
