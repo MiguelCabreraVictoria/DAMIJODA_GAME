@@ -1,4 +1,4 @@
-- Team Name: DAMIJODA
+-- Team Name: DAMIJODA
 -- Team Members: Miguel Angel Cabrera Victoria      - A01782982
 --               Luis Carlos Rico Alamada           - A01252831
 --               Jose Daniel Rodrriguex Cruz        - A01781933
@@ -12,8 +12,7 @@
 
 -- Tecnologico de Monterrey, Campus Santa Fe
 
--- SQL Script to create the database and tables for the project--
-
+-- SQL Script to create the database and tables for the project
 
 
 DROP SCHEMA IF EXISTS damijoda;
@@ -93,6 +92,7 @@ CREATE TABLE matches (
     match_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     level_id INT NOT NULL,
+    match_name VARCHAR(50) NOT NULL,
     CONSTRAINT FOREIGN KEY fk_user_id (user_id) REFERENCES users(id),
     CONSTRAINT FOREIGN KEY fk_level_id (level_id) REFERENCES levels(level_id),
     PRIMARY KEY(match_id)

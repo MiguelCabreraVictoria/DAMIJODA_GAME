@@ -15,6 +15,10 @@ import passport from 'passport';
 
 
 //para entrar
+export const GetIndex = (req,res)=>{
+    res.redirect('/profile');
+}
+
 export const GetLogin = (req,res)=>{
     res.render('Login')
 }
@@ -40,10 +44,20 @@ export const PostSignup = passport.authenticate('local.singup',{
 
 //Profile
 
-export const GetProfile = (req,res)=>{
+export const GetProfile = async (req,res)=>{
     const [user] = req.user;
-    res.render('index',{user:user}); //enviar el usuario a la vista y pagina
-    //console.log(user.username);
+     //match 
+     const [rows] = await pool.query('SELECT * FROM damijoda.matches WHERE user_id = ?',[user.id]);
+     const info = rows[0];
+
+
+    res.render('index',{user:user,info:info}); //enviar el usuario a la vista y pagina
+    console.log(info);
+    console.log(user);
+
+
+
+
 }
 
 export const GetLogout = (req,res)=>{
