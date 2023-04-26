@@ -11,9 +11,12 @@ const router = express.Router();
 
 import {auth} from '../lib/auth.js';
 
-import {GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetLogout} from '../controllers/authentication.controller.js';
+import {GetIndex,GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetLogout} from '../controllers/authentication.controller.js';
+
+router.get('/',auth.isLoggedIn,GetIndex);
 
 //Login routes
+
 router.get('/login',GetLogin);
 router.post('/login',PostLogin);
 
