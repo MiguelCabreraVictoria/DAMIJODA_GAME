@@ -44,10 +44,18 @@ export const PostSignup = passport.authenticate('local.singup',{
 
 //Profile
 
-export const GetProfile = (req,res)=>{
+export const GetProfile = async (req,res)=>{
     const [user] = req.user;
     res.render('index',{user:user}); //enviar el usuario a la vista y pagina
     //console.log(user.username);
+    //console.log(user);
+
+    //match 
+    const [rows] = await pool.query('SELECT * FROM damijoda.matches WHERE user_id = ?',[user.id]);
+    const info = rows[0];
+    console.log(info.match_id);
+
+
 }
 
 export const GetLogout = (req,res)=>{
