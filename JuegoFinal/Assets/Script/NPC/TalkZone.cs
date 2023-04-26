@@ -9,6 +9,7 @@ public class TalkZone : MonoBehaviour
     public GameObject InfoBox;
     public GameObject DialogBox;
     public Dialogo dialogo;
+    public CharacterAttackController characterAttackController;
 
     void Start() {
         InfoBox.SetActive(false);
@@ -35,6 +36,7 @@ public class TalkZone : MonoBehaviour
             Debug.Log("Player entered the trigger zone");
             IsOnTalkZone = true;
             InfoBox.SetActive(true);
+            characterAttackController.isOnTalkZone = true;
         }
     }
 
@@ -44,6 +46,12 @@ public class TalkZone : MonoBehaviour
             IsOnTalkZone = false;
             // hide the dialog box
             InfoBox.SetActive(false);
+            DialogBox.SetActive(false);
+            characterAttackController.isOnTalkZone = false;
+            dialogo.StopAllCoroutines();
+            dialogo.textDialogo.text = "";
+            IsTalking = false;
         }
+
     }
 }

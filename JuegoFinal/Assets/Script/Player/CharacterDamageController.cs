@@ -31,7 +31,7 @@ public class CharacterDamageController : MonoBehaviour
             FlashRed();
             vidas -= 1;
             Knockback(col.transform);
-            Debug.Log("¡Auch! El diablito me pegó.");
+            //Debug.Log("¡Auch! El diablito me pegó.");
             
             if (vidas <= 0)
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Valefar : MonoBehaviour
 {
@@ -21,11 +22,35 @@ public class Valefar : MonoBehaviour
     public float chaseSpeed = 2.0f;
     public float chaseRange = 5.0f;
 
+    public Gpt gpt;
+    public TextMeshProUGUI mensaje; // Referencia al objeto TextMeshProUGUI
+    public GameObject burbuja; // Referencia al objeto burbuja
+    public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
+    public bool habla = true;
+
+    private void SaySomething()
+    {
+        //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
+        StartCoroutine(gpt.RequestCompletion(prompt, (responseText) => {
+            //Debug.Log("Valefar dice: " + responseText);
+            mensaje.text = responseText;
+            burbuja.SetActive(true);
+            StartCoroutine(HideBubble());
+        }));
+    }
+
+    IEnumerator HideBubble()
+    {
+        yield return new WaitForSeconds(3.0f);
+        burbuja.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        burbuja.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,6 +68,9 @@ public class Valefar : MonoBehaviour
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
             audioSource.PlayOneShot(hitSound); // Reproducir sonido al golpear
+            if (habla) {
+                SaySomething();
+            }
         }
         else
         {
