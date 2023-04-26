@@ -4,19 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/MainGarden.unity
-    guid: 1c368395a1a7849529935429715fad3f
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Aulas1.unity
-    guid: 98471567021a8a9478cef81a2351bda9
-=======
-    path: Assets/Scenes/Match_option.unity
-    guid: 011573123df8b1aaf8fb3caf5e03080e
->>>>>>> Unity-DataBase
+  m_Scenes: []
   m_configObjects: {}
