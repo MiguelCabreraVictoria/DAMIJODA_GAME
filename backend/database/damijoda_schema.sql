@@ -93,6 +93,7 @@ CREATE TABLE matches (
     match_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     level_id INT NOT NULL,
+    match_name VARCHAR(50) NOT NULL,
     CONSTRAINT FOREIGN KEY fk_user_id (user_id) REFERENCES users(id),
     CONSTRAINT FOREIGN KEY fk_level_id (level_id) REFERENCES levels(level_id),
     PRIMARY KEY(match_id)

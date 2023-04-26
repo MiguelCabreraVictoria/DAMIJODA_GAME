@@ -21,7 +21,8 @@ INSERT INTO damijoda.enemies (enemy_name, HP, attack, defense, velocity, boss_id
     ('Velafar', 50, 15, 10, 15, 1),
     ('VelafarVerde', 50, 20, 15, 10, 2),
     ('Astaroth', 50, 25, 20, 5, 2),
-    ('Berius', 50, 30, 25, 3, 3);
+    ('Berius', 50, 30, 25, 3, 3)
+    SET FOREIGN_KEY_CHECKS=0;
 
 INSERTO INTO damijoda.bosses (boss_name, HP, attack, defense, velocity, enemy_id) VALUES
     ('SeQueLus', 100, 50, 30, 10, 1),
