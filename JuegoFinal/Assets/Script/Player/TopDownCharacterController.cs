@@ -35,6 +35,14 @@ public class TopDownCharacterController : MonoBehaviour
                 StartCoroutine(attackController.HandleAttack());
             }
         }
+
+        if (!animationController.GetIsAttacking()) // Si no está atacando
+        {
+            if (Input.GetKeyDown(KeyCode.Z)) // Detectar si la tecla X ha sido presionada o liberada.
+            {
+                StartCoroutine(attackController.HandleAttack());
+            }
+        }
     }
 
     private void LateUpdate()

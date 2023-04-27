@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    [SerializeField] int _damageAmount = 20;
+    [SerializeField] Healthbar _healthbar;
+    [SerializeField] int _startingHealth = 50;
+    [SerializeField] int _maxHealth = 50;
+    private int _currentHealth;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    void Start()
     {
-        print("Enemy hit " + other.gameObject.name + "!");
-        if (other.gameObject.CompareTag("Player"))
+        _currentHealth = _startingHealth;
+        _healthbar.SetMaxHealth(_maxHealth);
+        _healthbar.SetHealth(_currentHealth);
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        _currentHealth -= damageAmount;
+        _healthbar.SetHealth(_currentHealth);
+        if (_currentHealth <= 0)
         {
-            other.gameObject.GetComponent<PlayerBehaviour>().TakeDamage(_damageAmount);
+            Die();
         }
     }
+
+    void Die()
+    {
+        // Code to handle enemy death goes here
+        Debug.Log("Enemy has died");
+        gameObject.SetActive(false);
+    }
+
+    // You can add more enemy behaviors in this script
 }
 
