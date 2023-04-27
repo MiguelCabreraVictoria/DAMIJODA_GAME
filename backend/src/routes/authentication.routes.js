@@ -11,7 +11,7 @@ const router = express.Router();
 
 import {auth} from '../lib/auth.js';
 
-import {GetIndex,GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetLogout} from '../controllers/authentication.controller.js';
+import {GetIndex,GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetMatches,GetLogout,GetError404} from '../controllers/authentication.controller.js';
 
 router.get('/',auth.isLoggedIn,GetIndex);
 
@@ -30,7 +30,17 @@ router.post('/signup', PostSignup);
 //profile
 router.get('/profile',auth.isLoggedIn,GetProfile);
 
+//Json endpoints
+
+router.get('/profile/api/matches',auth.isLoggedIn,GetMatches);
+
+
+
 //logout 
 router.get('/logout',GetLogout)
+
+//404 page
+
+router.all('*',GetError404);
 
 export default router;

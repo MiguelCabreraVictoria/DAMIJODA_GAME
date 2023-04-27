@@ -24,7 +24,7 @@ INSERT INTO damijoda.enemies (enemy_name, HP, attack, defense, velocity, boss_id
     ('Berius', 50, 30, 25, 3, 3) 
     SET FOREIGN_KEY_CHECKS=0;
 
-INSERTO INTO damijoda.bosses (boss_name, HP, attack, defense, velocity, enemy_id) VALUES
+INSERTin INTO damijoda.bosses (boss_name, HP, attack, defense, velocity, enemy_id) VALUES
     ('SeQueLus', 100, 50, 30, 10, 1),
     ('Octerminiti', 120, 75, 50, 5, 3),
     ('Gileus',100,75,50,5,5),
