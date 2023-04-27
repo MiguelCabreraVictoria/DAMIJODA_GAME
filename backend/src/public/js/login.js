@@ -1,3 +1,11 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: main file of the project
+    @copyright: DamijodaStudios
+    
+ */
+
 document.getElementById('login-button').addEventListener('click', openMenuBox);
 
 let h2 = document.getElementById('h2');

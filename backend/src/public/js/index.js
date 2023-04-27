@@ -1,3 +1,11 @@
+/**
+    @author: DamijodaStudios
+    @version: 1.0.0
+    @description: main file of the project
+    @copyright: DamijodaStudios
+    
+ */
+
 document.getElementById('menu-btn').addEventListener('click', openCloseMenu);
 
 let side_menu = document.getElementById('side-menu');

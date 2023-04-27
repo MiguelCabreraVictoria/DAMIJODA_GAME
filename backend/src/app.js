@@ -69,6 +69,7 @@ app.use(passport.session()); // manejo de los datos con passport
 
 app.use((req,res,next)=>{
     
+    res.locals.error = req.flash('error');
     res.locals.success_msg = req.flash('success_msg');
     res.locals.message = req.flash('message');
     app.locals.user = req.user;

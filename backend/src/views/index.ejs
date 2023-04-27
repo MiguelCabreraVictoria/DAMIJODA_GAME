@@ -1,64 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Index</title>
-	<link rel="stylesheet" type="text/css" href="../public/css/index.css">
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="css/normalize.css">
+    <link rel="preconnect" href="css/index.css">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <title>DAMIJODA | <%= user.username %></title>
 </head>
-
-<header>
-    <div class="icon-menu">
-        <i class="fas fa-bars" id="menu-btn"></i>
-    </div>
-
-    <div class="logo">
-      <img src="./img/logo.png" alt="Logo de la página">
-    </div>
-
-    <div class="botones">
-      <button>Jugar</button>
-      <button><a href="/logout">Logout</a></button>
-    </div>
-</header>
-
 <body>
-    <main id="main">
-        <div class="side-menu" id="side-menu" onmouseleave="colapseMenu()" onmouseenter="expandMenu()">
-            <div class="menu-options">
-                <a href="#">
-                    <div class="option">
-                        <i class="fas fa-home" title="Inicio"></i>
-                        <h4>Home</h4>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="option">
-                        <i class="fas fa-file" title="Notas"></i>
-                        <h4>Notas</h4>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="option">
-                        <i class="fas fa-video" title="Tutorial"></i>
-                        <h4>Tutoriales</h4>
-                    </div>
-                </a>
-                </a>
-                <a href="#">
-                    <div class="option">
-                        <i class="fas fa-address-card" title="Contacto"></i>
-                        <h4>Contacto</h4>
-                    </div>
-                </a>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <a href="/profile"><img src="img/logo.png" alt=""></a>
             </div>
-        </div>  
-        <div class="content" id="content">
-                <div class="cont1"></div>
-                <div class="cont2"></div>
-                <div class="cont3"></div>
-                <div class="cont4"></div>
+            <ul class="navbar">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Game Zone</a></li>
+                <li><a href="#">Tutorial</a></li>
+                <li><a href="#">Statistics</a></li>
+            </ul>
+                <button type="button" id="btn"><i><a class="fas fa-play logout" href="/logout">Log Out</a></i></button>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="content-desc">
+                <h1>Welcome back <%= user.username %></h1>
+                <p>Compete and defeat the <span>main bosses</span> in this immense challenge and be 
+                    the winner of all Time</p>
+                <button type="button" id="btn-2">Accept The Challenge</button>
+            </div>
+            <div class="damijoda">
+                <img src="img/gileus.png" alt="enemigo">
+            </div>
+        </div>    
+    </div>
+
+    <!-- Presentation end here -->
+
+    <div class="logo-section">
+        <i class="fas fa-gamepad"></i>
+        <h1>The Game Zone</h1>
+    </div>
+
+    <!-- logo section ends here -->
+
+    <section class="section-1">
+        <div class="section-1-wrapper">
+            <h1>Characters</h1>
+            <br>
+            <div class="section-1-img">
+                <div class="img img-1"><img src="img/miguel_index.png" alt="miguel"><p>Miguel</p></div>
+                <div class="img img-3"><img src="img/bebo_index.png" alt="bebo"><p>Luis</p></div>
+                <div class="img img-2"><img src="img/nat_index.png" alt="nat"><p>Natalia</p></div>
+                <div class="img img-4"><img src="img/david_index.png" alt="daniel"><p>David</p></div>
+                <div class="img img-5"><img src="img/daniel_index.png" alt="daniel"><p>Daniel</p></div>
+                <div class="img img-6"><img src="img/joaq_index.png" alt="joaquin"><p>Joaquin</p></div>
+            </div>
+
+            <div class="section-1-info">
+                <h1>Levels</h1>
+                <br>
+                <div class="section-1-info__img"><img src="img/numero_tres.png" alt=""></div>
+            </div>
+    
+    </section>
+
+    <!-- section 1 ends here -->
+
+    <div class="logo-section">
+        <i class="fas fa-gamepad"></i>
+        <h1>Tutorial</h1>
+    </div>
+
+
+    <div class="section-video">
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/V9GmFOyIHw8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-    </main>
-    <script src="../public/js/index.js"></script>
+    </div>
+
+    <!-- section 2 ends here -->
+
+
+    <div class="section-game">
+
+    </div>
+
+    <div class="logo-section">
+        <i class="fas fa-gamepad"></i>
+        <h1>Statistics</h1>
+    </div>
+
+    <div class="statistics">
+        <div class="data-container">
+            Aqui van los datos
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-body">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <img src="img/logo.png" alt="logo">
+            </div>
+            <ul>
+                <h3>Members</h3>
+                <li><a href="#">Miguel Cabrera</a></li>
+                <li><a href="#">Luis Rico</a></li>
+                <li><a href="#">Natalia Maya </a></li>
+                <li><a href="#">David Vieyra</a></li>
+                <li><a href="#">Daniel Cruz</a></li>
+                <li><a href="#">Joaquin Saldarriaga</a></li>
+            </ul>
+
+            <ul>
+                <h3>Professors</h3>
+                <li><a href="#">Octavio Hinojosa</a></li>
+                <li><a href="#">Esteban Castillo</a></li>
+                <li><a href="#">Gilberto Echeverria</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="footer-buttom">
+        <p>Created by LUNADAMIJODA</p>
+        <p>Copyright 2023. All Rights Reserved</p>
+    </div>
+
 </body>
 </html>
