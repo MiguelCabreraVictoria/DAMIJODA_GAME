@@ -21,7 +21,7 @@ public class Gpt : MonoBehaviour
     }
 
     private const string API_URL = "https://api.openai.com/v1/completions";
-    private const string API_KEY = "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";
+    private const string API_KEY = "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";
 
     public IEnumerator RequestCompletion(string prompt, Action<string> callback)
     {

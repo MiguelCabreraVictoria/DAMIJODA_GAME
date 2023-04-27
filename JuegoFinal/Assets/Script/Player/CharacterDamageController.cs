@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CharacterDamageController : MonoBehaviour
 {
@@ -13,11 +14,15 @@ public class CharacterDamageController : MonoBehaviour
     
     public PlayerStats playerStats;
 
+    public AudioClip beboAuch;
+    private AudioSource audioSource;
+
     void Start()
     {
         parentObject = transform.parent.gameObject;
         spriteRenderer = parentObject.GetComponent<SpriteRenderer>();
         rb2D = parentObject.GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,6 +32,8 @@ public class CharacterDamageController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (playerStats.vida <= 0) return;
+
         if (col.gameObject.CompareTag("Enemigo") && Time.time > lastDamageTime + invulnerabilityTime)
         {
             FlashRed();
@@ -37,7 +44,18 @@ public class CharacterDamageController : MonoBehaviour
             Debug.Log("Player received damage: " + cuanto);
             Debug.Log("Player life: " + playerStats.vida);
 
+            repoducirSonido();
+
             Knockback(col.transform);
+        }
+    }
+
+    private void repoducirSonido() {
+        int n = PlayerPrefs.GetInt("SelectedSkin");
+        if (n == 0)
+        {
+            // reproduce auch de bebo
+            audioSource.PlayOneShot(beboAuch);
         }
     }
 

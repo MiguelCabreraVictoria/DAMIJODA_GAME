@@ -19,6 +19,8 @@ public class Item : MonoBehaviour
     // Color original del sprite
     private Color originalColor;
 
+    public PlayerStats playerStats;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +41,20 @@ public class Item : MonoBehaviour
 
         // Almacena el color original del sprite
         originalColor = spriteRenderer.color;
+
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<PlayerStats>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerStats.vida <= 0)
+        {
+            Destroy(gameObject);
+        }
         // Si hay un objeto personaje y el personaje tiene escudo, obtén el índice del item y actualiza el sprite mostrado
         if (characterObject != null && characterObject.hasShield)
         {

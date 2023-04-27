@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; // Importa el namespace de SceneManagement
 using TMPro;
+using UnityEngine.Audio;
 
 public class CharacterMenu : MonoBehaviour
 {
@@ -18,9 +19,14 @@ public class CharacterMenu : MonoBehaviour
 
     string[] nombres = new string[6]; // Crea un arreglo de nombres de 5 elementos
 
+    public AudioClip beboSound;
+    private AudioSource audioSource;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+    
         // Asigna valores a cada elemento del arreglo
         nombres[0] = "Bebo";
         nombres[1] = "Daniel";
@@ -50,6 +56,7 @@ public class CharacterMenu : MonoBehaviour
         Debug.Log(n);
         image.sprite = sprites[n];
         PlayerPrefs.SetInt(selectedSkinKey, n); // Guarda la selección de la skin utilizando PlayerPrefs
+        repoducirSonido(n);
         UpdateSkinNumberText(); // Actualiza el valor del texto
     }
 
@@ -63,7 +70,16 @@ public class CharacterMenu : MonoBehaviour
         Debug.Log(n);
         image.sprite = sprites[n];
         PlayerPrefs.SetInt(selectedSkinKey, n); // Guarda la selección de la skin utilizando PlayerPrefs
+        repoducirSonido(n);
         UpdateSkinNumberText(); // Actualiza el valor del texto
+    }
+
+    private void repoducirSonido(int n) {
+        if (n == 0)
+        {
+            // reproduce sonido de bebo
+            audioSource.PlayOneShot(beboSound);
+        }
     }
 
     private void UpdateSkinNumberText()

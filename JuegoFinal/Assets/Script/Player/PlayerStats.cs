@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public int velocidad = 3;
-    public int resistencia = 3;
+    public int resistencia = 0;
     public int vida = 100;
     public int fuerza = 5;
-    public int mana = 100;
+    public int mana = 0;
 
     public TextMeshProUGUI velocidadText;
     public TextMeshProUGUI manaText;
@@ -35,8 +35,16 @@ public class PlayerStats : MonoBehaviour
     public Sprite shieldFull;
 
     public GameObject manaImage;
+    public GameObject speedImage;
+    
     public Sprite manaImageBlue;
     public Sprite manaImageWhite;
+
+    public GameObject timeObject;
+
+    void Start() {
+        timeObject.SetActive(false);
+    }
     
     // Update is called once per frame
     void Update()
@@ -102,7 +110,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void SubirMana(int cuanto)
+    public void subirMana(int cuanto)
     {
         mana += cuanto;
         if (mana > 100)
@@ -110,6 +118,37 @@ public class PlayerStats : MonoBehaviour
             mana = 100;
         }
     }
+
+    public void startSpeedEffect(int cuanto)
+    {
+        StartCoroutine(speedEffect(cuanto));
+    }
+
+    IEnumerator speedEffect(int cuanto)
+    {
+        velocidad += cuanto;
+        // cambiar velocidad text a amarillo
+        velocidadText.color = new Color32(255, 255, 0, 255);
+        // cambiar speedImage a amarillo
+        speedImage.GetComponent<Image>().color = new Color32(255, 255, 0, 255);
+        // este game object su sprite renderer ponerlo color amarillo
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 0, 255);
+
+        timeObject.SetActive(true);
+
+        timeObject.GetComponent<TimeScript>().startCountdown(5);
+
+        yield return new WaitForSeconds(5);
+        velocidad -= cuanto;
+
+        // cambiar velocidad text a blanco
+        velocidadText.color = new Color32(255, 255, 255, 255);
+        // cambiar speedImage a blanco
+        speedImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        // este game object su sprite renderer ponerlo color blanco
+        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+    }
+    
 
     public void recibirAtaque(int cuanto)
     {

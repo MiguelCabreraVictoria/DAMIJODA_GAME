@@ -30,6 +30,13 @@ public class Valefar : MonoBehaviour
 
     public PlayerStats playerStats;
 
+    private Animator animator;
+
+    public int manaForHit = 10;
+    public int manaForDeath = 50;
+
+    private bool hasBacked;
+    
     private void SaySomething()
     {
         //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
@@ -52,6 +59,7 @@ public class Valefar : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         burbuja.SetActive(false);
     }
 
@@ -66,6 +74,7 @@ public class Valefar : MonoBehaviour
         else if (amIonTheAttackZone && player != null && player.isAttacking)
         {
             vida -= playerStats.fuerza;
+            playerStats.subirMana(10);
             Debug.Log("AUCH! Vida restante: " + vida);
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
@@ -111,6 +120,7 @@ public class Valefar : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, transform.position); // Cambiar a PlayClipAtPoint
         // Desactivar el personaje
         gameObject.SetActive(false);
+        playerStats.subirMana(50);
     }
 
     IEnumerator FlashDamage()
@@ -125,11 +135,20 @@ public class Valefar : MonoBehaviour
     // Función para que Valefar siga al jugador
     void FollowPlayer()
     {
+        if (playerStats.vida <= 0) {
+            if (!hasBacked) { // Si el jugador está muerto, huir
+                StartCoroutine(FleeFromPlayer());
+                animator.SetBool("isWalking", false);
+                hasBacked = true;
+            }
+            return; // Si el jugador está muerto, no hacer nada
+        } 
         if (player != null)
         {
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
             if (distanceToPlayer <= chaseRange)
             {
+                animator.SetBool("isWalking", true);
                 // Guardar la posición anterior
                 Vector2 previousPosition = transform.position;
 
@@ -148,6 +167,8 @@ public class Valefar : MonoBehaviour
                 {
                     spriteRenderer.flipX = false;
                 }
+            } else {
+                animator.SetBool("isWalking", false);
             }
         }
     }

@@ -15,7 +15,7 @@ public class CharacterMovementController : MonoBehaviour
 
     public void MoveCharacter(Vector2 direction)
     {
-        if (isTeleporting) {
+        if (isTeleporting || playerStats.vida <= 0) {
             rb2D.velocity = Vector2.zero;
             return;
         }
