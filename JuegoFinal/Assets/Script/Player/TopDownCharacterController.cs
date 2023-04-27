@@ -13,6 +13,8 @@ public class TopDownCharacterController : MonoBehaviour
 
     private Vector2 currentDirection = Vector2.zero;
 
+    public GameObject item;
+
     private void Start()
     {
         movementController = GetComponent<CharacterMovementController>();
@@ -161,6 +163,7 @@ public class TopDownCharacterController : MonoBehaviour
     IEnumerator teleporting() {
         yield return new WaitForSeconds(1.2f);
         skinController.HideCharacter();
+        item.SetActive(false);
     }
 }
 

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CharacterDamageController : MonoBehaviour
 {
-    public int vidas = 3;
     public float knockbackForce = 5f;
     public float invulnerabilityTime = 1f;
     private float lastDamageTime;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
     private GameObject parentObject;
+    
+    public PlayerStats playerStats;
 
     void Start()
     {
@@ -29,15 +30,14 @@ public class CharacterDamageController : MonoBehaviour
         if (col.gameObject.CompareTag("Enemigo") && Time.time > lastDamageTime + invulnerabilityTime)
         {
             FlashRed();
-            vidas -= 1;
+            // vida menos ataque del enemigo divivido entre la resistencia del personaje
+
+            int cuanto = (col.gameObject.GetComponent<Enemigo>().ataque / (playerStats.resistencia + 1));
+            playerStats.recibirAtaque(cuanto);
+            Debug.Log("Player received damage: " + cuanto);
+            Debug.Log("Player life: " + playerStats.vida);
+
             Knockback(col.transform);
-            //Debug.Log("¡Auch! El diablito me pegó.");
-            
-            if (vidas <= 0)
-            {
-                Debug.Log("¡El personaje ha muerto!");
-                // Aquí puedes agregar código para manejar la muerte del personaje, como mostrar una pantalla de Game Over
-            }
         }
     }
 
@@ -55,12 +55,12 @@ public class CharacterDamageController : MonoBehaviour
 
     private void Knockback(Transform enemyTransform)
     {
-        Debug.Log("Knockback!");
+        // Debug.Log("Knockback!");
 
         Vector2 knockbackDirection = (parentObject.transform.position - enemyTransform.position).normalized;
         float knockbackDistance = knockbackForce * Time.deltaTime;
 
-        Debug.Log(knockbackDirection);
+        // Debug.Log(knockbackDirection);
         rb2D.MovePosition(rb2D.position + knockbackDirection * knockbackDistance);
     }
 }

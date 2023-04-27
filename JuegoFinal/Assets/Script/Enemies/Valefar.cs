@@ -28,6 +28,8 @@ public class Valefar : MonoBehaviour
     public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
     public bool habla = true;
 
+    public PlayerStats playerStats;
+
     private void SaySomething()
     {
         //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
@@ -63,7 +65,7 @@ public class Valefar : MonoBehaviour
         }
         else if (amIonTheAttackZone && player != null && player.isAttacking)
         {
-            vida -= 10f;
+            vida -= playerStats.fuerza;
             Debug.Log("AUCH! Vida restante: " + vida);
             player.isAttacking = false;
             StartCoroutine(FlashDamage());

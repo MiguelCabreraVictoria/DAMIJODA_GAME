@@ -8,6 +8,8 @@ public class Dialogo : MonoBehaviour
     public TextMeshProUGUI textDialogo; // Referencia al objeto TextMeshProUGUI
     private int indice; // Indice del arreglo de mensajes
     public float velocidad = 1.0f; // Velocidad de escritura
+    public GameObject userStats;
+    public GameObject userStatsSombra;
         
     // funcion publica void ComenzarDialogo que recibe como parametro un arreglo de mensajes (strings)
     // esta funcion se encarga de mostrar el dialogo en pantalla
@@ -17,6 +19,9 @@ public class Dialogo : MonoBehaviour
         indice = 0;
         // Mostramos el dialogo
         StartCoroutine(MostrarDialogo(mensajes));
+        userStats.SetActive(false);
+        userStatsSombra.SetActive(false);
+        
     }
 
     // funcion IEnumerator MostrarDialogo que recibe como parametro un arreglo de mensajes (strings)
@@ -36,6 +41,9 @@ public class Dialogo : MonoBehaviour
         // Ocultamos el dialogo
         textDialogo.text = "";
         gameObject.SetActive(false);
+        userStats.SetActive(true);
+        userStatsSombra.SetActive(true);
+        
     }
 
     // funcion IEnumerator EscribirMensaje que recibe como parametro un string
