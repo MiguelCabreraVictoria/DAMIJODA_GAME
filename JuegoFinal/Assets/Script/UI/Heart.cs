@@ -7,6 +7,7 @@ public class Heart : MonoBehaviour
 {
     public int heartNum;
     public CharacterDamageController characterDamage;
+    public CharacterBulletDamageController characterBulletDamage;
     public Sprite heartFull;
     public Sprite heartEmpty;
     private Image heartImage;
@@ -20,7 +21,7 @@ public class Heart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (characterDamage.vidas < heartNum)
+        if ((characterDamage.vidas < heartNum) || (characterBulletDamage.vidas < heartNum))
         {
             // Cambia la imagen a corazón gris
             heartImage.sprite = heartEmpty;
