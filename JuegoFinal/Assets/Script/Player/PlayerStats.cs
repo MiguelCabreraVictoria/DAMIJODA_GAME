@@ -103,10 +103,6 @@ public class PlayerStats : MonoBehaviour
             // lo pondremos azul el color del manaText
             manaText.color = new Color32(0, 255, 255, 255);
             manaImage.GetComponent<Image>().sprite = manaImageBlue;
-        } else {
-            // lo pondremos blanco el color del manaText
-            manaText.color = new Color32(255, 255, 255, 255);
-            manaImage.GetComponent<Image>().sprite = manaImageWhite;
         }
     }
 
@@ -119,44 +115,118 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void startSpeedEffect(int cuanto)
+    public void subirVida(int cuanto)
     {
-        StartCoroutine(speedEffect(cuanto));
+        vida += cuanto;
+        if (vida > 100)
+        {
+            vida = 100;
+        }
     }
 
-    IEnumerator speedEffect(int cuanto)
+    public void startSpeedEffect(int cuanto, int segundos)
     {
-        velocidad += cuanto;
-        // cambiar velocidad text a amarillo
-        velocidadText.color = new Color32(255, 255, 0, 255);
-        // cambiar speedImage a amarillo
-        speedImage.GetComponent<Image>().color = new Color32(255, 255, 0, 255);
-        // este game object su sprite renderer ponerlo color amarillo
-        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 0, 255);
+        StartCoroutine(speedEffect(cuanto, segundos));
+    }
 
-        timeObject.SetActive(true);
 
-        timeObject.GetComponent<TimeScript>().startCountdown(5);
-
-        yield return new WaitForSeconds(5);
-        velocidad -= cuanto;
-
-        // cambiar velocidad text a blanco
-        velocidadText.color = new Color32(255, 255, 255, 255);
-        // cambiar speedImage a blanco
-        speedImage.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-        // este game object su sprite renderer ponerlo color blanco
-        gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+    public void startStrengthEffect(int cuanto, int segundos)
+    {
+        StartCoroutine(strengthEffect(cuanto, segundos));
     }
     
+    IEnumerator speedEffect(int cuanto, int segundos)
+    {
+        velocidad += cuanto;
+        
+        timeObject.SetActive(true);
+        timeObject.GetComponent<TimeScript>().startCountdown(segundos);
+
+        yield return new WaitForSeconds(segundos);
+        velocidad -= cuanto;
+    }
+
+    IEnumerator strengthEffect(int cuanto, int segundos)
+    {
+        int prevFuerza = fuerza;
+        fuerza = cuanto;
+        
+        timeObject.SetActive(true);
+        timeObject.GetComponent<TimeScript>().startCountdown(segundos);
+
+        yield return new WaitForSeconds(segundos);
+        fuerza = prevFuerza;
+    }
+
+    public void startFlashUI(Color32 color, float segundos, TextMeshProUGUI text, GameObject icon)
+    {
+        StartCoroutine(flashUI(color, segundos, text, icon));
+    }
+
+    IEnumerator flashUI(Color32 color, float segundos, TextMeshProUGUI text, GameObject icon)
+    {
+        // cambiar velocidad text a color
+        text.color = color;
+        // cambiar speedImage a color
+        icon.GetComponent<Image>().color = color;
+        yield return new WaitForSeconds(segundos-2);
+
+        // flash 10 times
+        for (int i = 0; i < 10; i++) {
+            text.color = color; // cambiar velocidad text a color
+            icon.GetComponent<Image>().color = color; // cambiar speedImage a color
+            yield return new WaitForSeconds(0.1f);
+            text.color = new Color32(255, 255, 255, 255); // cambiar velocidad text a blanco
+            icon.GetComponent<Image>().color = new Color32(255, 255, 255, 255); // cambiar speedImage a blanco
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator flashHearts() {
+        // flash 10 times
+        for (int i = 0; i < 10; i++) {
+            // flash color red
+            heart1.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+            heart2.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+            heart3.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+        
+            yield return new WaitForSeconds(0.1f);
+            // flash color white
+            heart1.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            heart2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            heart3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public void startFlashHearts() {
+        StartCoroutine(flashHearts());
+    }
+
+    // esta función es para hacer flash al player 
+    public void startFlashPlayer(Color32 color, float segundos)
+    {
+        StartCoroutine(flashPlayer(color, segundos));
+    }
+
+    IEnumerator flashPlayer(Color32 color, float segundos)
+    {
+        // este game object su sprite renderer ponerlo color
+        gameObject.GetComponent<SpriteRenderer>().color = color;
+        yield return new WaitForSeconds(segundos-2);
+
+        // flash 10 times
+        for (int i = 0; i < 10; i++) {
+            gameObject.GetComponent<SpriteRenderer>().color = color; // este game object su sprite renderer ponerlo color
+            yield return new WaitForSeconds(0.1f);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255); // este game object su sprite renderer ponerlo color blanco
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
 
     public void recibirAtaque(int cuanto)
     {
         vida -= cuanto;
-        if (vida <= 0)
-        {
-            Debug.Log("¡El personaje ha muerto!");
-            // Aquí puedes agregar código para manejar la muerte del personaje, como mostrar una pantalla de Game Over
-        }
     }
 }

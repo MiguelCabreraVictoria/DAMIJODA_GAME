@@ -32,8 +32,8 @@ public class Valefar : MonoBehaviour
 
     private Animator animator;
 
-    public int manaForHit = 10;
-    public int manaForDeath = 50;
+    public int manaForHit = 5;
+    public int manaForDeath = 25;
 
     private bool hasBacked;
     
@@ -74,7 +74,7 @@ public class Valefar : MonoBehaviour
         else if (amIonTheAttackZone && player != null && player.isAttacking)
         {
             vida -= playerStats.fuerza;
-            playerStats.subirMana(10);
+            playerStats.subirMana(manaForHit);
             Debug.Log("AUCH! Vida restante: " + vida);
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
@@ -120,7 +120,7 @@ public class Valefar : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, transform.position); // Cambiar a PlayClipAtPoint
         // Desactivar el personaje
         gameObject.SetActive(false);
-        playerStats.subirMana(50);
+        playerStats.subirMana(manaForDeath);
     }
 
     IEnumerator FlashDamage()
