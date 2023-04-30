@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8816251045793835885}
   - component: {fileID: 8816251045793835884}
   - component: {fileID: 8816251045793835887}
-  - component: {fileID: 8816251045793835886}
   - component: {fileID: 8816251045793835881}
+  - component: {fileID: 3495762183209722251}
   - component: {fileID: 8816251045793835794}
   m_Layer: 0
   m_Name: Spordus
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -105541197
-  m_SortingLayer: 0
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: edc4ec9b25479484c9bd920700841585, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -137,40 +137,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8816251045793835886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8816251045793835883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vida: 100
-  amIonTheAttackZone: 0
-  player: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  damageFlashDuration: 0.2
-  fireParticlesPrefab: {fileID: 8158897377042618211, guid: 0849fd27ce88240aeb7e397a500a56f5,
-    type: 3}
-  hitSound: {fileID: 8300000, guid: 9c58e87d7cb4941ea929f143eaf348d4, type: 3}
-  deathSound: {fileID: 8300000, guid: 89f170695a52b4ca5bd5c1d000133141, type: 3}
-  fleeSpeed: 4
-  fleeDuration: 0.5
-  chaseSpeed: 2
-  chaseRange: 20
-  gpt: {fileID: 0}
-  mensaje: {fileID: 0}
-  burbuja: {fileID: 0}
-  prompt: "Valefar es un personaje de nuestro videojuego rpg de fantas\xEDa, es un
-    diablito rojo con fuego en las manos dime una frase de m\xE1ximo 6 palabras que
-    podr\xEDa decirle a nuestro personaje cuando esta siendo atacado que suene graciosa,
-    divertida, amenzantes o todas ellas."
-  habla: 1
-  playerStats: {fileID: 0}
 --- !u!82 &8816251045793835881
 AudioSource:
   m_ObjectHideFlags: 0
@@ -267,6 +233,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3495762183209722251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8816251045793835883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 30
+  amIonTheAttackZone: 0
+  player: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  damageFlashDuration: 0.2
+  fireParticlesPrefab: {fileID: 0}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  fleeSpeed: 10
+  fleeDuration: 0.1
+  chaseSpeed: 2
+  chaseRange: 5
+  gpt: {fileID: 0}
+  mensaje: {fileID: 0}
+  burbuja: {fileID: 0}
+  prompt: "Valefar es un personaje de nuestro videojuego rpg de fantas\xEDa, es un
+    diablito rojo con fuego en las manos dime una frase de m\xE1ximo 6 palabras que
+    podr\xEDa decirle a nuestro personaje cuando esta siendo atacado que suene graciosa,
+    divertida, amenzantes o todas ellas."
+  habla: 1
+  playerStats: {fileID: 0}
 --- !u!114 &8816251045793835794
 MonoBehaviour:
   m_ObjectHideFlags: 0
