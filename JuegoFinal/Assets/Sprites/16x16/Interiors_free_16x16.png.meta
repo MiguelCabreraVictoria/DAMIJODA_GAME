@@ -1571,7 +1571,7 @@ TextureImporter:
         serializedVersion: 2
         x: 13
         y: 976
-        width: 38
+        width: 19
         height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -5585,7 +5585,7 @@ TextureImporter:
         width: 16
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5606,7 +5606,7 @@ TextureImporter:
         width: 16
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5627,7 +5627,7 @@ TextureImporter:
         width: 15
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5648,7 +5648,7 @@ TextureImporter:
         width: 31
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5669,7 +5669,7 @@ TextureImporter:
         width: 31
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5677,6 +5677,27 @@ TextureImporter:
       bones: []
       spriteID: 8c46d14cc940afa448b09d651af4d42c
       internalID: -1875703423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interiors_free_16x16_265
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 976
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b5e6d74d39d54409ca6701d39ad656
+      internalID: -1811054870
       vertices: []
       indices: 
       edges: []
@@ -5877,6 +5898,7 @@ TextureImporter:
       Interiors_free_16x16_262: 1480013604
       Interiors_free_16x16_263: -468183755
       Interiors_free_16x16_264: -1875703423
+      Interiors_free_16x16_265: -1811054870
       Interiors_free_16x16_27: 461573688
       Interiors_free_16x16_28: 1525052242
       Interiors_free_16x16_29: 1441600300
