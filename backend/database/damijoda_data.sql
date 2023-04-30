@@ -12,7 +12,9 @@
 
 -- Tecnologico de Monterrey, Campus Santa Fe
 
--- SQL Script to insert data into the db
+-- SQL Script to insert data into the db 
+
+--No se establece una tabla de usuarios debido a que las contraseña se guardan encriptadas en la base de datos.
 
 USE damijoda;
 
@@ -21,10 +23,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 INSERT INTO damijoda.enemies (enemy_name, HP, attack, defense, velocity, boss_id) VALUES
     ('Oraculo', 50, 10, 5, 20, 1),
     ('Velafar', 50, 15, 10, 15, 2),
-    ('VelafarVerde', 50, 20, 15, 10, 2),
-    ('Astaroth', 50, 25, 20, 5, 2),
-    ('Berius', 50, 30, 25, 3, 3) 
-    SET FOREIGN_KEY_CHECKS=0;
+    ('VelafarVerde', 50, 20, 15, 10, 3),
+    ('Astaroth', 50, 25, 20, 5, 4),
+    ('Berius', 50, 30, 25, 3, 4);
 
 INSERT INTO  damijoda.bosses (boss_name, HP, attack, defense, velocity, enemy_id) VALUES
     ('SeQueLus', 100, 50, 30, 10, 1),
@@ -41,20 +42,20 @@ INSERT INTO damijoda.levels (boss_id) VALUES
 
 INSERT INTO damijoda.matches (user_id, level_id, match_name) VALUES
     (1, 3,'partida Miguel'),
-    (2, 2,'partida David'),
-    (3, 1, 'partida Joaq'),
+    (2, 2,'partida Luis'),
+    (3, 1, 'partida David'),
     (4, 4, 'partida Nat'), -- added comma after 4
-    (5, 2, 'partida Luis'),
-    (6, 1, 'partida Daniel');
+    (5, 2, 'partida Daniel'),
+    (6, 1, 'partida Joaquin');
 
 
 INSERT INTO damijoda.characters (character_name, HP, attack, defense, velocity, match_id) VALUES
     ('Miguel', 150, 30, 10, 15, 1),
-    ('Nat', 150, 30, 10, 15, 4),
+    ('Luis', 150, 30, 10, 15, 4),
     ('David', 150, 30, 10, 15, 2),
-    ('Joaq', 150, 30, 10, 15, 3),
-    ('Luis', 150, 30, 10, 15, 5),
-    ('Daniel', 150, 30, 10, 15, 6);
+    ('Nat', 150, 30, 10, 15, 3),
+    ('Daniel', 150, 30, 10, 15, 5),
+    ('Joaquin', 150, 30, 10, 15, 6);
 
 INSERT INTO damijoda.weapons (weapon_name, level, damage, character_id) VALUES
     ('SableLaser', 1, 10, 1),
