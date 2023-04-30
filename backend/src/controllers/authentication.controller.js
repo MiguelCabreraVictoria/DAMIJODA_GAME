@@ -47,6 +47,12 @@
     //Profile
     export const GetProfile = async (req,res)=>{
         const [user] = req.user; 
+        
+        //Json Web Token
+
+        const token = jwt.sign({user}, SESS_SECRET);
+        res.json({token})
+
 
         res.render('index',{user:user}); //enviar el usuario a la vista y pagina 
         console.log("-> estoy en el profile");
