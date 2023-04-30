@@ -7,11 +7,12 @@
  */
 
 import express from 'express';
+import jwt from 'jsonwebtoken';
 const router = express.Router();
 
 import {auth} from '../lib/auth.js';
 
-import {GetIndex,GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetMatches,GetLogout,GetError404} from '../controllers/authentication.controller.js';
+import {GetIndex,GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetMatches,GetLogout} from '../controllers/authentication.controller.js';
 
 router.get('/',auth.isLoggedIn,GetIndex);
 
@@ -32,7 +33,9 @@ router.get('/profile',auth.isLoggedIn,GetProfile);
 
 //Json endpoints
 
-router.get('/profile/api/matches',auth.isLoggedIn,GetMatches);
+router.get('/profile/api/matches',ensureToken,GetMatches);
+
+
 
 
 
@@ -41,6 +44,23 @@ router.get('/logout',GetLogout)
 
 //404 page
 
-router.all('*',GetError404);
+// router.all('*',GetError404);
+
+
+//Authorization: Bearer <token>
+function ensureToken(req,res,next){
+    const bearerHeader = req.headers["authorization"]; //get the auth header value
+    console.log(bearerHeader);
+    
+    if(typeof bearerHeader !== 'undefined'){
+        const bearer = bearerHeader.split(" ");
+        const bearerToken = bearer[1];
+        req.token = bearerToken;
+        console.log(req.token);
+        next();
+    }else{
+        res.sendStatus(403);
+    }
+}
 
 export default router;

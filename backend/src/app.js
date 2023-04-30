@@ -58,7 +58,7 @@ app.use(session({
 
 app.use(flash());
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(express.json()); //post data formato json
 app.use(express.urlencoded({extended:false})); //post data desde un form
 
@@ -87,5 +87,7 @@ app.use(express.static(__dirname + '/public'));
 
 //Starting server
 app.listen(PORT,()=>{
+    console.log("---------------------------")
     console.log(`The port ${PORT} is listening`);
+    console.log("---------------------------")
 })
