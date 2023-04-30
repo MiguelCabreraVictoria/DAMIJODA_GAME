@@ -13,8 +13,6 @@ public class TopDownCharacterController : MonoBehaviour
 
     private Vector2 currentDirection = Vector2.zero;
 
-
-
     private void Start()
     {
         movementController = GetComponent<CharacterMovementController>();
@@ -148,6 +146,17 @@ public class TopDownCharacterController : MonoBehaviour
             }
         }
 
+    }
+
+    public void teleport() {
+        movementController.isTeleporting = true;
+        animationController.teleportAnimation();
+        StartCoroutine(teleporting());
+    }
+
+    IEnumerator teleporting() {
+        yield return new WaitForSeconds(1.2f);
+        skinController.HideCharacter();
     }
 }
 

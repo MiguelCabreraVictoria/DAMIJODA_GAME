@@ -10,11 +10,13 @@ public class CharacterDamageController : MonoBehaviour
     private float lastDamageTime;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
+    private GameObject parentObject;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        rb2D = GetComponent<Rigidbody2D>();
+        parentObject = transform.parent.gameObject;
+        spriteRenderer = parentObject.GetComponent<SpriteRenderer>();
+        rb2D = parentObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -22,13 +24,13 @@ public class CharacterDamageController : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemigo") && Time.time > lastDamageTime + invulnerabilityTime)
         {
             FlashRed();
             vidas -= 1;
-            Knockback(col);
+            Knockback(col.transform);
             Debug.Log("¡Auch! El diablito me pegó.");
             
             if (vidas <= 0)
@@ -51,12 +53,11 @@ public class CharacterDamageController : MonoBehaviour
         spriteRenderer.color = Color.white;
     }
 
-    private void Knockback(Collision2D col)
+    private void Knockback(Transform enemyTransform)
     {
         Debug.Log("Knockback!");
-        Debug.Log(col.gameObject.tag);
 
-        Vector2 knockbackDirection = (transform.position - col.transform.position).normalized;
+        Vector2 knockbackDirection = (parentObject.transform.position - enemyTransform.position).normalized;
         float knockbackDistance = knockbackForce * Time.deltaTime;
 
         Debug.Log(knockbackDirection);

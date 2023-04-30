@@ -14,6 +14,8 @@ namespace Cainos.PixelArtTopDown_Basic
         private Color curColor;
         private Color targetColor;
 
+        public Laser laser;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             targetColor = new Color(1, 1, 1, 1);
@@ -31,6 +33,11 @@ namespace Cainos.PixelArtTopDown_Basic
             foreach (var r in runes)
             {
                 r.color = curColor;
+            }
+
+            if (curColor == new Color(1, 1, 1, 1)) {
+                Debug.Log("Altar is activated");
+                laser.startLaser();
             }
         }
     }
