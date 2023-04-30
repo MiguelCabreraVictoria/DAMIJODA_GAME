@@ -22,7 +22,7 @@ passport.use('local.login', new LocalStrategy({
 }, async (req, username, password, done)=>{
     //console.log(req.body);
 
-    const [rows] = await pool.query('SELECT * FROM users WHERE username = ?',[username]);
+    const [rows] = await pool.query('SELECT * FROM damijoda.users WHERE username = ?',[username]);
     //si encuentra un usuario
     if(rows.length > 0){
         const user = rows[0];

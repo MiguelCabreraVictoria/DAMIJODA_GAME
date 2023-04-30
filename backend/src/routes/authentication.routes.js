@@ -12,7 +12,21 @@ const router = express.Router();
 
 import {auth} from '../lib/auth.js';
 
-import {GetIndex,GetLogin,PostLogin,GetSingup,PostSignup,GetProfile,GetMatches,GetLogout} from '../controllers/authentication.controller.js';
+import {GetIndex,
+        GetLogin,
+        PostLogin,
+        GetSingup,
+        PostSignup,
+        GetProfile,
+        GetMatches,
+        GetLevels,
+        GetBosses,
+        GetEnemies,
+        GetCharacters,
+        GetGems,
+        GetArmors,
+        GetWeapons,
+        GetLogout} from '../controllers/authentication.controller.js';
 
 router.get('/',auth.isLoggedIn,GetIndex);
 
@@ -21,26 +35,28 @@ router.get('/',auth.isLoggedIn,GetIndex);
 router.get('/login',GetLogin);
 router.post('/login',PostLogin);
 
-
-
 //Login routes
 router.get('/signup', GetSingup);
 router.post('/signup', PostSignup);
 
-
 //profile
 router.get('/profile',auth.isLoggedIn,GetProfile);
 
-//Json endpoints
-
-router.get('/profile/api/matches',ensureToken,GetMatches);
-
-
-
-
-
 //logout 
 router.get('/logout',GetLogout)
+
+//Json get endpoints
+
+router.get('/profile/api/matches',auth.isLoggedIn,GetMatches);
+router.get('/profile/api/levels', auth.isLoggedIn,GetLevels);
+router.get('/profile/api/bosses', auth.isLoggedIn,GetBosses);
+router.get('/profile/api/enemies', auth.isLoggedIn,GetEnemies);
+router.get('/profile/api/characters', auth.isLoggedIn,GetCharacters);
+router.get('/profile/api/gems', auth.isLoggedIn,GetGems);
+router.get('/profile/api/armors', auth.isLoggedIn,GetArmors);
+router.get('/profile/api/weapons', auth.isLoggedIn,GetWeapons);
+
+
 
 //404 page
 
