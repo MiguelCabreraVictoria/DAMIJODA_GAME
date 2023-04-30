@@ -6,6 +6,8 @@ TagManager:
   tags:
   - AttackZone
   - Enemigo
+  - Bullet
+  - Colliders
   layers:
   - Default
   - TransparentFX

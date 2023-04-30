@@ -33,7 +33,7 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if((other.gameObject.CompareTag("Player")) || (other.gameObject.CompareTag("Colliders")))
         {
             Destroy(gameObject);
         }
