@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerSword : MonoBehaviour
 {
-    private Vector2 pointerInput;
-    public Vector2 PointerInput => pointerInput;
 
     private WeaponParent weaponParent;
 
     [SerializeField] 
     private InputActionReference attack, pointerPosition;
+
+    private Vector2 pointerInput;
 
     private void Awake()
     {
@@ -37,6 +37,7 @@ public class PlayerSword : MonoBehaviour
     private void Update()
     {
         pointerInput = GetPointerInput();
+        weaponParent.PointerPosition = pointerInput;
 
         if (attack.action.inProgress)
         {
@@ -47,6 +48,7 @@ public class PlayerSword : MonoBehaviour
     private Vector2 GetPointerInput()
     {
         Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
-        return mousePos;
+        mousePos.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }
