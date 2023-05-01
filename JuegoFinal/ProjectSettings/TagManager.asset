@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AttackZone
+  - Enemigo
+  - walls
+  - IgnoreBullets
   layers:
   - Default
   - TransparentFX
@@ -28,8 +32,8 @@ TagManager:
   - Layer 1
   - Layer 2
   - Layer 3
-  - 
-  - 
+  - PlayerProjectile
+  - Enemy
   - 
   - 
   - 

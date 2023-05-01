@@ -21,14 +21,4 @@ public class CharacterMovementController : MonoBehaviour
         }
         rb2D.velocity = speed * direction;
     }
-
-    public void Flip()
-    {
-        transform.Rotate(0f, 180f, 0f);
-
-        // Cambiar la escala en el eje X para voltear el personaje horizontalmente
-        Vector3 newScale = transform.localScale;
-        newScale.x *= -1;
-        transform.localScale = newScale;
-    }
 }
