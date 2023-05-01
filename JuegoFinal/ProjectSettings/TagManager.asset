@@ -66,3 +66,6 @@ TagManager:
   - name: SeeThroughWall
     uniqueID: 2459547175
     locked: 0
+  - name: Player
+    uniqueID: 32782037
+    locked: 0
