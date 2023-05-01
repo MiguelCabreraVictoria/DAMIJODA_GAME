@@ -7,6 +7,8 @@ public class CharacterAttackController : MonoBehaviour
     public bool isAttacking;
     public bool isOnTalkZone = false;
 
+    
+
     private void Start()
     {
         animationController = GetComponent<CharacterAnimationController>();
@@ -22,4 +24,6 @@ public class CharacterAttackController : MonoBehaviour
         animationController.SetIsAttacking(false);
         isAttacking = false;
     }
+
+    
 }
