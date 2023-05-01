@@ -13,6 +13,6 @@ public class Weapon : MonoBehaviour
     public void Fire()
     {
         GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.forward * fireForce, ForceMode2D.Impulse);
+        //projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.forward * fireForce, ForceMode2D.Impulse);
     }
 }
