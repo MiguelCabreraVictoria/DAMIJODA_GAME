@@ -45,7 +45,10 @@ router.get('/profile',auth.isLoggedIn,GetProfile);
 //logout 
 router.get('/logout',GetLogout)
 
+
 //Json get endpoints
+
+//------------------GET DATA------------------//
 
 router.get('/profile/api/matches',auth.isLoggedIn,GetMatches);
 router.get('/profile/api/levels', auth.isLoggedIn,GetLevels);
@@ -56,6 +59,7 @@ router.get('/profile/api/gems', auth.isLoggedIn,GetGems);
 router.get('/profile/api/armors', auth.isLoggedIn,GetArmors);
 router.get('/profile/api/weapons', auth.isLoggedIn,GetWeapons);
 
+//---------------POST DATA-----------------//
 
 
 //404 page

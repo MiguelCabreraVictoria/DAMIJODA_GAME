@@ -87,7 +87,8 @@ app.use(express.static(__dirname + '/public'));
 
 //Starting server
 app.listen(PORT,()=>{
-    console.log("---------------------------")
-    console.log(`The port ${PORT} is listening`);
-    console.log("---------------------------")
+    console.log("|---------------------------------------------------------|")
+    console.log('|           DAMIJODA STUDIOS - PROYECTO FINAL 2023        |')
+    console.log(`|           The port localhost:${PORT} is listening          |`);
+    console.log("|---------------------------------------------------------|")
 })
