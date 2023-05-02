@@ -13,6 +13,7 @@ public class keyTele : MonoBehaviour
     void Start()
     {
         pickUpText.gameObject.SetActive(false);
+        hasKey = false;
     }
 
     // Update is called once per frame
@@ -40,9 +41,9 @@ public class keyTele : MonoBehaviour
         }
     }
 
-    private bool PickUp()
+    private void PickUp()
     {
         Destroy(gameObject);
-        return hasKey = true;
+        hasKey = true;
     }
 }

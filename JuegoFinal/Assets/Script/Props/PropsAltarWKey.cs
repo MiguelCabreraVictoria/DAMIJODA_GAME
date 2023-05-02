@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //when something get into the alta, make the runes glow
 namespace Cainos.PixelArtTopDown_Basic
@@ -8,6 +9,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
     public class PropsAltarWKey : MonoBehaviour
     {
+        [SerializeField] private GameObject needKeyText;
         public List<SpriteRenderer> runes;
         public float lerpSpeed;
 
@@ -16,14 +18,31 @@ namespace Cainos.PixelArtTopDown_Basic
 
         public Laser laser;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private keyTele key;
+
+        private void Start()
         {
-            targetColor = new Color(1, 1, 1, 1);
+            needKeyText.gameObject.SetActive(false);
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+
+            if(collision.gameObject.name.Equals("Player") && key.hasKey == true)
+            {
+            targetColor = new Color(1, 1, 1, 1);
+            }
+            if(collision.gameObject.name.Equals("Player") && key.hasKey == false)
+            {
+                needKeyText.gameObject.SetActive(true);
+                Debug.Log("puto");
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
         {
             targetColor = new Color(1, 1, 1, 0);
+            needKeyText.gameObject.SetActive(false);
         }
 
         private void Update()
