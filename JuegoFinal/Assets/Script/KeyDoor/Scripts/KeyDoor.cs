@@ -5,6 +5,8 @@ using UnityEngine;
 public class KeyDoor : MonoBehaviour {
 
     [SerializeField] private Key.KeyType keyType;
+    public AudioSource doorOpenSound;
+
 
     //private DoorAnims doorAnims;
 
@@ -17,6 +19,7 @@ public class KeyDoor : MonoBehaviour {
     }
 
     public void OpenDoor() {
+        doorOpenSound.Play();
         gameObject.SetActive(false);
         //doorAnims.OpenDoor();
     }
