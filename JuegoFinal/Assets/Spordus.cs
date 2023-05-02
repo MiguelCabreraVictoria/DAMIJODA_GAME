@@ -17,7 +17,6 @@ public class Spordus : MonoBehaviour
     private bool isDying = false; // Agregar esta variable
     public float fleeSpeed = 10.0f;
     public float fleeDuration = 0.1f;
-    public GameObject keyPrefab; // Referencia al prefab de la llave
 
     // Agregar variables para seguimiento
     public float chaseSpeed = 2.0f;
@@ -29,8 +28,19 @@ public class Spordus : MonoBehaviour
     public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
     public bool habla = true;
 
+    public SpecialAttack specialAttack;
+
     public PlayerStats playerStats;
 
+    public int manaForHit = 5;
+    public int manaForDeath = 25;
+
+    private bool hasBacked;
+
+    private bool hasDiedFromSpecialAttack = false;
+
+    public GameObject keyPrefab;
+    
     private void SaySomething()
     {
         //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
@@ -59,15 +69,29 @@ public class Spordus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            
+        if (player.GetComponent<SpecialAttack>().isSpecialAttackDoingDamage && distanceToPlayer < chaseRange)
+        {
+            if (!hasDiedFromSpecialAttack)
+            {
+                vida -= 1000;
+                hasDiedFromSpecialAttack = true;
+                StartCoroutine(FlashDamage());
+                Instantiate(keyPrefab, transform.position, Quaternion.identity);
+            }
+        }
+
         if (vida <= 0 && !isDying) // Modificar esta condición
         {
             isDying = true;
             StartCoroutine(Die());
-            Instantiate(keyPrefab, transform.position, Quaternion.identity); // Instanciar llave
+            Instantiate(keyPrefab, transform.position, Quaternion.identity);
         }
         else if (amIonTheAttackZone && player != null && player.isAttacking)
         {
             vida -= playerStats.fuerza;
+            playerStats.subirMana(manaForHit);
             Debug.Log("AUCH! Vida restante: " + vida);
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
@@ -113,6 +137,9 @@ public class Spordus : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, transform.position); // Cambiar a PlayClipAtPoint
         // Desactivar el personaje
         gameObject.SetActive(false);
+        if (!hasDiedFromSpecialAttack) {
+            playerStats.subirMana(manaForDeath);
+        }
     }
 
     IEnumerator FlashDamage()
@@ -127,10 +154,20 @@ public class Spordus : MonoBehaviour
     // Función para que Valefar siga al jugador
     void FollowPlayer()
     {
+
+        if (playerStats.vida <= 0) {
+            if (!hasBacked) { // Si el jugador está muerto, huir
+                StartCoroutine(FleeFromPlayer());
+                hasBacked = true;
+            }
+            return; // Si el jugador está muerto, no hacer nada
+        } 
         if (player != null)
         {
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-            if (distanceToPlayer <= chaseRange)
+            specialAttack.ShowPressZText(distanceToPlayer <= chaseRange);
+
+            if (distanceToPlayer <= chaseRange && !playerStats.isInvisible)
             {
                 // Guardar la posición anterior
                 Vector2 previousPosition = transform.position;
@@ -150,6 +187,7 @@ public class Spordus : MonoBehaviour
                 {
                     spriteRenderer.flipX = false;
                 }
+            } else {
             }
         }
     }
@@ -157,6 +195,11 @@ public class Spordus : MonoBehaviour
     IEnumerator FleeFromPlayer()
     {
         float elapsedTime = 0.0f;
+
+        if (hasDiedFromSpecialAttack) {
+            fleeDuration = 0.5f;
+            fleeSpeed = 20f;
+        }
 
         while (elapsedTime < fleeDuration)
         {

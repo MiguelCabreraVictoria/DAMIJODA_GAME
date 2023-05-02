@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CharacterBulletDamageController : MonoBehaviour
 {
@@ -13,11 +14,17 @@ public class CharacterBulletDamageController : MonoBehaviour
     
     public PlayerStats playerStats;
 
+    public AudioClip beboAuch;
+    private AudioSource audioSource;
+
+    public SpecialAttack specialAttack;
+
     void Start()
     {
         parentObject = transform.parent.gameObject;
         spriteRenderer = parentObject.GetComponent<SpriteRenderer>();
         rb2D = parentObject.GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,17 +34,34 @@ public class CharacterBulletDamageController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (playerStats.vida <= 0) return;
+
+        if (playerStats.isInvisible) return;
+
+        if (specialAttack.isSpecialAttackActive) return;
+
         if (col.gameObject.CompareTag("Bullet") && Time.time > lastDamageTime + invulnerabilityTime)
         {
             FlashRed();
             // vida menos ataque del enemigo divivido entre la resistencia del personaje
-            
-            int cuantoBullet = (col.gameObject.GetComponent<Bullet>().ataque / (playerStats.resistencia + 1));
-            playerStats.recibirAtaque(cuantoBullet);
-            Debug.Log("Player received damage: " + cuantoBullet);
+
+            int cuanto = (col.gameObject.GetComponent<Bullet>().ataque / (playerStats.resistencia + 1));
+            playerStats.recibirAtaque(cuanto);
+            Debug.Log("Player received damage: " + cuanto);
             Debug.Log("Player life: " + playerStats.vida);
 
+            repoducirSonido();
+
             Knockback(col.transform);
+        }
+    }
+
+    private void repoducirSonido() {
+        int n = PlayerPrefs.GetInt("SelectedSkin");
+        if (n == 0)
+        {
+            // reproduce auch de bebo
+            audioSource.PlayOneShot(beboAuch);
         }
     }
 
