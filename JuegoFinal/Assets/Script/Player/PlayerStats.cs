@@ -12,6 +12,8 @@ public class PlayerStats : MonoBehaviour
     public int fuerza = 5;
     public int mana = 0;
 
+    private int poderes = 0;
+
     public TextMeshProUGUI velocidadText;
     public TextMeshProUGUI manaText;
     public TextMeshProUGUI fuerzaText;
@@ -229,6 +231,7 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator flashPlayer(Color32 color, float segundos)
     {
+        poderes += 1;
         // store the previous color of the player
         Color32 prevColor = gameObject.GetComponent<SpriteRenderer>().color;
         // este game object su sprite renderer ponerlo color
@@ -236,12 +239,18 @@ public class PlayerStats : MonoBehaviour
         yield return new WaitForSeconds(segundos-2);
 
         // flash 10 times
+
         for (int i = 0; i < 10; i++) {
-            gameObject.GetComponent<SpriteRenderer>().color = color; // este game object su sprite renderer ponerlo color
+            if (poderes == 1) {
+                gameObject.GetComponent<SpriteRenderer>().color = color; // este game object su sprite renderer ponerlo color
+            }
             yield return new WaitForSeconds(0.1f);
-            gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255); // este game object su sprite renderer ponerlo blanco
+            if (poderes == 1) {
+                gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255); // este game object su sprite renderer ponerlo blanco
+            }
             yield return new WaitForSeconds(0.1f);
         }
+        poderes -= 1;
     }
 
     public void recibirAtaque(int cuanto)

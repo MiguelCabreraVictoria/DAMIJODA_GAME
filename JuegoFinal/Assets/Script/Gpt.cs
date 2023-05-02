@@ -23,8 +23,12 @@ public class Gpt : MonoBehaviour
     private const string API_URL = "https://api.openai.com/v1/completions";
     public string API_KEY = "";
 
+    private bool requesting = false;
+
     public IEnumerator RequestCompletion(string prompt, Action<string> callback)
     {
+        if (requesting) yield break;
+        requesting = true;
         using (UnityWebRequest request = new UnityWebRequest(API_URL, "POST"))
         {
             // Establece los encabezados de la solicitud
@@ -66,9 +70,10 @@ public class Gpt : MonoBehaviour
                 responseText = responseText.Replace("\n", "");
                 responseText = responseText.Replace("\"", "");
                 
-
+                requesting = false;
                 callback(responseText);
                 Debug.Log("Respuesta: " + responseText);
+
             }
         }
     }

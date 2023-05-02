@@ -15,6 +15,8 @@ public class Dialogo : MonoBehaviour
     public AudioClip sonidoBorrego;
     private AudioSource audioSource;
 
+    public Misiones misiones;
+
     private void Awake()
     {
         // Inicializa el AudioSource
@@ -46,11 +48,17 @@ public class Dialogo : MonoBehaviour
             indice++;
         }
         // Ocultamos el dialogo
+        if (misiones.misionNr == 3) {
+            misiones.misionNr = 4;
+        }
+        Debug.Log("Mision 4");
+
         textDialogo.text = "";
         gameObject.SetActive(false);
         userStats.SetActive(true);
-        userStatsSombra.SetActive(true);
         
+        userStatsSombra.SetActive(true);
+
     }
 
     // funcion IEnumerator EscribirMensaje que recibe como parametro un string

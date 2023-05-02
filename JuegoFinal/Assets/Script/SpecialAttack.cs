@@ -56,9 +56,9 @@ public class SpecialAttack : MonoBehaviour
         }
     }
 
-    public void ShowPressZText(bool onRange)
+    public void ShowPressZText(bool isOnRange)
     {
-        if (!hasShownPressZText && onRange && playerStats.mana >= 100)
+        if (!hasShownPressZText && isOnRange && playerStats.mana >= 100)
         {
             hasShownPressZText = true;
             pressZText.SetActive(true);
@@ -68,7 +68,7 @@ public class SpecialAttack : MonoBehaviour
 
     IEnumerator HidePressZText()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
         pressZText.SetActive(false);
     }
 

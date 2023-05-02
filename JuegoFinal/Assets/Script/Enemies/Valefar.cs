@@ -165,6 +165,7 @@ public class Valefar : MonoBehaviour
         if (player != null)
         {
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            
             specialAttack.ShowPressZText(distanceToPlayer <= chaseRange);
 
             if (distanceToPlayer <= chaseRange && !playerStats.isInvisible)
