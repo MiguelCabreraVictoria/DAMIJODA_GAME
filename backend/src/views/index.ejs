@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/index.css">
 
-    <title>DAMIJODA | <%= user.username %></title>
+    <title>DAMIJODASTUDIOS.com</title>
 </head>
 <body>
     <div class="container">
@@ -21,12 +21,12 @@
                 <a href="/profile"><img src="img/logo.png" alt=""></a>
             </div>
             <ul class="navbar">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Game Zone</a></li>
-                <li><a href="#">Tutorial</a></li>
-                <li><a href="#">Statistics</a></li>
+                <li><a href="/DAMIJODASTUDIOS">Home </a></li>
+                <li><a href="#GAMEZONE">Intro </a></li>
+                <li><a href="#TUTORIAL">Tutorial</a></li>
+                <li><a href="#STATS">Statistics</a></li>
             </ul>
-                <button type="button" id="btn"><i><a class="fas fa-play logout" href="/logout">Log Out</a></i></button>
+                
         </header>
 
         <div class="content-wrapper">
@@ -46,7 +46,7 @@
 
     <div class="logo-section">
         <i class="fas fa-gamepad"></i>
-        <h1>The Game Zone</h1>
+        <h1 id="GAMEZONE">Intoduction</h1>
     </div>
 
     <!-- logo section ends here -->
@@ -69,19 +69,23 @@
                 <br>
                 <div class="section-1-info__img"><img src="img/numero_tres.png" alt=""></div>
             </div>
+
+            <div class="presentacion">
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQwcvwtDAWxbbABrULyaR4gy7wQlo1xJsIVkWlfNIwW6US3jq0qkUm0NEEYaJ1fFY23o90Pkk2atm73/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
     
     </section>
 
     <!-- section 1 ends here -->
 
-    <div class="logo-section">
+    <div class="video-section">
         <i class="fas fa-gamepad"></i>
-        <h1>Tutorial</h1>
+        <h1>Video Tutorial</h1>
     </div>
 
 
     <div class="section-video">
-        <div class="video">
+        <div id="TUTORIAL" class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/V9GmFOyIHw8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
@@ -93,9 +97,9 @@
 
     </div>
 
-    <div class="logo-section">
+    <div class="stat-section">
         <i class="fas fa-gamepad"></i>
-        <h1>Statistics</h1>
+        <h1 id="STATS">Statistics</h1>
     </div>
 
     <div class="statistics">

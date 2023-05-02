@@ -13,6 +13,7 @@ const router = express.Router();
 import {auth} from '../lib/auth.js';
 
 import {GetIndex,
+        GetPage,
         GetLogin,
         PostLogin,
         GetSingup,
@@ -28,14 +29,14 @@ import {GetIndex,
         GetWeapons,
         GetLogout} from '../controllers/authentication.controller.js';
 
-router.get('/',auth.isLoggedIn,GetIndex);
+router.get('/',GetIndex);
+router.get('/DAMIJODASTUDIOS',GetPage);
 
 //Login routes
-
 router.get('/login',GetLogin);
 router.post('/login',PostLogin);
 
-//Login routes
+//SignUp routes
 router.get('/signup', GetSingup);
 router.post('/signup', PostSignup);
 
