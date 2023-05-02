@@ -27,6 +27,7 @@ import {GetIndex,
         GetGems,
         GetArmors,
         GetWeapons,
+        PostMatches,
         GetLogout} from '../controllers/authentication.controller.js';
 
 router.get('/',GetIndex);
@@ -61,6 +62,10 @@ router.get('/profile/api/armors', auth.isLoggedIn,GetArmors);
 router.get('/profile/api/weapons', auth.isLoggedIn,GetWeapons);
 
 //---------------POST DATA-----------------//
+
+router.post('/profile/api/matches',auth.isLoggedIn,PostMatches);
+
+//---------------PUT DATA-----------------//
 
 
 //404 page

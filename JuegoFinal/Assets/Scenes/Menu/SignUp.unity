@@ -288,9 +288,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: NewGameButton
+      - m_Target: {fileID: 1567945950}
+        m_TargetAssemblyTypeName: SignUpPost, Assembly-CSharp
+        m_MethodName: OnLogInButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -504,8 +504,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1567945950}
-        m_TargetAssemblyTypeName: LoginPost, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_TargetAssemblyTypeName: SignUpPost, Assembly-CSharp
+        m_MethodName: OnCreateButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1516,12 +1516,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567945947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd7d8ed8ec15b2e63ae6df35b0e8b5e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c03d2be88e37d55b9bdcb541c1fa5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   usernameField: {fileID: 766249103}
   passwordField: {fileID: 2040935305}
-  button: {fileID: 674560273}
+  Createbutton: {fileID: 674560273}
+  LogInbutton: {fileID: 319861315}
 --- !u!1 &1695642874
 GameObject:
   m_ObjectHideFlags: 0

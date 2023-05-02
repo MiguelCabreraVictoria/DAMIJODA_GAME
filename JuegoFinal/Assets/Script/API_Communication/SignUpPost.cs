@@ -9,7 +9,8 @@ public class SignUpPost : MonoBehaviour
 {
     public InputField usernameField;
     public InputField passwordField;
-    public GameObject button;
+    public GameObject Createbutton;
+    public GameObject LogInbutton;
     private string url = "http://localhost:5000/signup";
 
     // Start is called before the first frame update
@@ -23,22 +24,29 @@ public class SignUpPost : MonoBehaviour
     {
         if(usernameField.text.Length > 4 && passwordField.text.Length > 4)
         {
-            button.SetActive(true);
+            Createbutton.SetActive(true);
         }
         else
         {
-            button.SetActive(false);
+            Createbutton.SetActive(false);
         }
     }
 
-    public void OnButtonClick()
+    public void OnCreateButtonClick()
     {
         string username = usernameField.text;
         string password = passwordField.text;
 
-        Debug.Log("username: " + username + " username: " + password);
+        Debug.Log("username: " + username + " password: " + password);
 
         StartCoroutine(Post(url, username, password));
+
+        SceneManager.LoadScene(1);
+    }
+
+    public void OnLogInButtonClick()
+    {
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator Post(string url, string username, string password)
@@ -51,13 +59,13 @@ public class SignUpPost : MonoBehaviour
 
         yield return www.SendWebRequest();
 
-        if(www.isNetworkError || www.isHttpError)
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
         {
             Debug.Log("Error: " + www.error);
         }
         else
         {
-            Debug.Log("Form upload complete!");
+            Debug.Log("Success ...");
         }
     }
 }
