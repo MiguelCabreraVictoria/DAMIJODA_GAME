@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // Arreglo de items (arreglo de sprites)
-    public Sprite[] itemSprites;
+    public Skins[] itemSkins;
 
     // Variable pública para almacenar la referencia al objeto personaje
     public TopDownCharacterController characterObject;
@@ -22,6 +22,9 @@ public class Item : MonoBehaviour
     public PlayerStats playerStats;
 
     public SpecialAttack specialAttack;
+
+    public int skinIndex = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +56,15 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (characterObject.hasShield) {
+            if (skinIndex == 0) {
+                playerStats.resistencia = 1;
+            } else if (skinIndex == 1) {
+                playerStats.resistencia = 2;
+            } else if (skinIndex == 2) {
+                playerStats.resistencia = 3;
+            }
+        }
         if (playerStats.vida <= 0)
         {
             Destroy(gameObject);
@@ -65,21 +77,23 @@ public class Item : MonoBehaviour
         if (characterObject != null && characterObject.hasShield)
         {
             int itemIndex = characterAnimation.itemIndex;
-
+        
             if (specialAttack.isSpecialAttackActive) {
                 itemIndex = 79;
             }
 
-            // Verifica si el índice del item está dentro del rango válido
-            if (itemIndex >= 0 && itemIndex < itemSprites.Length)
+            // Obtiene el sprite del item usando la función GetItemSprite
+            Sprite itemSprite = GetItemSprite(skinIndex, itemIndex);
+
+            if (itemSprite != null)
             {
                 // Muestra el sprite del item y establece su color a su color original
-                spriteRenderer.sprite = itemSprites[itemIndex];
+                spriteRenderer.sprite = itemSprite;
                 spriteRenderer.color = originalColor;
             }
             else
             {
-                Debug.LogError("Item: Índice del item fuera de rango. Asegúrate de que el índice del item esté dentro del rango válido.");
+                Debug.LogError("Item: Error al obtener el sprite del item. Verifique los índices del skin y del item.");
             }
         }
         else
@@ -88,6 +102,29 @@ public class Item : MonoBehaviour
             Color transparentColor = originalColor;
             transparentColor.a = 0f;
             spriteRenderer.color = transparentColor;
+        }
+
+    }
+
+    private Sprite GetItemSprite(int skinIndex, int itemIndex)
+    {
+        if (skinIndex >= 0 && skinIndex < itemSkins.Length)
+        {
+            Skins skin = itemSkins[skinIndex];
+            if (itemIndex >= 0 && itemIndex < skin.sprites.Length)
+            {
+                return skin.sprites[itemIndex];
+            }
+            else
+            {
+                Debug.LogError("Item: Índice del item fuera de rango. Asegúrate de que el índice del item esté dentro del rango válido.");
+                return null;
+            }
+        }
+        else
+        {
+            Debug.LogError("Item: Índice del skin fuera de rango. Asegúrate de que el índice del skin esté dentro del rango válido.");
+            return null;
         }
     }
 }

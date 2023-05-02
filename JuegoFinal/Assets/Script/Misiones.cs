@@ -29,8 +29,8 @@ public class Misiones : MonoBehaviour
         {
             Debug.Log("Mision 2 completada");
             misionNr = 3;
-            misionText.text = "Mision 3: ve con Teus";
-            misionSombraText.text = "Mision 3: ve con Teus";
+            misionText.text = "Mision 3: habla con Teus";
+            misionSombraText.text = "Mision 3: habla con Teus";
         }
         if (misionNr == 4)
         {

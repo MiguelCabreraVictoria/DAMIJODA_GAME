@@ -12,6 +12,9 @@ public class Chest : MonoBehaviour
 
     public Misiones misiones;
 
+    public int tipoDeEscudo = 0;
+    public Item escudo;
+
     void Start() {
         pressXtext.SetActive(false);
     }
@@ -37,10 +40,11 @@ public class Chest : MonoBehaviour
             // cambiar la variable has shield de player a true
             playerController.hasShield = true;
             // get component playerstats del player
-            PlayerStats playerStats = player.GetComponent<PlayerStats>();
+            //PlayerStats playerStats = player.GetComponent<PlayerStats>();
             // aumentar la resistencia del player
-            playerStats.resistencia = 1;
+            //playerStats.resistencia = 1;
             isOpen = true;
+            escudo.skinIndex = tipoDeEscudo;
             
         }
     }

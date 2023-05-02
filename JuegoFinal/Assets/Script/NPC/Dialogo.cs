@@ -56,6 +56,7 @@ public class Dialogo : MonoBehaviour
         textDialogo.text = "";
         gameObject.SetActive(false);
         userStats.SetActive(true);
+        
         userStatsSombra.SetActive(true);
 
     }
