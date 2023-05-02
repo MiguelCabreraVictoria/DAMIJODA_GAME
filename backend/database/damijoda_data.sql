@@ -80,4 +80,8 @@ INSERT INTO damijoda.armors (armor_name, level, defense, character_id) VALUES
 	('ArmaduraMagica', 5, 15, 5);
 
 
+<<<<<<< HEAD
 SET FOREIGN_KEY_CHECKS = 1;
+=======
+SET FOREIGN_KEY_CHECKS = 1;
+>>>>>>> ecdf49871d3239f90ca844582f36fc5ee9a9826f
