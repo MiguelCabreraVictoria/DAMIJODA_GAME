@@ -12,6 +12,8 @@ public class Laser : MonoBehaviour
     private bool hasBeenActivated = false; // Añadir una variable para saber si el láser ya se había activado
     public TopDownCharacterController characterObject; // Añadir una variable para almacenar la referencia al objeto personaje
 
+    public string scene = "";
+
     void Start () {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>(); // Inicializar el AudioSource
@@ -37,6 +39,6 @@ public class Laser : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         // Cambia a la escena llamada aulas1
-        SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene(scene);
     }
 }

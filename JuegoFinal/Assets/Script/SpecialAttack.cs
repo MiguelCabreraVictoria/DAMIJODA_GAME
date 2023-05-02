@@ -56,9 +56,9 @@ public class SpecialAttack : MonoBehaviour
         }
     }
 
-    public void ShowPressZText()
+    public void ShowPressZText(bool isOnRange)
     {
-        if (!hasShownPressZText)
+        if (!hasShownPressZText && isOnRange && playerStats.mana >= 100)
         {
             hasShownPressZText = true;
             pressZText.SetActive(true);
