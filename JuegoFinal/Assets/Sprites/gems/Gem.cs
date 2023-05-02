@@ -9,6 +9,7 @@ public class Gem : MonoBehaviour
     public GameObject infoGema;
     public GameObject icon;
     public TextMeshProUGUI text;
+    public Misiones misiones;
 
     void Start() {
         infoGema.SetActive(false);
@@ -29,7 +30,7 @@ public class Gem : MonoBehaviour
                 // flashPlayer color blue for 2 seconds
                 collider.gameObject.GetComponent<PlayerStats>().startFlashPlayer(new Color32(0, 0, 255, 255), 2.0f);
                 collider.gameObject.GetComponent<PlayerStats>().startFlashUI(new Color32(0, 0, 255, 255),2.0f, text, icon);
-                collider.gameObject.GetComponent<PlayerStats>().subirMana(60);
+                collider.gameObject.GetComponent<PlayerStats>().subirMana(100);
             }
 
             if (gemType == "red") {
@@ -48,11 +49,20 @@ public class Gem : MonoBehaviour
                 collider.gameObject.GetComponent<PlayerStats>().startStrengthEffect(100,10);
             }
 
+            if (gemType == "white") {
+                // aumentar la resistencia del jugador
+                collider.gameObject.GetComponent<PlayerStats>().startFlashPlayer(new Color32(255, 255, 255, 125), 10.0f);
+                collider.gameObject.GetComponent<PlayerStats>().startInvisibilityEffect(10);
+            }
+
+            misiones.gemasRecolectadas++;
+
             // reproducir un sonido
             AudioSource audioSource = GetComponent<AudioSource>();
             audioSource.Play();
             infoGema.SetActive(true);
             // instead of destroying the gem, we disable it
+        
             //Destroy(gameObject);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

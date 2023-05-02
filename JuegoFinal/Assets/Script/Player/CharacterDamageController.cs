@@ -17,6 +17,8 @@ public class CharacterDamageController : MonoBehaviour
     public AudioClip beboAuch;
     private AudioSource audioSource;
 
+    public SpecialAttack specialAttack;
+
     void Start()
     {
         parentObject = transform.parent.gameObject;
@@ -33,6 +35,10 @@ public class CharacterDamageController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (playerStats.vida <= 0) return;
+
+        if (playerStats.isInvisible) return;
+
+        if (specialAttack.isSpecialAttackActive) return;
 
         if (col.gameObject.CompareTag("Enemigo") && Time.time > lastDamageTime + invulnerabilityTime)
         {

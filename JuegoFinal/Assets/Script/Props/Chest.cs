@@ -10,6 +10,8 @@ public class Chest : MonoBehaviour
     public GameObject pressXtext;
     public Sprite openChestSprite;
 
+    public Misiones misiones;
+
     void Start() {
         pressXtext.SetActive(false);
     }
@@ -26,6 +28,9 @@ public class Chest : MonoBehaviour
             // desactivar el texto
             pressXtext.SetActive(false);
 
+            // cambiar el texto de la mision
+            misiones.misionNr = 2;
+
             // get component TopDownCharacterController del player
             GameObject player = GameObject.Find("Player");
             TopDownCharacterController playerController = player.GetComponent<TopDownCharacterController>();
@@ -36,6 +41,7 @@ public class Chest : MonoBehaviour
             // aumentar la resistencia del player
             playerStats.resistencia = 1;
             isOpen = true;
+            
         }
     }
 

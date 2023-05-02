@@ -41,6 +41,7 @@ public class PlayerStats : MonoBehaviour
     public Sprite manaImageWhite;
 
     public GameObject timeObject;
+    public bool isInvisible = false;
 
     void Start() {
         timeObject.SetActive(false);
@@ -134,6 +135,22 @@ public class PlayerStats : MonoBehaviour
     {
         StartCoroutine(strengthEffect(cuanto, segundos));
     }
+
+    public void startInvisibilityEffect(int segundos)
+    {
+        StartCoroutine(invisibilityEffect(segundos));
+    }
+
+    IEnumerator invisibilityEffect(int segundos)
+    {
+        isInvisible = true;
+        
+        timeObject.SetActive(true);
+        timeObject.GetComponent<TimeScript>().startCountdown(segundos);
+
+        yield return new WaitForSeconds(segundos);
+        isInvisible = false;
+    }
     
     IEnumerator speedEffect(int cuanto, int segundos)
     {
@@ -212,6 +229,8 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator flashPlayer(Color32 color, float segundos)
     {
+        // store the previous color of the player
+        Color32 prevColor = gameObject.GetComponent<SpriteRenderer>().color;
         // este game object su sprite renderer ponerlo color
         gameObject.GetComponent<SpriteRenderer>().color = color;
         yield return new WaitForSeconds(segundos-2);
@@ -220,7 +239,7 @@ public class PlayerStats : MonoBehaviour
         for (int i = 0; i < 10; i++) {
             gameObject.GetComponent<SpriteRenderer>().color = color; // este game object su sprite renderer ponerlo color
             yield return new WaitForSeconds(0.1f);
-            gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255); // este game object su sprite renderer ponerlo color blanco
+            gameObject.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255); // este game object su sprite renderer ponerlo blanco
             yield return new WaitForSeconds(0.1f);
         }
     }

@@ -28,6 +28,8 @@ public class Valefar : MonoBehaviour
     public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
     public bool habla = true;
 
+    public SpecialAttack specialAttack;
+
     public PlayerStats playerStats;
 
     private Animator animator;
@@ -36,6 +38,8 @@ public class Valefar : MonoBehaviour
     public int manaForDeath = 25;
 
     private bool hasBacked;
+
+    private bool hasDiedFromSpecialAttack = false;
     
     private void SaySomething()
     {
@@ -66,6 +70,18 @@ public class Valefar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            
+        if (player.GetComponent<SpecialAttack>().isSpecialAttackDoingDamage && distanceToPlayer < chaseRange)
+        {
+            if (!hasDiedFromSpecialAttack)
+            {
+                vida -= 1000;
+                hasDiedFromSpecialAttack = true;
+                StartCoroutine(FlashDamage());
+            }
+        }
+
         if (vida <= 0 && !isDying) // Modificar esta condición
         {
             isDying = true;
@@ -120,7 +136,9 @@ public class Valefar : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, transform.position); // Cambiar a PlayClipAtPoint
         // Desactivar el personaje
         gameObject.SetActive(false);
-        playerStats.subirMana(manaForDeath);
+        if (!hasDiedFromSpecialAttack) {
+            playerStats.subirMana(manaForDeath);
+        }
     }
 
     IEnumerator FlashDamage()
@@ -135,6 +153,8 @@ public class Valefar : MonoBehaviour
     // Función para que Valefar siga al jugador
     void FollowPlayer()
     {
+        specialAttack.ShowPressZText();
+
         if (playerStats.vida <= 0) {
             if (!hasBacked) { // Si el jugador está muerto, huir
                 StartCoroutine(FleeFromPlayer());
@@ -146,7 +166,7 @@ public class Valefar : MonoBehaviour
         if (player != null)
         {
             float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-            if (distanceToPlayer <= chaseRange)
+            if (distanceToPlayer <= chaseRange && !playerStats.isInvisible)
             {
                 animator.SetBool("isWalking", true);
                 // Guardar la posición anterior
@@ -176,6 +196,11 @@ public class Valefar : MonoBehaviour
     IEnumerator FleeFromPlayer()
     {
         float elapsedTime = 0.0f;
+
+        if (hasDiedFromSpecialAttack) {
+            fleeDuration = 0.5f;
+            fleeSpeed = 20f;
+        }
 
         while (elapsedTime < fleeDuration)
         {

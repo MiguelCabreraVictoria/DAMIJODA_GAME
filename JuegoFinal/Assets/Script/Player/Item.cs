@@ -21,6 +21,8 @@ public class Item : MonoBehaviour
 
     public PlayerStats playerStats;
 
+    public SpecialAttack specialAttack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,10 +57,18 @@ public class Item : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // que el alfa del sprite rendered del player sea igual al alfa del sprite renderer del item
+        // spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, characterAnimation.spriteRenderer.color.a);
+
         // Si hay un objeto personaje y el personaje tiene escudo, obtén el índice del item y actualiza el sprite mostrado
         if (characterObject != null && characterObject.hasShield)
         {
             int itemIndex = characterAnimation.itemIndex;
+
+            if (specialAttack.isSpecialAttackActive) {
+                itemIndex = 79;
+            }
 
             // Verifica si el índice del item está dentro del rango válido
             if (itemIndex >= 0 && itemIndex < itemSprites.Length)
