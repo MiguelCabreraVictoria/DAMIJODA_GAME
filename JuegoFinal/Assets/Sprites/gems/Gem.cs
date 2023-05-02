@@ -31,7 +31,7 @@ public class Gem : MonoBehaviour
                 // aumentar la vida del jugador
                 collider.gameObject.GetComponent<PlayerStats>().startFlashPlayer(new Color32(255, 255, 0, 255), 10.0f);
                 collider.gameObject.GetComponent<PlayerStats>().startFlashUI(new Color32(255, 255, 0, 255),10.0f, text, icon);
-                collider.gameObject.GetComponent<PlayerStats>().startSpeedEffect(8,10);
+                collider.gameObject.GetComponent<PlayerStats>().startSpeedEffect(4,8);
                 infoGemaAmarilla.SetActive(true);
                 infoGemaAzul.SetActive(false);
                 infoGemaRoja.SetActive(false);

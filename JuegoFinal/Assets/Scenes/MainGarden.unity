@@ -29069,6 +29069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserSound: {fileID: 8300000, guid: c85b751b354e8c34d8a472bf4ebf03c7, type: 3}
   characterObject: {fileID: 3278259467266409120}
+  scene: Credits
 --- !u!1 &547989093
 GameObject:
   m_ObjectHideFlags: 0
@@ -29332,7 +29333,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemType: blue
-  infoGema: {fileID: 1545692457}
+  infoGemaRoja: {fileID: 181907215}
+  infoGemaAzul: {fileID: 1545692457}
+  infoGemaAmarilla: {fileID: 719246755}
+  infoGemaNaranja: {fileID: 1444002252}
+  infoGemaBlanca: {fileID: 1274047004}
   icon: {fileID: 1474191784}
   text: {fileID: 914606287}
   misiones: {fileID: 813241580}
@@ -29654,7 +29659,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemType: red
-  infoGema: {fileID: 181907215}
+  infoGemaRoja: {fileID: 181907215}
+  infoGemaAzul: {fileID: 1545692457}
+  infoGemaAmarilla: {fileID: 719246755}
+  infoGemaNaranja: {fileID: 1444002252}
+  infoGemaBlanca: {fileID: 1274047004}
   icon: {fileID: 1474191784}
   text: {fileID: 914606287}
   misiones: {fileID: 813241580}
@@ -29978,7 +29987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3278259467266409117}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &604744984
 BoxCollider2D:
@@ -30936,7 +30945,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemType: yellow
-  infoGema: {fileID: 719246755}
+  infoGemaRoja: {fileID: 181907215}
+  infoGemaAzul: {fileID: 1545692457}
+  infoGemaAmarilla: {fileID: 719246755}
+  infoGemaNaranja: {fileID: 1444002252}
+  infoGemaBlanca: {fileID: 1274047004}
   icon: {fileID: 1243056565}
   text: {fileID: 2075441505}
   misiones: {fileID: 813241580}
@@ -31989,7 +32002,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemType: white
-  infoGema: {fileID: 1274047004}
+  infoGemaRoja: {fileID: 181907215}
+  infoGemaAzul: {fileID: 1545692457}
+  infoGemaAmarilla: {fileID: 719246755}
+  infoGemaNaranja: {fileID: 1444002252}
+  infoGemaBlanca: {fileID: 1274047004}
   icon: {fileID: 1085253001}
   text: {fileID: 512721540}
   misiones: {fileID: 813241580}
@@ -34411,7 +34428,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemType: orange
-  infoGema: {fileID: 1444002252}
+  infoGemaRoja: {fileID: 181907215}
+  infoGemaAzul: {fileID: 1545692457}
+  infoGemaAmarilla: {fileID: 719246755}
+  infoGemaNaranja: {fileID: 1444002252}
+  infoGemaBlanca: {fileID: 1274047004}
   icon: {fileID: 1085253001}
   text: {fileID: 512721540}
   misiones: {fileID: 813241580}
@@ -34594,6 +34615,7 @@ MonoBehaviour:
   userStats: {fileID: 989357018}
   userStatsSombra: {fileID: 600256483}
   sonidoBorrego: {fileID: 8300000, guid: b298f7b2f52a81d46a033cc61d018931, type: 3}
+  misiones: {fileID: 813241580}
 --- !u!1 &1444002252
 GameObject:
   m_ObjectHideFlags: 0
@@ -36638,7 +36660,7 @@ MonoBehaviour:
   burbuja: {fileID: 294237572}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 3278259467266409126}
   playerStats: {fileID: 3278259467266409125}
   manaForHit: 3
@@ -51568,12 +51590,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362814955243153778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.42}
-  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3278259467266409117}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1362814955243153777
 SpriteRenderer:
@@ -57918,7 +57940,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -44025399
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300150, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -61444,7 +61466,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3278259467266409117}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3278259466778677059
 GameObject:
@@ -61574,9 +61596,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 67414741}
-  - {fileID: 1362814955243153776}
   - {fileID: 604744983}
   - {fileID: 3278259466778677056}
+  - {fileID: 1362814955243153776}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70844,7 +70866,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -44025399
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300144, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -71986,7 +72008,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -44025399
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300148, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -83731,7 +83753,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -44025399
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300146, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0

@@ -32,5 +32,11 @@ public class Misiones : MonoBehaviour
             misionText.text = "Mision 3: ve con Teus";
             misionSombraText.text = "Mision 3: ve con Teus";
         }
+        if (misionNr == 4)
+        {
+            Debug.Log("Mision 4");
+            misionText.text = "Mision 4: ve al altar";
+            misionSombraText.text = "Mision 4: ve al altar";
+        }
     }
 }
