@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 543963}
   - component: {fileID: 543965}
   - component: {fileID: 543964}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12470,7 +12470,7 @@ GameObject:
   - component: {fileID: 1466040188}
   - component: {fileID: 1466040187}
   - component: {fileID: 1466040186}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Paredes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
