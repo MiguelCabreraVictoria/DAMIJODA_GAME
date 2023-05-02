@@ -3,23 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Healthbar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
-    Slider _healthSlider;
+    [SerializeField] private float _timeToDrain = 0.25f;
+    private Image _image;
+
+    private float _target;
+    private float _currentHealth;
+
+    private Coroutine drainHealthBarCoroutine;
 
     private void Start()
     {
-        _healthSlider = GetComponent<Slider>();
+        _image = GetComponent<Image>();
     }
 
-    public void SetMaxHealth(int maxHealth)
+    public void UpdateHealthBar(float maxHealth, float currentHealth, float damageAmount)
     {
-        _healthSlider.maxValue = maxHealth;
-        _healthSlider.value = maxHealth;
+        _currentHealth = currentHealth - damageAmount;
+        _target = _currentHealth / maxHealth;
+
+        drainHealthBarCoroutine = StartCoroutine(DrainHealthBar());
     }
 
-    public void SetHealth(int health)
+    private IEnumerator DrainHealthBar()
     {
-        _healthSlider.value = health;
+        float fillAmount = _image.fillAmount;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < _timeToDrain)
+        {
+            elapsedTime += Time.deltaTime;
+
+            _image.fillAmount = Mathf.Lerp(fillAmount, _target, (elapsedTime / _timeToDrain));
+
+            yield return null;
+        }
     }
 }
