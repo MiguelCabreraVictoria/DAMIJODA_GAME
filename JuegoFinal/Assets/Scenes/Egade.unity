@@ -3988,6 +3988,11 @@ PrefabInstance:
       propertyPath: isAttacking
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2857480478406102168, guid: e79983267142ce6419d1d27bb0f4a280,
+        type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 800131041}
     - target: {fileID: 2857480478406102170, guid: e79983267142ce6419d1d27bb0f4a280,
         type: 3}
       propertyPath: item
@@ -4038,6 +4043,16 @@ PrefabInstance:
       propertyPath: fuerzaText
       value: 
       objectReference: {fileID: 315249529}
+    - target: {fileID: 2857480478406102175, guid: e79983267142ce6419d1d27bb0f4a280,
+        type: 3}
+      propertyPath: speedImage
+      value: 
+      objectReference: {fileID: 2015537370}
+    - target: {fileID: 2857480478406102175, guid: e79983267142ce6419d1d27bb0f4a280,
+        type: 3}
+      propertyPath: timeObject
+      value: 
+      objectReference: {fileID: 2015537370}
     - target: {fileID: 2857480478406102175, guid: e79983267142ce6419d1d27bb0f4a280,
         type: 3}
       propertyPath: velocidadText
@@ -64218,6 +64233,7 @@ MonoBehaviour:
   velocidad: 0.1
   userStats: {fileID: 511195348}
   userStatsSombra: {fileID: 940904289}
+  sonidoBorrego: {fileID: 0}
 --- !u!1 &1400714961
 GameObject:
   m_ObjectHideFlags: 0
@@ -65835,7 +65851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1485794924
 Transform:
   m_ObjectHideFlags: 0
@@ -65896,7 +65912,10 @@ MonoBehaviour:
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
   habla: 0
+  specialAttack: {fileID: 0}
   playerStats: {fileID: 800131041}
+  manaForHit: 5
+  manaForDeath: 25
 --- !u!82 &1485794927
 AudioSource:
   m_ObjectHideFlags: 0
@@ -70279,6 +70298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyType: 0
+  doorOpenSound: {fileID: 0}
 --- !u!61 &2104726994
 BoxCollider2D:
   m_ObjectHideFlags: 0
