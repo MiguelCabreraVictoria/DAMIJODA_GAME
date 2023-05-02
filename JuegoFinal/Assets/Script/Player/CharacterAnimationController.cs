@@ -5,7 +5,8 @@ public class CharacterAnimationController : MonoBehaviour
     private Animator animator;
     public Animator animator2;
     public GameObject character;
-    
+        private bool hasDied = false;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -44,6 +45,12 @@ public class CharacterAnimationController : MonoBehaviour
     public void teleportAnimation() {
         animator.Play("Teleport");
     }
+
+    public void die() {
+        if (hasDied) return;
+        animator.Play("Die");
+        hasDied = true;
+    }   
 
     public void DoZAnimation()
     {

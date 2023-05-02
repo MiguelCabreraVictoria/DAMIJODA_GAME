@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -105541197
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -105541197
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
@@ -257,6 +257,8 @@ MonoBehaviour:
   knockbackForce: 50
   invulnerabilityTime: 1
   playerStats: {fileID: 2857480478406102175}
+  beboAuch: {fileID: 0}
+  specialAttack: {fileID: 0}
 --- !u!1 &1743113223904700232
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +331,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869315837
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 1433056321, guid: c2e74c5535089468386e43490175d95e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -478,6 +480,8 @@ MonoBehaviour:
   - {fileID: -362428828, guid: c2e74c5535089468386e43490175d95e, type: 3}
   characterObject: {fileID: 2857480478406102170}
   characterAnimation: {fileID: 2857480478406102174}
+  playerStats: {fileID: 0}
+  specialAttack: {fileID: 0}
 --- !u!1 &2857480478406102181
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +501,7 @@ GameObject:
   - component: {fileID: 2857480478406102169}
   - component: {fileID: 2857480478406102168}
   - component: {fileID: 2857480478406102175}
+  - component: {fileID: 9067946334882235566}
   m_Layer: 20
   m_Name: Player
   m_TagString: Player
@@ -562,7 +567,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869315837
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: -103344164, guid: 7873b49a7cadb4f8aac934954c9065d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -657,6 +662,7 @@ MonoBehaviour:
   attackDirection: 0
   hasShield: 1
   item: {fileID: 0}
+  playerStats: {fileID: 0}
 --- !u!114 &2857480478406102171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,6 +1784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 2857480478406102175}
   isTeleporting: 0
+  specialAttack: {fileID: 0}
 --- !u!114 &2857480478406102168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,6 +1799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttacking: 0
   isOnTalkZone: 0
+  playerStats: {fileID: 0}
 --- !u!114 &2857480478406102175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,8 +1834,32 @@ MonoBehaviour:
   heartFull: {fileID: 21300000, guid: bae3df22cfd6747a2ac18d17c7bb3b04, type: 3}
   shieldFull: {fileID: 21300000, guid: 2393f6343cf62384c92950a7ad500932, type: 3}
   manaImage: {fileID: 0}
+  speedImage: {fileID: 0}
   manaImageBlue: {fileID: 21300000, guid: 8306d777672fa6d478f6d2ed27580b1f, type: 3}
   manaImageWhite: {fileID: 21300000, guid: 9fda93392a11148418e776c7a8ca2c00, type: 3}
+  timeObject: {fileID: 0}
+  isInvisible: 0
+--- !u!114 &9067946334882235566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857480478406102181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43e43a9fff8cda4dad4b07f193cbdd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3002935253628108420}
+  playerStats: {fileID: 2857480478406102175}
+  manaText: {fileID: 0}
+  manaIcon: {fileID: 0}
+  explosionParticlesPrefab: {fileID: 0}
+  pressZText: {fileID: 0}
+  isSpecialAttackActive: 0
+  isSpecialAttackDoingDamage: 0
+  specialAttackSound: {fileID: 0}
 --- !u!1 &2857480479968067961
 GameObject:
   m_ObjectHideFlags: 0

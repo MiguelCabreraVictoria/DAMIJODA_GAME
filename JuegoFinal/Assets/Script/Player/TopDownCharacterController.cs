@@ -15,6 +15,8 @@ public class TopDownCharacterController : MonoBehaviour
 
     public GameObject item;
 
+    public PlayerStats playerStats;
+
     private void Start()
     {
         movementController = GetComponent<CharacterMovementController>();
@@ -31,6 +33,12 @@ public class TopDownCharacterController : MonoBehaviour
             Vector2 direction = GetMovementDirection();
             animationController.UpdateAnimatorParameters(direction);
             movementController.MoveCharacter(direction);
+
+            if (playerStats.vida <= 0)
+            {
+                animationController.die();
+                return;
+            }
 
             if (!animationController.GetIsAttacking()) // Si no está atacando
             {
