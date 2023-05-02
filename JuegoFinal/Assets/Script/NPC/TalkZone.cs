@@ -30,7 +30,7 @@ public class TalkZone : MonoBehaviour
             // start the dialog
             if (!IsTalking) {
                 IsTalking = true;
-                dialogo.ComenzarDialogo(new string[] {"Bienvenido heroe, presiona X para continuar...", "yo soy Borret el dios borrego, beeee", "Cuando estes listo para comenzar la aventura...", "sube las escaleras y mantente 5 segundos sobre el altar."});
+                dialogo.ComenzarDialogo(new string[] {"Bienvenido heroe, presiona X para continuar...", "yo soy Teus el dios borrego, beeee", "Cuando estes listo para comenzar la aventura...", "sube las escaleras y mantente 5 segundos sobre el altar."});
             }
         }
     }

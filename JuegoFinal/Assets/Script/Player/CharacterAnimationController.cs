@@ -3,6 +3,7 @@ using UnityEngine;
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
+    private bool hasDied = false;
 
     private void Start()
     {
@@ -42,4 +43,10 @@ public class CharacterAnimationController : MonoBehaviour
     public void teleportAnimation() {
         animator.Play("Teleport");
     }
+
+    public void die() {
+        if (hasDied) return;
+        animator.Play("Die");
+        hasDied = true;
+    }   
 }

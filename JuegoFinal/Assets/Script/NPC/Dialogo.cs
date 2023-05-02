@@ -10,11 +10,20 @@ public class Dialogo : MonoBehaviour
     public float velocidad = 1.0f; // Velocidad de escritura
     public GameObject userStats;
     public GameObject userStatsSombra;
+
+    // Agrega una referencia al AudioClip y al AudioSource
+    public AudioClip sonidoBorrego;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        // Inicializa el AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
         
     // funcion publica void ComenzarDialogo que recibe como parametro un arreglo de mensajes (strings)
     // esta funcion se encarga de mostrar el dialogo en pantalla
     public void ComenzarDialogo(string[] mensajes) {
-        Debug.Log("ComenzarDialogo");
         // Inicializamos el indice en 0
         indice = 0;
         // Mostramos el dialogo
@@ -27,10 +36,8 @@ public class Dialogo : MonoBehaviour
     // funcion IEnumerator MostrarDialogo que recibe como parametro un arreglo de mensajes (strings)
     // esta funcion se encarga de mostrar el dialogo en pantalla
     IEnumerator MostrarDialogo(string[] mensajes) {
-        Debug.Log("Mostrar Dialogo: " + mensajes.Length);
         // Mientras el indice sea menor a la longitud del arreglo de mensajes
         while (indice < mensajes.Length) {
-            Debug.Log("Mostrando Dialogo: " + indice);
             // Mostramos el mensaje en pantalla
             yield return StartCoroutine(EscribirMensaje(mensajes[indice]));
             // Esperamos a que el jugador presione la tecla X
@@ -49,12 +56,13 @@ public class Dialogo : MonoBehaviour
     // funcion IEnumerator EscribirMensaje que recibe como parametro un string
     // esta funcion se encarga de mostrar el mensaje en pantalla
     IEnumerator EscribirMensaje(string mensaje) {
-        Debug.Log("Escribir Mensaje: " + mensaje);
+        // Reproduce el sonido antes de empezar a escribir el mensaje
+        audioSource.PlayOneShot(sonidoBorrego);
+
         // Inicializamos el string mensajeActual en vacio
         string mensajeActual = "";
         // Mientras el string mensajeActual sea diferente al string mensaje
         while (mensajeActual != mensaje) {
-            Debug.Log("Escribiendo Mensaje: " + mensajeActual);
             // Agregamos un caracter al string mensajeActual
             mensajeActual += mensaje[mensajeActual.Length];
             // Mostramos el string mensajeActual en pantalla
