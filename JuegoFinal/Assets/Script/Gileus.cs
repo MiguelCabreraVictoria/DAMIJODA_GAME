@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gileus : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float maxHealth = 5f;
+    [SerializeField] private float maxHealth;
 
     private float currentHealth;
 
@@ -14,12 +14,24 @@ public class Gileus : MonoBehaviour, IDamageable
     }
 
     public void Damage(float damageAmount)
-    {
-        currentHealth -= damageAmount;
+{
+    currentHealth -= damageAmount;
 
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }   
+    if (currentHealth <= 0)
+    {
+        currentHealth = 0;
+        Destroy(gameObject);
+    }
 }
+}
+
+    // public void Damage(float damageAmount)
+    // {
+    //     currentHealth -= damageAmount;
+
+    //     if (currentHealth <= 0)
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }   
+

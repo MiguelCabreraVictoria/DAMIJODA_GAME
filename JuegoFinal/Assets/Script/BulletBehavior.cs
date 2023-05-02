@@ -8,26 +8,26 @@ public class BulletBehavior : MonoBehaviour
 
     void Start()
     {
-        int ignoreLayer = LayerMask.NameToLayer("Layer 1");
+        rb.velocity = transform.right * 110f;
+        // int ignoreLayer = LayerMask.NameToLayer("Layer 1");
 
-        GameObject[] ignoreList = GameObject.FindGameObjectsWithTag("IgnoreBullets");
-        foreach (GameObject obj in ignoreList)
-        {
-            Collider2D otherCollider = obj.GetComponent<Collider2D>();
-            if (otherCollider != null)
-            {
-                // Ignorar la colisión con el Tilemap
-                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), otherCollider);
-            }
-        }
+        // GameObject[] ignoreList = GameObject.FindGameObjectsWithTag("IgnoreBullets");
+        // foreach (GameObject obj in ignoreList)
+        // {
+        //     Collider2D otherCollider = obj.GetComponent<Collider2D>();
+        //     if (otherCollider != null)
+        //     {
+        //         // Ignorar la colisión con el Tilemap
+        //         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), otherCollider);
+        //     }
+        // }
 
         // Ignorar la colisión con la capa del Tilemap
-        Physics2D.IgnoreLayerCollision(gameObject.layer, ignoreLayer);
+        // Physics2D.IgnoreLayerCollision(gameObject.layer, ignoreLayer);
     }
 
     void Update()
     {
-        rb.velocity = transform.right * 20;
     }
 
 
@@ -39,7 +39,8 @@ public class BulletBehavior : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case "Enemigo":
-                other.gameObject.GetComponent<Gileus>().Damage(1);
+                other.gameObject.GetComponent<Gileus>().Damage(.5f);
+                Destroy(gameObject);
                 break;
         }
     }
