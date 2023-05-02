@@ -8,8 +8,12 @@ public class TalkZone : MonoBehaviour
     private bool IsTalking = false;
     public GameObject InfoBox;
     public GameObject DialogBox;
+    
     public Dialogo dialogo;
     public CharacterAttackController characterAttackController;
+
+    public GameObject userStats;
+    public GameObject userStatsSombra;
 
     void Start() {
         InfoBox.SetActive(false);
@@ -26,7 +30,7 @@ public class TalkZone : MonoBehaviour
             // start the dialog
             if (!IsTalking) {
                 IsTalking = true;
-                dialogo.ComenzarDialogo(new string[] {"Hola", "Soy un NPC", "Este es un dialogo de prueba", "Presiona X para continuar"});
+                dialogo.ComenzarDialogo(new string[] {"Bienvenido heroe, presiona X para continuar...", "yo soy Borret el dios borrego, beeee", "Cuando estes listo para comenzar la aventura...", "sube las escaleras y mantente 5 segundos sobre el altar."});
             }
         }
     }
@@ -51,6 +55,8 @@ public class TalkZone : MonoBehaviour
             dialogo.StopAllCoroutines();
             dialogo.textDialogo.text = "";
             IsTalking = false;
+            userStats.SetActive(true);
+            userStatsSombra.SetActive(true);
         }
 
     }

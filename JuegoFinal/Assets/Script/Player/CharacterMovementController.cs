@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CharacterMovementController : MonoBehaviour
 {
-    public float speed;
+    public PlayerStats playerStats;
 
     public bool isTeleporting = false;
 
@@ -19,7 +19,7 @@ public class CharacterMovementController : MonoBehaviour
             rb2D.velocity = Vector2.zero;
             return;
         }
-        rb2D.velocity = speed * direction;
+        rb2D.velocity = playerStats.velocidad * direction;
     }
 
     public void Flip()

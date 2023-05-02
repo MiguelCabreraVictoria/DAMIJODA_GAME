@@ -37,6 +37,6 @@ public class Laser : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         // Cambia a la escena llamada aulas1
-        SceneManager.LoadScene("Aulas1");
+        SceneManager.LoadScene("Credits");
     }
 }
