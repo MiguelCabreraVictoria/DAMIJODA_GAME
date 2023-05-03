@@ -7983,6 +7983,8 @@ MonoBehaviour:
   - {fileID: -262598529, guid: ab80c567aafcc4aab896c0f90596063a, type: 3}
   skinNumberText: {fileID: 688232286}
   beboSound: {fileID: 8300000, guid: 5998d74f443c85f4da0e7bc18f677d27, type: 3}
+  davidSound: {fileID: 8300000, guid: 739cff7e77c239d49afd1b0d6b81c935, type: 3}
+  natSound: {fileID: 8300000, guid: 11551d5406bfa874fb96a1e04c090a9a, type: 3}
 --- !u!95 &1556897454
 Animator:
   serializedVersion: 5
