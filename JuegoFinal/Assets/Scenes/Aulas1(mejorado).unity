@@ -44915,6 +44915,8 @@ GameObject:
   - component: {fileID: 1193178701}
   - component: {fileID: 1193178700}
   - component: {fileID: 1193178703}
+  - component: {fileID: 1193178705}
+  - component: {fileID: 1193178704}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44957,7 +44959,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.8664536
+  orthographic size: 4.931915
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -45002,6 +45004,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2070454462}
   lerpSpeed: 2.5
+--- !u!114 &1193178704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193178699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1193178702}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &1193178705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193178699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 4ad21794deea61941901e44b34983ade, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!4 &1206093402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5154782364148359209, guid: f1f5de6e619c6a84db293fbd295abb0c,
@@ -53949,8 +54028,8 @@ GameObject:
   - component: {fileID: 1748253851}
   - component: {fileID: 1748253854}
   - component: {fileID: 1748253853}
-  - component: {fileID: 1748253852}
   - component: {fileID: 1748253855}
+  - component: {fileID: 1748253856}
   m_Layer: 0
   m_Name: TriggerDoor
   m_TagString: Untagged
@@ -53974,19 +54053,6 @@ Transform:
   m_Father: {fileID: 136484586}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1748253852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748253850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91c3dfa1086c514f89488593bdf8c0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyType: 0
 --- !u!61 &1748253853
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54162,6 +54228,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1748253856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748253850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea30dd7e26b2d4440a49c86da5f70aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyType: 0
+  doorOpenSound: {fileID: 1748253855}
+  door: {fileID: 20152342}
 --- !u!1 &1757509469
 GameObject:
   m_ObjectHideFlags: 0
