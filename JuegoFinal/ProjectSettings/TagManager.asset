@@ -8,6 +8,9 @@ TagManager:
   - Enemigo
   - walls
   - IgnoreBullets
+  - Bullet
+  - Colliders
+  - DamageZone
   layers:
   - Default
   - TransparentFX

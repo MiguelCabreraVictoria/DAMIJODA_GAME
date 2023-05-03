@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9106879870298669884}
   - component: {fileID: 7616378668415457065}
   - component: {fileID: 199026518111487164}
+  - component: {fileID: 2068087811712202676}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Enemigo
@@ -158,3 +159,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2068087811712202676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570919303256766592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9868395c0018db24ab218cf07115b2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ataque: 5

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GhostBoss : MonoBehaviour
+public class Terminiti : MonoBehaviour
 {
-    public GameObject teleporter;
-    public float vida = 15f;
+    public float vida = 30f;
     public bool amIonTheAttackZone = false;
     public CharacterAttackController player;
     public SpriteRenderer spriteRenderer;
@@ -29,8 +28,21 @@ public class GhostBoss : MonoBehaviour
     public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
     public bool habla = true;
 
+    public SpecialAttack specialAttack;
+
     public PlayerStats playerStats;
 
+    public GameObject teleporter;
+
+    private Animator animator;
+
+    public int manaForHit = 5;
+    public int manaForDeath = 25;
+
+    private bool hasBacked;
+
+    private bool hasDiedFromSpecialAttack = false;
+    
     private void SaySomething()
     {
         //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
@@ -53,20 +65,36 @@ public class GhostBoss : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
         burbuja.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            
+        if (player.GetComponent<SpecialAttack>().isSpecialAttackDoingDamage && distanceToPlayer < chaseRange)
+        {
+            if (!hasDiedFromSpecialAttack)
+            {
+                vida -= 1000;
+                hasDiedFromSpecialAttack = true;
+                StartCoroutine(FlashDamage());
+                Instantiate(teleporter, transform.position, Quaternion.identity);
+            }
+        }
+
         if (vida <= 0 && !isDying) // Modificar esta condición
         {
             isDying = true;
             StartCoroutine(Die());
+            Instantiate(teleporter, transform.position, Quaternion.identity);
         }
         else if (amIonTheAttackZone && player != null && player.isAttacking)
         {
             vida -= playerStats.fuerza;
+            playerStats.subirMana(manaForHit);
             Debug.Log("AUCH! Vida restante: " + vida);
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
@@ -74,6 +102,10 @@ public class GhostBoss : MonoBehaviour
             if (habla) {
                 SaySomething();
             }
+        }
+        else
+        {
+            FollowPlayer();
         }
     }
 
@@ -108,19 +140,79 @@ public class GhostBoss : MonoBehaviour
         AudioSource.PlayClipAtPoint(deathSound, transform.position); // Cambiar a PlayClipAtPoint
         // Desactivar el personaje
         gameObject.SetActive(false);
-        Destroy(gameObject);
-        // Desactivar el teleporter
-        //teleporter.SetActive(true);
-        Instantiate(teleporter, transform.position, Quaternion.identity);
+        if (!hasDiedFromSpecialAttack) {
+            playerStats.subirMana(manaForDeath);
+        }
     }
-
-
 
     IEnumerator FlashDamage()
     {
+        StartCoroutine(FleeFromPlayer());
         yield return new WaitForSeconds(0.2f); // Esperar dormir 0.05 segundos
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(damageFlashDuration);
         spriteRenderer.color = Color.white;
     }
+
+    // Función para que Valefar siga al jugador
+    void FollowPlayer()
+    {
+        specialAttack.ShowPressZText();
+
+        if (playerStats.vida <= 0) {
+            if (!hasBacked) { // Si el jugador está muerto, huir
+                StartCoroutine(FleeFromPlayer());
+                animator.SetBool("isWalking", false);
+                hasBacked = true;
+            }
+            return; // Si el jugador está muerto, no hacer nada
+        } 
+        if (player != null)
+        {
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            if (distanceToPlayer <= chaseRange && !playerStats.isInvisible)
+            {
+                animator.SetBool("isWalking", true);
+                // Guardar la posición anterior
+                Vector2 previousPosition = transform.position;
+
+                // Mover a Valefar hacia el jugador
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
+
+                // Calcular la dirección en la que se movió Valefar
+                Vector2 direction = (Vector2)transform.position - previousPosition;
+
+                // Voltear el sprite en función de la dirección
+                if (direction.x > 0) // Se mueve a la derecha
+                {
+                    spriteRenderer.flipX = true;
+                }
+                else if (direction.x < 0) // Se mueve a la izquierda
+                {
+                    spriteRenderer.flipX = false;
+                }
+            } else {
+                animator.SetBool("isWalking", false);
+            }
+        }
+    }
+    
+    IEnumerator FleeFromPlayer()
+    {
+        float elapsedTime = 0.0f;
+
+        if (hasDiedFromSpecialAttack) {
+            fleeDuration = 0.5f;
+            fleeSpeed = 20f;
+        }
+
+        while (elapsedTime < fleeDuration)
+        {
+            Vector2 direction = (transform.position - player.transform.position).normalized;
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)direction, fleeSpeed * Time.deltaTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
 }

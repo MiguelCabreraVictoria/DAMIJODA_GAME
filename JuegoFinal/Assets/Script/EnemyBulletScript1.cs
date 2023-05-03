@@ -35,7 +35,7 @@ public class EnemyBulletScript1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "AttackZone" || collision.gameObject.tag == "Colliders")
+        if(collision.gameObject.tag == "DamageZone" || collision.gameObject.tag == "Colliders")
         {
             Destroy(gameObject);
         }

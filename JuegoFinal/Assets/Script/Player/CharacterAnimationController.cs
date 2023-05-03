@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
     public Animator animator2;
     public GameObject character;
+    public GameManagerScript gameManager;
         private bool hasDied = false;
 
     private void Start()
@@ -50,6 +52,7 @@ public class CharacterAnimationController : MonoBehaviour
         if (hasDied) return;
         animator.Play("Die");
         hasDied = true;
+        StartCoroutine(WaitForSeconds(2));
     }   
 
     public void DoZAnimation()
@@ -60,5 +63,13 @@ public class CharacterAnimationController : MonoBehaviour
         animator.Play("AttackingRight");
         }
     }
+
+    IEnumerator WaitForSeconds(int seconds){
+        yield return new WaitForSeconds(seconds);
+        gameManager.gameOver();
+    }
+
+
+
 
 }
