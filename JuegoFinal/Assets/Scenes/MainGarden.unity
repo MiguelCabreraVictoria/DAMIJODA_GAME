@@ -29056,7 +29056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserSound: {fileID: 8300000, guid: c85b751b354e8c34d8a472bf4ebf03c7, type: 3}
   characterObject: {fileID: 3278259467266409120}
-  scene: Credits
+  scene: Egade
 --- !u!1 &547989093
 GameObject:
   m_ObjectHideFlags: 0
