@@ -7,6 +7,9 @@ public class KeyDoor : MonoBehaviour {
     [SerializeField] private Key.KeyType keyType;
     public AudioSource doorOpenSound;
 
+    
+    public GameObject door;
+
 
     //private DoorAnims doorAnims;
 
@@ -20,7 +23,9 @@ public class KeyDoor : MonoBehaviour {
 
     public void OpenDoor() {
         doorOpenSound.Play();
-        gameObject.SetActive(false);
+        // desactivar el collider
+        door.SetActive(false);
+        // desactivar el sprite renderer
         //doorAnims.OpenDoor();
     }
 
