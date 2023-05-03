@@ -60,11 +60,27 @@ public class CharacterDamageController : MonoBehaviour
     }
 
     private void repoducirSonido() {
+        // nombres[0] = "Bebo";
+        // nombres[1] = "Daniel";
+        // nombres[2] = "David";
+        // nombres[3] = "Joaquin";
+        // nombres[4] = "Miguel";
+        // nombres[5] = "Nat";
         int n = PlayerPrefs.GetInt("SelectedSkin");
         if (n == 0)
         {
             // reproduce auch de bebo
             audioSource.PlayOneShot(beboAuch);
+        }
+        else if (n == 2)
+        {
+            // reproduce auch de david
+            audioSource.PlayOneShot(davidAuch);
+        }
+        else if (n == 5)
+        {
+            // reproduce auch de nat
+            audioSource.PlayOneShot(natAuch);
         }
     }
 
