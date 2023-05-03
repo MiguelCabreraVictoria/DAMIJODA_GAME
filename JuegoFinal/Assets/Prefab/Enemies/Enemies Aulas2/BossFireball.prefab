@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9103191082503828344}
   - component: {fileID: 5280982107568099566}
   - component: {fileID: 7820838063555916562}
-  - component: {fileID: 9106879870298669884}
   - component: {fileID: 7616378668415457065}
   - component: {fileID: 199026518111487164}
-  - component: {fileID: -6375020573352305786}
+  - component: {fileID: 551474678730240463}
+  - component: {fileID: 4707998941809894616}
   m_Layer: 0
   m_Name: BossFireball
   m_TagString: Enemigo
@@ -110,19 +110,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &9106879870298669884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3570919303256766592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11968e3fee2dc304da9cd8a42f9c74d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 5
 --- !u!58 &7616378668415457065
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +146,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &-6375020573352305786
+--- !u!114 &551474678730240463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,6 +155,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3570919303256766592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3027af4b0fa694cac7c38c4c144ea0, type: 3}
+  m_Script: {fileID: 11500000, guid: a0425bc0db5f6f54fb7b29c8778999dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4707998941809894616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570919303256766592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9868395c0018db24ab218cf07115b2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ataque: 10
