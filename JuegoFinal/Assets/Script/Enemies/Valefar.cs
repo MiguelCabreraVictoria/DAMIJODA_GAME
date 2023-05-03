@@ -70,6 +70,23 @@ public class Valefar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (vida <= 0 && !isDying) // Modificar esta condición
+        {
+            isDying = true;
+            StartCoroutine(Die());
+        }
+        else if (amIonTheAttackZone && player != null && player.isAttacking)
+        {
+            vida -= playerStats.fuerza;
+            Debug.Log("AUCH! Vida restante: " + vida);
+            player.isAttacking = false;
+            StartCoroutine(FlashDamage());
+            audioSource.PlayOneShot(hitSound); // Reproducir sonido al golpear
+            if (habla) {
+                SaySomething();
+            }
+        }
+
         float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
             
         if (player.GetComponent<SpecialAttack>().isSpecialAttackDoingDamage && distanceToPlayer < chaseRange)
@@ -141,8 +158,7 @@ public class Valefar : MonoBehaviour
         }
     }
 
-    public void StartFlashDamage()
-    {
+    public void StartFlashDamage() {
         StartCoroutine(FlashDamage());
     }
 
