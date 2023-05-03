@@ -26,7 +26,8 @@ public class Matches : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  
+         
+        StartCoroutine(Get(url));
     }
 
     // Update is called once per frame
@@ -67,6 +68,30 @@ public class Matches : MonoBehaviour
         else
         {
             Debug.Log("Success...");
+        }
+    }
+
+    IEnumerator Get(string url)
+    {
+        UnityWebRequest www = UnityWebRequest.Get(url);
+        
+        yield return www.SendWebRequest();
+        
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.Log("Error...");
+        }
+        else
+        {
+            // Parse the response data
+            string jsonData = www.downloadHandler.text;
+            MatchList matchList = JsonUtility.FromJson<MatchList>(jsonData);
+            
+            // Display the match list
+            foreach (Match match in matchList.matches)
+            {
+                Debug.Log("Level ID: " + match.level_id + " | Match Name: " + match.match_name);
+            }
         }
     }
 }
