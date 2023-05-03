@@ -22,11 +22,11 @@ public class Ghost : MonoBehaviour
     public float chaseSpeed = 2.0f;
     public float chaseRange = 5.0f;
 
-    public Gpt gpt;
-    public TextMeshProUGUI mensaje; // Referencia al objeto TextMeshProUGUI
-    public GameObject burbuja; // Referencia al objeto burbuja
-    public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
-    public bool habla = true;
+    //public Gpt gpt;
+    //public TextMeshProUGUI mensaje; // Referencia al objeto TextMeshProUGUI
+    //public GameObject burbuja; // Referencia al objeto burbuja
+    //public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
+    //public bool habla = true;
 
     public SpecialAttack specialAttack;
 
@@ -39,29 +39,29 @@ public class Ghost : MonoBehaviour
 
     private bool hasDiedFromSpecialAttack = false;
     
-    private void SaySomething()
-    {
-        //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
-        StartCoroutine(gpt.RequestCompletion(prompt, (responseText) => {
-            //Debug.Log("Valefar dice: " + responseText);
-            mensaje.text = responseText;
-            burbuja.SetActive(true);
-            StartCoroutine(HideBubble());
-        }));
-    }
+    // private void SaySomething()
+    // {
+    //     //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
+    //     StartCoroutine(gpt.RequestCompletion(prompt, (responseText) => {
+    //         //Debug.Log("Valefar dice: " + responseText);
+    //         mensaje.text = responseText;
+    //         burbuja.SetActive(true);
+    //         StartCoroutine(HideBubble());
+    //     }));
+    // }
 
-    IEnumerator HideBubble()
-    {
-        yield return new WaitForSeconds(3.0f);
-        burbuja.SetActive(false);
-    }
+    // IEnumerator HideBubble()
+    // {
+    //     yield return new WaitForSeconds(3.0f);
+    //     burbuja.SetActive(false);
+    // }
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
-        burbuja.SetActive(false);
+        // burbuja.SetActive(false);
     }
 
     // Update is called once per frame
@@ -79,9 +79,9 @@ public class Ghost : MonoBehaviour
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
             audioSource.PlayOneShot(hitSound); // Reproducir sonido al golpear
-            if (habla) {
-                SaySomething();
-            }
+            // if (habla) {
+            //     SaySomething();
+            // }
         }
 
         float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
@@ -109,9 +109,9 @@ public class Ghost : MonoBehaviour
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
             audioSource.PlayOneShot(hitSound); // Reproducir sonido al golpear
-            if (habla) {
-                SaySomething();
-            }
+            // if (habla) {
+            //     SaySomething();
+            // }
         }
         else
         {

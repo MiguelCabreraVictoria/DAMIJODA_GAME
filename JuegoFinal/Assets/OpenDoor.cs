@@ -21,8 +21,10 @@ public class OpenDoor : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
+        Debug.Log("Colision");
         if (enemies.Length == 0) {
-            gameObject.SetActive(true);
+            newEnemies.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
         

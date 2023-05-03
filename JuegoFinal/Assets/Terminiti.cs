@@ -22,11 +22,11 @@ public class Terminiti : MonoBehaviour
     public float chaseSpeed = 2.0f;
     public float chaseRange = 5.0f;
 
-    public Gpt gpt;
-    public TextMeshProUGUI mensaje; // Referencia al objeto TextMeshProUGUI
-    public GameObject burbuja; // Referencia al objeto burbuja
-    public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
-    public bool habla = true;
+    // public Gpt gpt;
+    // public TextMeshProUGUI mensaje; // Referencia al objeto TextMeshProUGUI
+    // public GameObject burbuja; // Referencia al objeto burbuja
+    // public string prompt = "Valefar es un personaje de nuestro videojuego rpg de fantasía, es un diablito rojo con fuego en las manos dime una frase de máximo 6 palabras que podría decirle a nuestro personaje cuando esta siendo atacado que suene graciosa, divertida, amenzantes o todas ellas.";
+    // public bool habla = true;
 
     public SpecialAttack specialAttack;
 
@@ -42,23 +42,45 @@ public class Terminiti : MonoBehaviour
     private bool hasBacked;
 
     private bool hasDiedFromSpecialAttack = false;
-    
-    private void SaySomething()
+
+    public Camera mainCamera;
+    public float zoomSpeed = 2.0f;
+    public float targetZoom = 5.0f;
+    public float zoomDuration = 0.5f;
+
+    IEnumerator ZoomCamera()
     {
-        //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
-        StartCoroutine(gpt.RequestCompletion(prompt, (responseText) => {
-            //Debug.Log("Valefar dice: " + responseText);
-            mensaje.text = responseText;
-            burbuja.SetActive(true);
-            StartCoroutine(HideBubble());
-        }));
+        float initialZoom = mainCamera.orthographicSize;
+        float elapsedTime = 0;
+
+        while (elapsedTime < zoomDuration)
+        {
+            mainCamera.orthographicSize = Mathf.Lerp(initialZoom, targetZoom, elapsedTime / zoomDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        mainCamera.orthographicSize = targetZoom;
     }
 
-    IEnumerator HideBubble()
-    {
-        yield return new WaitForSeconds(3.0f);
-        burbuja.SetActive(false);
-    }
+
+    
+    // private void SaySomething()
+    // {
+    //     //StartCoroutine(openAICompletionExample.RequestCompletion(prompt));
+    //     StartCoroutine(gpt.RequestCompletion(prompt, (responseText) => {
+    //         //Debug.Log("Valefar dice: " + responseText);
+    //         mensaje.text = responseText;
+    //         burbuja.SetActive(true);
+    //         StartCoroutine(HideBubble());
+    //     }));
+    // }
+
+    // IEnumerator HideBubble()
+    // {
+    //     yield return new WaitForSeconds(3.0f);
+    //     burbuja.SetActive(false);
+    // }
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +88,8 @@ public class Terminiti : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        burbuja.SetActive(false);
+        // burbuja.SetActive(false);
+        teleporter.SetActive(false);
     }
 
     // Update is called once per frame
@@ -81,7 +104,8 @@ public class Terminiti : MonoBehaviour
                 vida -= 1000;
                 hasDiedFromSpecialAttack = true;
                 StartCoroutine(FlashDamage());
-                Instantiate(teleporter, transform.position, Quaternion.identity);
+                teleporter.SetActive(true);
+                //Instantiate(teleporter, transform.position, Quaternion.identity);
             }
         }
 
@@ -89,7 +113,8 @@ public class Terminiti : MonoBehaviour
         {
             isDying = true;
             StartCoroutine(Die());
-            Instantiate(teleporter, transform.position, Quaternion.identity);
+            teleporter.SetActive(true);
+            //Instantiate(teleporter, transform.position, Quaternion.identity);
         }
         else if (amIonTheAttackZone && player != null && player.isAttacking)
         {
@@ -99,9 +124,9 @@ public class Terminiti : MonoBehaviour
             player.isAttacking = false;
             StartCoroutine(FlashDamage());
             audioSource.PlayOneShot(hitSound); // Reproducir sonido al golpear
-            if (habla) {
-                SaySomething();
-            }
+            // if (habla) {
+            //     SaySomething();
+            // }
         }
         else
         {
@@ -127,6 +152,7 @@ public class Terminiti : MonoBehaviour
 
     IEnumerator Die()
     {
+        StartCoroutine(ZoomCamera());
         yield return new WaitForSeconds(0.2f); // Esperar dormir 0.05 segundos
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(damageFlashDuration);
@@ -143,6 +169,9 @@ public class Terminiti : MonoBehaviour
         if (!hasDiedFromSpecialAttack) {
             playerStats.subirMana(manaForDeath);
         }
+
+        //hacemos un zoom a la main camera
+
     }
 
     IEnumerator FlashDamage()

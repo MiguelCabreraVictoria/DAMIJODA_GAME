@@ -7985,6 +7985,8 @@ MonoBehaviour:
   beboSound: {fileID: 8300000, guid: 5998d74f443c85f4da0e7bc18f677d27, type: 3}
   davidSound: {fileID: 8300000, guid: 739cff7e77c239d49afd1b0d6b81c935, type: 3}
   natSound: {fileID: 8300000, guid: 11551d5406bfa874fb96a1e04c090a9a, type: 3}
+  danSound: {fileID: 8300000, guid: 477da273e69506d438a1e46ff2045215, type: 3}
+  miguelSound: {fileID: 8300000, guid: 4f2c9a803ad562c4cbafc9df3e3fe852, type: 3}
 --- !u!95 &1556897454
 Animator:
   serializedVersion: 5

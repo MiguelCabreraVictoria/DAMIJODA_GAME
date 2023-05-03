@@ -1473,9 +1473,8 @@ Transform:
   m_Children:
   - {fileID: 1978272738}
   - {fileID: 1366300515}
-  - {fileID: 530774106}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157323510
 GameObject:
@@ -5727,7 +5726,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1366300515}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &639541881
 GameObject:
@@ -14190,7 +14189,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 689127286}
-  - {fileID: 561716064}
   - {fileID: 1891274902}
   - {fileID: 636206613}
   m_Father: {fileID: 129684812}
@@ -16020,7 +16018,7 @@ Transform:
   - {fileID: 896109738}
   - {fileID: 370034789}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632864107
 GameObject:
@@ -22395,7 +22393,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1366300515}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1891274903
 SpriteRenderer:
@@ -25673,9 +25671,10 @@ MonoBehaviour:
   invulnerabilityTime: 1
   playerStats: {fileID: 2857480478505565736}
   beboAuch: {fileID: 8300000, guid: b262ac980bf38934abced5d7453b04d1, type: 3}
-  davidAuch: {fileID: 0}
-  natAuch: {fileID: 0}
-  danAuch: {fileID: 0}
+  davidAuch: {fileID: 8300000, guid: 6b6e2adfb1544204090ab331b35793ef, type: 3}
+  natAuch: {fileID: 8300000, guid: 69e23b38c9712124bbc60a463b456fdf, type: 3}
+  danAuch: {fileID: 8300000, guid: 713f42599022cb940adea95aeedd8d6f, type: 3}
+  miguelAuch: {fileID: 8300000, guid: a38cec4c22881124eb18ac7a8b877f82, type: 3}
   specialAttack: {fileID: 9067946334951814681}
 --- !u!4 &781788806387700122
 Transform:

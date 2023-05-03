@@ -30073,7 +30073,8 @@ MonoBehaviour:
   beboAuch: {fileID: 8300000, guid: 61c5d1fb5e2b7924b830ce2be46a081c, type: 3}
   davidAuch: {fileID: 8300000, guid: 6b6e2adfb1544204090ab331b35793ef, type: 3}
   natAuch: {fileID: 8300000, guid: 69e23b38c9712124bbc60a463b456fdf, type: 3}
-  danAuch: {fileID: 0}
+  danAuch: {fileID: 8300000, guid: 713f42599022cb940adea95aeedd8d6f, type: 3}
+  miguelAuch: {fileID: 8300000, guid: a38cec4c22881124eb18ac7a8b877f82, type: 3}
   specialAttack: {fileID: 3278259467266409126}
 --- !u!82 &604744987
 AudioSource:

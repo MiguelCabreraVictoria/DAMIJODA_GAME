@@ -23,6 +23,8 @@ public class CharacterMenu : MonoBehaviour
     public AudioClip davidSound;
     public AudioClip natSound;
     public AudioClip danSound;
+    public AudioClip miguelSound;
+
     
     private AudioSource audioSource;
 
@@ -99,6 +101,12 @@ public class CharacterMenu : MonoBehaviour
             // reproduce sonido de dan
             audioSource.PlayOneShot(danSound);
         }
+        else if (n == 4)
+        {
+            // reproduce sonido de miguel
+            audioSource.PlayOneShot(miguelSound);
+        }
+
     }
 
     private void UpdateSkinNumberText()
