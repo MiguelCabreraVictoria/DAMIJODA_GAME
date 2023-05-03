@@ -20,6 +20,9 @@ public class CharacterMenu : MonoBehaviour
     string[] nombres = new string[6]; // Crea un arreglo de nombres de 5 elementos
 
     public AudioClip beboSound;
+    public AudioClip davidSound;
+    public AudioClip natSound;
+    
     private AudioSource audioSource;
 
     private void Start()
@@ -79,6 +82,16 @@ public class CharacterMenu : MonoBehaviour
         {
             // reproduce sonido de bebo
             audioSource.PlayOneShot(beboSound);
+        }
+        else if (n == 2)
+        {
+            // reproduce sonido de david
+            audioSource.PlayOneShot(davidSound);
+        }
+        else if (n == 5)
+        {
+            // reproduce sonido de nat
+            audioSource.PlayOneShot(natSound);
         }
     }
 
