@@ -391,7 +391,7 @@ Transform:
   m_Children:
   - {fileID: 1000980298}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &28423368
 GameObject:
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 40
+  vida: 100
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -1015,8 +1015,8 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: e116b68c5349d7f4e8f5b4cc784a3a5b, type: 3}
   fleeSpeed: 12
   fleeDuration: 0.15
-  chaseSpeed: 2
-  chaseRange: 5
+  chaseSpeed: 4
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 1161953883}
   burbuja: {fileID: 1705445435}
@@ -1236,7 +1236,7 @@ Transform:
   m_Children:
   - {fileID: 1705445437}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &86782755
 Animator:
@@ -1713,7 +1713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &177614498
 GameObject:
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 231155144}
   - component: {fileID: 231155143}
   - component: {fileID: 231155142}
-  m_Layer: 22
+  m_Layer: 0
   m_Name: accesorios
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2164,7 +2164,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869315837
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2881,7 +2881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -2893,13 +2893,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 2097773968}
   burbuja: {fileID: 1905426563}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -3013,10 +3013,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -3024,7 +3024,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &327638264
 Rigidbody2D:
@@ -3106,14 +3106,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327638257}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.83, y: 2.43, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.940001, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1905426565}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353261505
 GameObject:
@@ -4486,7 +4486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -4498,13 +4498,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 353261508}
   burbuja: {fileID: 1082903882}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -4618,10 +4618,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -4629,7 +4629,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &498133021
 Rigidbody2D:
@@ -4711,14 +4711,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498133015}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.78, y: 2.56, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8900013, y: 0.12999988, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1082903884}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &498133024
 Animator:
@@ -4975,7 +4975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -4987,13 +4987,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 1049425378}
   burbuja: {fileID: 1566099846}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -5107,10 +5107,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -5118,7 +5118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &619930810
 Rigidbody2D:
@@ -5200,14 +5200,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619930803}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.44, y: 14.84, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.549999, y: 12.41, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1566099848}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &639541881
 GameObject:
@@ -6018,18 +6018,6 @@ SortingGroup:
   m_SortingLayerID: -1869315837
   m_SortingLayer: 3
   m_SortingOrder: 0
---- !u!114 &737081024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2857480478505565714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac39ffba9bdb1d48b231bb590b23b6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &737081025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6898,9 +6886,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7827e5a75e65ba346ab70bd29ed2cf34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8275,9 +8263,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5042d8e1931f2f7489de71d40525c50e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8559,7 +8547,7 @@ GameObject:
   - component: {fileID: 1157968751}
   - component: {fileID: 1157968755}
   - component: {fileID: 1157968754}
-  m_Layer: 21
+  m_Layer: 0
   m_Name: paredes
   m_TagString: walls
   m_Icon: {fileID: 0}
@@ -8637,7 +8625,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1869315837
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -11551,7 +11539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -11563,13 +11551,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 491154217}
   burbuja: {fileID: 639541881}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -11683,10 +11671,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -11694,7 +11682,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &1171813312
 Rigidbody2D:
@@ -11776,14 +11764,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171813306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.64, y: 4.03, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.75, y: 1.6000001, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 639541883}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1171813315
 Animator:
@@ -12948,7 +12936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -12960,13 +12948,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 28423371}
   burbuja: {fileID: 830103995}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -13080,10 +13068,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -13091,7 +13079,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &1362716834
 Rigidbody2D:
@@ -13173,14 +13161,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362716827}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.89, y: 2.43, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 830103997}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1381653193
 GameObject:
@@ -13408,7 +13396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -13420,13 +13408,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 677560614}
   burbuja: {fileID: 106136980}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -13540,10 +13528,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -13551,7 +13539,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &1426974764
 Rigidbody2D:
@@ -13633,14 +13621,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426974758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.15, y: 3.71, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.260002, y: 1.28, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 106136982}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1426974767
 Animator:
@@ -14054,7 +14042,7 @@ RectTransform:
   - {fileID: 1304998602}
   - {fileID: 456211349}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14143,7 +14131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -14155,13 +14143,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 168492545}
   burbuja: {fileID: 1020861181}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -14275,10 +14263,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -14286,7 +14274,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &1495928778
 Rigidbody2D:
@@ -14368,14 +14356,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495928771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.14, y: 12.58, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.25, y: 10.15, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1020861183}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566099846
 GameObject:
@@ -14873,6 +14861,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597497120}
   m_CullTransparentMesh: 1
+--- !u!1 &1632864107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632864108}
+  m_Layer: 0
+  m_Name: enemigos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632864108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632864107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.89, y: 2.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1426974766}
+  - {fileID: 1171813314}
+  - {fileID: 1933491772}
+  - {fileID: 498133023}
+  - {fileID: 619930812}
+  - {fileID: 1861655066}
+  - {fileID: 1495928780}
+  - {fileID: 327638266}
+  - {fileID: 1362716836}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638421335
 GameObject:
   m_ObjectHideFlags: 0
@@ -14884,7 +14912,7 @@ GameObject:
   - component: {fileID: 1638421336}
   - component: {fileID: 1638421338}
   - component: {fileID: 1638421337}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: suelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19487,9 +19515,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c11ab523e1e806e42a1e9d6f8da170f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -20635,7 +20663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -20647,13 +20675,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 1203011685}
   burbuja: {fileID: 445410240}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -20767,10 +20795,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -20778,7 +20806,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &1861655064
 Rigidbody2D:
@@ -20860,14 +20888,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861655057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.83, y: 13.95, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.940001, y: 11.5199995, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 445410242}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1871814703
 GameObject:
@@ -21835,9 +21863,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f6c5f096ed4b617408fe7b8e94af26ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21898,7 +21926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a37b6aac85814ec79490d7dfa299590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 25
+  vida: 35
   amIonTheAttackZone: 0
   player: {fileID: 2857480478505565743}
   spriteRenderer: {fileID: 0}
@@ -21910,13 +21938,13 @@ MonoBehaviour:
   fleeSpeed: 12
   fleeDuration: 0.15
   chaseSpeed: 2
-  chaseRange: 5
+  chaseRange: 20
   gpt: {fileID: 0}
   mensaje: {fileID: 177614501}
   burbuja: {fileID: 1841421444}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 1
+  habla: 0
   specialAttack: {fileID: 9067946334951814681}
   playerStats: {fileID: 2857480478505565736}
   manaForHit: 3
@@ -22030,10 +22058,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 4.4, y: 6.2}
     newSize: {x: 3.2, y: 3.4}
     adaptiveTilingThreshold: 0.5
@@ -22041,7 +22069,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!50 &1933491770
 Rigidbody2D:
@@ -22123,14 +22151,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933491764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.39, y: -3.69, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.5, y: -6.12, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1841421446}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1632864108}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1933491773
 Animator:
@@ -22517,9 +22545,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -44025399
-  m_SortingLayer: 4
-  m_SortingOrder: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3063091ddce4a6a42baf59e63a7348a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23865,7 +23893,7 @@ Transform:
   m_Children:
   - {fileID: 784326219}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135743852
 GameObject:
@@ -24318,7 +24346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2857480478505565714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.25, y: -4.1, z: 0}
+  m_LocalPosition: {x: -22.72, y: -3.93, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24404,8 +24432,8 @@ GameObject:
   - component: {fileID: 9067946334951814681}
   - component: {fileID: 737081011}
   - component: {fileID: 737081010}
-  - component: {fileID: 737081024}
   - component: {fileID: 737081025}
+  - component: {fileID: 9067946334951814682}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -25678,7 +25706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2857480480166622157}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25727,3 +25755,99 @@ MonoBehaviour:
   isSpecialAttackActive: 0
   isSpecialAttackDoingDamage: 0
   specialAttackSound: {fileID: 8300000, guid: 0c040efa8b578094297ad17992b30d62, type: 3}
+--- !u!82 &9067946334951814682
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857480478505565714}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

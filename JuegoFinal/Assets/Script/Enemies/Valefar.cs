@@ -141,6 +141,11 @@ public class Valefar : MonoBehaviour
         }
     }
 
+    public void StartFlashDamage()
+    {
+        StartCoroutine(FlashDamage());
+    }
+
     IEnumerator FlashDamage()
     {
         StartCoroutine(FleeFromPlayer());

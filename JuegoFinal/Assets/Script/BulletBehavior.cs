@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
     public Rigidbody2D rb;
-    private Valefar valefar;
 
     void Start()
     {
@@ -22,11 +21,13 @@ public class BulletBehavior : MonoBehaviour
         switch(other.gameObject.tag)
         {
             case "walls":
+                Destroy(gameObject);
                 break;
             case "Enemigo":
-                other.gameObject.GetComponent<Gileus>().Damage(1f);
-                // valefar.vida -=1;
-                // Destroy(gameObject);
+                other.GetComponent<Valefar>().vida -= 10;
+                other.GetComponent<Valefar>().StartFlashDamage();
+                //other.GetComponent<Valefar>().FleeFromPlayer();
+                Destroy(gameObject);
                 break;
         }
     }
