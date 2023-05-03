@@ -13,6 +13,10 @@ public class TopDownCharacterController : MonoBehaviour
 
     private Vector2 currentDirection = Vector2.zero;
 
+    public GameObject item;
+
+    public PlayerStats playerStats;
+
     private void Start()
     {
         movementController = GetComponent<CharacterMovementController>();
@@ -23,18 +27,28 @@ public class TopDownCharacterController : MonoBehaviour
 
     private void Update()
     {
-        CheckDirectionKeysReleased();
-        Vector2 direction = GetMovementDirection();
-        animationController.UpdateAnimatorParameters(direction);
-        movementController.MoveCharacter(direction);
-
-        if (!animationController.GetIsAttacking()) // Si no está atacando
+        if(!PauseMenu.isPaused)
         {
-            if (Input.GetKeyDown(KeyCode.X)) // Detectar si la tecla X ha sido presionada o liberada.
+            CheckDirectionKeysReleased();
+            Vector2 direction = GetMovementDirection();
+            animationController.UpdateAnimatorParameters(direction);
+            movementController.MoveCharacter(direction);
+
+            if (playerStats.vida <= 0)
             {
-                StartCoroutine(attackController.HandleAttack());
+                animationController.die();
+                return;
+            }
+
+            if (!animationController.GetIsAttacking()) // Si no está atacando
+            {
+                if (Input.GetKeyDown(KeyCode.X)) // Detectar si la tecla X ha sido presionada o liberada.
+                {
+                    StartCoroutine(attackController.HandleAttack());
+                }
             }
         }
+
     }
 
     private void LateUpdate()
@@ -157,6 +171,7 @@ public class TopDownCharacterController : MonoBehaviour
     IEnumerator teleporting() {
         yield return new WaitForSeconds(1.2f);
         skinController.HideCharacter();
+        item.SetActive(false);
     }
 }
 

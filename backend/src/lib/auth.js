@@ -6,6 +6,7 @@
     
  */
 
+
 const auth = {};
 
 auth.isLoggedIn = (req, res, next) =>{
@@ -14,5 +15,6 @@ auth.isLoggedIn = (req, res, next) =>{
     }
     return res.redirect('/login');
 }
+
 
 export {auth}

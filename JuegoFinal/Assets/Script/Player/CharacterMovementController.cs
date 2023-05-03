@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class CharacterMovementController : MonoBehaviour
 {
-    public float speed;
+    public PlayerStats playerStats;
 
     public bool isTeleporting = false;
 
     private Rigidbody2D rb2D;
+
+    public SpecialAttack specialAttack;
 
     private void Start()
     {
@@ -15,10 +17,10 @@ public class CharacterMovementController : MonoBehaviour
 
     public void MoveCharacter(Vector2 direction)
     {
-        if (isTeleporting) {
+        if (isTeleporting || playerStats.vida <= 0 || specialAttack.isSpecialAttackActive) {
             rb2D.velocity = Vector2.zero;
             return;
         }
-        rb2D.velocity = speed * direction;
+        rb2D.velocity = playerStats.velocidad * direction;
     }
 }

@@ -1,3 +1,4 @@
+
 -- Team Name: DAMIJODA
 -- Team Members: Miguel Angel Cabrera Victoria      - A01782982
 --               Luis Carlos Rico Alamada           - A01252831
@@ -77,6 +78,3 @@ INSERT INTO damijoda.armors (armor_name, level, defense, character_id) VALUES
 	('ArmaduraDePlata', 3, 15, 3),
 	('ArmaduraDeOro', 3, 5, 4),
 	('ArmaduraMagica', 5, 15, 5);
-
-
-SET FOREIGN_KEY_CHECKS = 1;

@@ -3,6 +3,9 @@ using UnityEngine;
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
+    public Animator animator2;
+    public GameObject character;
+        private bool hasDied = false;
 
     private void Start()
     {
@@ -42,4 +45,20 @@ public class CharacterAnimationController : MonoBehaviour
     public void teleportAnimation() {
         animator.Play("Teleport");
     }
+
+    public void die() {
+        if (hasDied) return;
+        animator.Play("Die");
+        hasDied = true;
+    }   
+
+    public void DoZAnimation()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+        Debug.Log("Z key pressed!");
+        animator.Play("AttackingRight");
+        }
+    }
+
 }
