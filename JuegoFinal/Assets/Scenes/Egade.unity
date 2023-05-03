@@ -87420,6 +87420,8 @@ MonoBehaviour:
   invulnerabilityTime: 1
   playerStats: {fileID: 2718088818475179823}
   beboAuch: {fileID: 8300000, guid: 61c5d1fb5e2b7924b830ce2be46a081c, type: 3}
+  davidAuch: {fileID: 8300000, guid: 6b6e2adfb1544204090ab331b35793ef, type: 3}
+  natAuch: {fileID: 8300000, guid: 69e23b38c9712124bbc60a463b456fdf, type: 3}
   specialAttack: {fileID: 2718088818475179820}
 --- !u!82 &632229068336459921
 AudioSource:
