@@ -87553,7 +87553,8 @@ MonoBehaviour:
   beboAuch: {fileID: 8300000, guid: 61c5d1fb5e2b7924b830ce2be46a081c, type: 3}
   davidAuch: {fileID: 8300000, guid: 6b6e2adfb1544204090ab331b35793ef, type: 3}
   natAuch: {fileID: 8300000, guid: 69e23b38c9712124bbc60a463b456fdf, type: 3}
-  danAuch: {fileID: 0}
+  danAuch: {fileID: 8300000, guid: 713f42599022cb940adea95aeedd8d6f, type: 3}
+  miguelAuch: {fileID: 8300000, guid: a38cec4c22881124eb18ac7a8b877f82, type: 3}
   specialAttack: {fileID: 2718088818475179820}
 --- !u!82 &632229068336459921
 AudioSource:
@@ -87809,7 +87810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886885132842759416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.42}
+  m_LocalPosition: {x: 0, y: -0.037, z: -0.42}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

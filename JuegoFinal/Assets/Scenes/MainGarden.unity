@@ -33358,7 +33358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b7a2dcaac27bd4ebe87a454cf99113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  API_KEY: 
+  API_KEY: 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
 --- !u!4 &1151952431
 Transform:
   m_ObjectHideFlags: 0
@@ -36787,7 +36787,7 @@ MonoBehaviour:
   burbuja: {fileID: 294237572}
   prompt: "algo que le diria un personaje enemigo de nuestro rpg de fantasia quien
     es un diablo peque\xF1o a nuestro protagonista principal maximo 6 palabras"
-  habla: 0
+  habla: 1
   specialAttack: {fileID: 3278259467266409126}
   playerStats: {fileID: 3278259467266409125}
   manaForHit: 3
