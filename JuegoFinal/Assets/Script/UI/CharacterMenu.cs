@@ -22,6 +22,7 @@ public class CharacterMenu : MonoBehaviour
     public AudioClip beboSound;
     public AudioClip davidSound;
     public AudioClip natSound;
+    public AudioClip danSound;
     
     private AudioSource audioSource;
 
@@ -92,6 +93,11 @@ public class CharacterMenu : MonoBehaviour
         {
             // reproduce sonido de nat
             audioSource.PlayOneShot(natSound);
+        }
+        else if (n == 1)
+        {
+            // reproduce sonido de dan
+            audioSource.PlayOneShot(danSound);
         }
     }
 

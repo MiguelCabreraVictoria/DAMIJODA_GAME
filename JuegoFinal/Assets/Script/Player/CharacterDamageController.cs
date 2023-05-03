@@ -17,6 +17,7 @@ public class CharacterDamageController : MonoBehaviour
     public AudioClip beboAuch;
     public AudioClip davidAuch;
     public AudioClip natAuch;
+    public AudioClip danAuch;
     
     private AudioSource audioSource;
 
@@ -81,6 +82,11 @@ public class CharacterDamageController : MonoBehaviour
         {
             // reproduce auch de nat
             audioSource.PlayOneShot(natAuch);
+        }
+        else if (n == 1)
+        {
+            // reproduce auch de dan
+            audioSource.PlayOneShot(danAuch);
         }
     }
 
