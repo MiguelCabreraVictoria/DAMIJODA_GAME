@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gileus : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float maxHealth = 5f;
+    [SerializeField] private float maxHealth;
 
     private float currentHealth;
 
