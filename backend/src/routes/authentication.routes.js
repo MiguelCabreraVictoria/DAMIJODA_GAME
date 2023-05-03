@@ -28,6 +28,9 @@ import {GetIndex,
         GetArmors,
         GetWeapons,
         PostMatches,
+        GraficaUsers,
+        GraficaCharacters,
+        GraficaLevels,
         GetLogout} from '../controllers/authentication.controller.js';
 
 router.get('/',GetIndex);
@@ -66,6 +69,16 @@ router.get('/profile/api/weapons', auth.isLoggedIn,GetWeapons);
 router.post('/profile/api/matches',auth.isLoggedIn,PostMatches);
 
 //---------------PUT DATA-----------------//
+
+router.put('/profile/api/level');
+
+
+
+//---------------Graficos-----------------//
+
+router.get('/api/users',GraficaUsers);
+router.get('/api/characters',GraficaCharacters);
+router.get('/api/levels',GraficaLevels);
 
 
 //404 page

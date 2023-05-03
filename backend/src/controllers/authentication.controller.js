@@ -168,7 +168,25 @@
         await pool.query('INSERT INTO damijoda.matches set ?',[newMatch]);
         console.log(`| -->The user ${user.username} has created a new match`);
     }
-    export const PostLevels = async (req,res)=>{}
+    
+
+    //Graficas 
+
+    export const GraficaUsers = async (req,res)=>{
+        const [user] = await pool.query('SELECT users.username, COUNT(*) AS num_matches FROM damijoda.users JOIN damijoda.matches ON users.id = matches.user_id GROUP BY users.username ORDER BY num_matches DESC LIMIT 3;');
+        res.status(202).json(user);
+        
+    }
+
+    export const GraficaLevels = async (req,res)=>{
+        const [levels] = await pool.query('SELECT level_id, COUNT(*) AS veces FROM matches GROUP BY level_id ORDER BY veces DESC LIMIT 2;');
+        res.status(202).json(levels);
+    }
+
+    export const GraficaCharacters = async (req,res)=>{
+        const [characters] = await pool.query('SELECT character_name, COUNT(*) AS num_matches FROM characters GROUP BY character_id ORDER BY num_matches DESC LIMIT 3;');
+        res.status(202).json(characters);
+    }
 
 
 

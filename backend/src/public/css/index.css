@@ -334,7 +334,7 @@ ul.navbar li a:hover:not(.active){
 
 .statistics{
     width: 100%;
-    height: 150vh;
+    height: 200vh;
     background: linear-gradient(rgba(0,0,0,0.5),rgba(245, 95, 9, 0.87));
     background-size: cover;
     background-position: center;
@@ -346,7 +346,7 @@ ul.navbar li a:hover:not(.active){
     margin-top: 10px;
     background-color: #fff;
     margin-bottom: 100px;
-    height: 100vh;
+    height: 190vh;
     width: 680px;
     margin: auto;
     box-shadow: 24px 39px 57px 10px rgba(0,0,0,0.58);
@@ -412,4 +412,12 @@ ul li a:hover{
     font-size: 10px;
     padding-bottom: 10px;
     
+}
+
+.pie-chart{
+    width: 30px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
