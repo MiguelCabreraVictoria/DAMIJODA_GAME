@@ -15,6 +15,9 @@ public class CharacterDamageController : MonoBehaviour
     public PlayerStats playerStats;
 
     public AudioClip beboAuch;
+    public AudioClip davidAuch;
+    public AudioClip natAuch;
+    
     private AudioSource audioSource;
 
     public SpecialAttack specialAttack;

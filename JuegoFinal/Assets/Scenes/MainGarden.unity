@@ -30071,6 +30071,8 @@ MonoBehaviour:
   invulnerabilityTime: 1
   playerStats: {fileID: 3278259467266409125}
   beboAuch: {fileID: 8300000, guid: 61c5d1fb5e2b7924b830ce2be46a081c, type: 3}
+  davidAuch: {fileID: 8300000, guid: 6b6e2adfb1544204090ab331b35793ef, type: 3}
+  natAuch: {fileID: 8300000, guid: 69e23b38c9712124bbc60a463b456fdf, type: 3}
   specialAttack: {fileID: 3278259467266409126}
 --- !u!82 &604744987
 AudioSource:
@@ -61650,8 +61652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e417f9181234444b3ecf674a5f1f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator2: {fileID: 0}
-  character: {fileID: 0}
+  animator2: {fileID: 2555205052926767294}
+  character: {fileID: 3278259467266409119}
 --- !u!114 &3278259467266409122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62828,7 +62830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43e43a9fff8cda4dad4b07f193cbdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 2555205052926767294}
   playerStats: {fileID: 3278259467266409125}
   manaText: {fileID: 914606287}
   manaIcon: {fileID: 1474191784}
