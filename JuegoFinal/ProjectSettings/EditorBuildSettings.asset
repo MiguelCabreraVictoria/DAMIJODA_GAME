@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Egade.unity
     guid: 3f59af01c67118a44b53e2613c783c5b
+  - enabled: 1
+    path: Assets/Scenes/Aulas1(mejorado).unity
+    guid: f04c4c5b61fe6254b8335eaa635989f9
   m_configObjects: {}

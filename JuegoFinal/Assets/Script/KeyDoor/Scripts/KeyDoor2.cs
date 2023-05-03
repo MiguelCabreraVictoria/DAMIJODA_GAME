@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyDoor2 : MonoBehaviour {
 
     [SerializeField] private Key.KeyType keyType;
+    public AudioSource doorOpenSound;
 
 
     //private DoorAnims doorAnims;
@@ -18,9 +19,8 @@ public class KeyDoor2 : MonoBehaviour {
     }
 
     public void OpenDoor() {
-        // desactivar el collider
+        doorOpenSound.Play();
         gameObject.SetActive(false);
-        // desactivar el sprite renderer
         //doorAnims.OpenDoor();
     }
 

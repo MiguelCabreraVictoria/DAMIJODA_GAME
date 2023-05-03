@@ -29056,7 +29056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserSound: {fileID: 8300000, guid: c85b751b354e8c34d8a472bf4ebf03c7, type: 3}
   characterObject: {fileID: 3278259467266409120}
-  scene: Egade
+  scene: Aulas1(mejorado)
 --- !u!1 &547989093
 GameObject:
   m_ObjectHideFlags: 0
@@ -58144,6 +58144,7 @@ MonoBehaviour:
     - {fileID: 1889387871, guid: 6d8742cdf99b2d34ba9aedd53a818278, type: 3}
   characterObject: {fileID: 3278259467266409120}
   characterAnimation: {fileID: 3278259467266409124}
+  characterMovement: {fileID: 0}
   playerStats: {fileID: 3278259467266409125}
   specialAttack: {fileID: 3278259467266409126}
   skinIndex: 0
