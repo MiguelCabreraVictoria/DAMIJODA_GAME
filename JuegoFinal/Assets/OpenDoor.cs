@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     GameObject[] enemies;
+    public GameObject newEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class OpenDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (enemies.Length == 0) {
-            gameObject.SetActive(false);
+            gameObject.SetActive(true);
         }
     }
         
