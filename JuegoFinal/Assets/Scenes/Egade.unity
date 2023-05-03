@@ -9119,7 +9119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0fabedb5060a549915e28172c4414d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 2000
+  vida: 999
   amIonTheAttackZone: 0
   player: {fileID: 2718088818475179816}
   spriteRenderer: {fileID: 0}

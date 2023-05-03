@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
 
     // Variable pública para almacenar la referencia al objeto personaje
     public CharacterSkinController characterAnimation;
+
+    public CharacterMovementController characterMovement;
     
     // Referencia al componente SpriteRenderer
     private SpriteRenderer spriteRenderer;
@@ -79,6 +81,10 @@ public class Item : MonoBehaviour
             int itemIndex = characterAnimation.itemIndex;
         
             if (specialAttack.isSpecialAttackActive) {
+                itemIndex = 79;
+            }
+
+            if (characterMovement.isTeleporting) {
                 itemIndex = 79;
             }
 
