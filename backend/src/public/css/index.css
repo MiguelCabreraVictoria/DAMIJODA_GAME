@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-snap-type: y mandatory;
+}
+
 body{
     background-color: #080808;
     font-family: 'Poppins, sans-serif';
@@ -24,14 +28,21 @@ body{
     height: 25px;
 } */
 
-header{
+header {
+    position: fixed;
     width: 100%;
     height: 12vh;
     background-color: rgba(0,0,0,0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+    transition: top 0.3s ease-in-out;
+    top: 0;
+  }
+  
+  header.scrolled {
+    top: -12vh;
+  }
 
 .logo{
     width: 300px;
@@ -56,6 +67,9 @@ header{
     width: 60px
 }
 
+.navbar{
+    display: flex;
+}
 
 ul.navbar{
     display: flex;
@@ -146,6 +160,12 @@ ul.navbar li a:hover:not(.active){
     text-align: left;
 }
 
+
+.damijoda .logo-section .video-section .stat-section .footer-body{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
 .damijoda{
     width: 400px;
     height: 400px;
@@ -167,14 +187,17 @@ ul.navbar li a:hover:not(.active){
     align-items: center;
     justify-content: center;
     margin: 30px;
+    justify-content: center;
 }
 
 .logo-section h1{
     width: 300px;
     font-size: 2rem;
     color: #fec53a;
-    margin-left: 10px;
+    margin-left: 90px;
 }
+
+
 
 .logo-section .fas {
     font-size: 6rem;
@@ -185,8 +208,8 @@ ul.navbar li a:hover:not(.active){
 
 .section-1{
     width: 100;
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(245, 95, 9, 0.87));
+    height: 190vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(245, 95, 9, 0.871));
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -240,10 +263,31 @@ ul.navbar li a:hover:not(.active){
     justify-content: center;
 }
 
+.presentacion{
+    margin-left: -70px;
+    padding-top: 50px;
+
+}
+
 /* section one ends here */
 
+.video-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    justify-content: center;
+}
+
+.video-section h1{
+    width: 300px;
+    font-size: 2rem;
+    color: #fec53a;
+    margin-left: 60px;
+}
+
 .section-video{
-    height: 450px;
+    height: 590px;
     background-color: azure;
 }
 
@@ -253,14 +297,16 @@ ul.navbar li a:hover:not(.active){
     font-weight: 450;
     text-align: center;
     padding-top: 30px;
+    align-items: center;
+    margin-left: 30px;
 }
 
 
 .video iframe{
-    padding-top: 44px;
-    height: 400px;
-    width: 85%;
-    margin-left: 90px;
+    padding-top: 70px;
+    height: 500px;
+    width: 65%;
+    margin-left: 190px;
 }
 
 /* section video ends here */
@@ -271,9 +317,24 @@ ul.navbar li a:hover:not(.active){
 
 /*section game ends here*/
 
+.stat-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    justify-content: center;
+}
+
+.stat-section h1{
+    width: 300px;
+    font-size: 2rem;
+    color: #fec53a;
+    margin-left: 140px;
+}
+
 .statistics{
     width: 100%;
-    height: 150vh;
+    height: 200vh;
     background: linear-gradient(rgba(0,0,0,0.5),rgba(245, 95, 9, 0.87));
     background-size: cover;
     background-position: center;
@@ -285,7 +346,7 @@ ul.navbar li a:hover:not(.active){
     margin-top: 10px;
     background-color: #fff;
     margin-bottom: 100px;
-    height: 100vh;
+    height: 190vh;
     width: 680px;
     margin: auto;
     box-shadow: 24px 39px 57px 10px rgba(0,0,0,0.58);
@@ -351,4 +412,12 @@ ul li a:hover{
     font-size: 10px;
     padding-bottom: 10px;
     
+}
+
+.pie-chart{
+    width: 30px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
