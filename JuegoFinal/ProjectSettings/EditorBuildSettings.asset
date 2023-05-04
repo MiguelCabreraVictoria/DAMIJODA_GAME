@@ -21,6 +21,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Menu/loadGame.unity
-    guid: 773622ec4484d209785fee77777c8808
+    path: Assets/Scenes/Aulas2.unity
+    guid: 91995b32e647e440ea5d5f5ff707805c
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 7b1aeab61bccbf4408c6ab7dea8be843
+  - enabled: 1
+    path: Assets/Scenes/Egade.unity
+    guid: 3f59af01c67118a44b53e2613c783c5b
+  - enabled: 1
+    path: Assets/Scenes/Aulas1(mejorado).unity
+    guid: f04c4c5b61fe6254b8335eaa635989f9
+  - enabled: 1
+    path: Assets/Scenes/MainGarden.unity
+    guid: 1c368395a1a7849529935429715fad3f
+  - enabled: 1
+    path: Assets/Scenes/boss_aulas1.unity
+    guid: f05333ece752be442999a169db619c67
   m_configObjects: {}

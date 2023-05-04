@@ -1,8 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class CharacterAnimationController : MonoBehaviour
 {
     private Animator animator;
+    public Animator animator2;
+    public GameObject character;
+    public GameManagerScript gameManager;
+        private bool hasDied = false;
 
     private void Start()
     {
@@ -42,4 +47,27 @@ public class CharacterAnimationController : MonoBehaviour
     public void teleportAnimation() {
         animator.Play("Teleport");
     }
+
+    public void die() {
+        if (hasDied) return;
+        animator.Play("Die");
+        hasDied = true;
+        StartCoroutine(WaitForSecond(2));
+    }   
+
+    public void DoZAnimation()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+        Debug.Log("Z key pressed!");
+        animator.Play("AttackingRight");
+        }
+    }
+
+    IEnumerator WaitForSecond(int second)
+    {
+        yield return new WaitForSeconds(second);
+        gameManager.gameOver();
+    }
+
 }

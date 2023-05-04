@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AttackZone
+  - Enemigo
+  - walls
+  - IgnoreBullets
   layers:
   - Default
   - TransparentFX
@@ -28,8 +32,8 @@ TagManager:
   - Layer 1
   - Layer 2
   - Layer 3
-  - 
-  - 
+  - PlayerProjectile
+  - Enemy
   - 
   - 
   - 
@@ -38,8 +42,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 1545169967
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wall
+    uniqueID: 1736149809
+    locked: 0
+  - name: Collision
+    uniqueID: 1646255181
     locked: 0
   - name: Layer 1
     uniqueID: 2425651459
@@ -49,4 +62,10 @@ TagManager:
     locked: 0
   - name: Layer 3
     uniqueID: 4189426099
+    locked: 0
+  - name: SeeThroughWall
+    uniqueID: 2459547175
+    locked: 0
+  - name: Player
+    uniqueID: 32782037
     locked: 0

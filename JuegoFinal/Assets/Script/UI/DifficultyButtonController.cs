@@ -21,7 +21,7 @@ public class DifficultyButtonController : MonoBehaviour
         // string selectedDifficulty = PlayerPrefs.GetString("Difficulty", "Medium");
 
         // Establece la dificultad y actualiza la apariencia de los botones
-        SetDifficulty("");
+        SetDifficulty("Medium");
     }
 
     public void SetDifficulty(string difficulty)
