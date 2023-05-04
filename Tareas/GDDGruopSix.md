@@ -4,7 +4,7 @@
 
 ---
 
-##### ** Group 6 - Luis Rico, Joaquin Saldarriaga, David Vieyra, Natalia Maya, and Miguel Cabrera **
+##### ** Group 6 - Luis Rico, Joaquin Saldarriaga, David Vieyra, Natalia Maya, Daniel Rodgríguez and Miguel Cabrera **
 
 ##
 ## _Index_
