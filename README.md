@@ -1,4 +1,5 @@
-[![Logo-del-ITESM-svg.png](https://i.postimg.cc/SNMpSzcj/Logo-del-ITESM-svg.png)](https://postimg.cc/4ms0wyLT)
+--------Da click para ir a nuestro <a href="https://trello.com/b/bXUPj0Aa/sprint-1-grupo-6"> Trello </a>
+------- Video se encuentra dentro de nuestra pagina web 
 
 
 
