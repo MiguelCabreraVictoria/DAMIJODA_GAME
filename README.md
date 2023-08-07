@@ -28,7 +28,7 @@ José Daniel Rodríguez Cruz - A01781933
 
 Miguel Angel Cabrera Victoria - A01782982
 
-Joaquín Saldarriaga - A01783093
+
 
 
 ## Teachers
